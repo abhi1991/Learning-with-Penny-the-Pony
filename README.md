@@ -4,12 +4,12 @@ Penny-the-Pony
 Educational Game-based Learning for Toddlers
 <br>
 Thesis Project By:
-Clemarie Secuya
+Clemarie Secuya and
 Marcel Tunichii Villaruz
-<br><br>
+<br>
 Open Source Project By:
-Janine Adrielle Munez
-Lovely Winnie Panlilio
+Janine Adrielle Munez;
+Lovely Winnie Panlilio;
 Marcel Tunichii Villaruz
 
 TITLE:
