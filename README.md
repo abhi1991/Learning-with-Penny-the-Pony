@@ -17,6 +17,7 @@ TITLE:
 IMPLEMENTING THOMAS MALONE’S FRAMEWORK FOR A THEORY OF INTRINSICALLY MOTIVATING INSTRUCTION IN A GAME-BASED LEARNING TOOL FOR TODDLERS
 
 <b>Abstract</b>
+<br>
 Nowadays, many technological applications are flooding the market
 most especially applications providing game-based learning or the so called
 educational learning most especially for toddlers. GBL is a type of game
@@ -115,10 +116,10 @@ exercise of the memory retention. The exercises provided will also be limited
 on what was provided by the Little Champ Schoolhouse for the working year
 of this project unless it will be updated for some new installments for new
 exercises to be provided.
-
-
-Project Methodology
-
+<br>
+<br>
+<b>Project Methodology</b>
+<br>
 The project methodology shows the steps taken to accomplish this
 research study. This project was implemented based on Kishotenketsu Model
 in creating the main storyline of the application. The whole project was
@@ -165,10 +166,10 @@ Analysis from the calculated results from the teacher’s
 surveyed will tell if this study will work for toddlers or there
 should be improvements should be done in order to meet the
 expected results for this study.
-
-
-Expected Results and Discussion
-
+<br>
+<br>
+<b>Expected Results and Discussion</b>
+<br>
 Game-based learning tool is one of the most common concept in smart
 devices. A lot of educational games are widely spread and created in the
 market and has a lot of same concepts in terms of their game play. The main
@@ -186,10 +187,10 @@ The expected result of this application is to have an effective and
 useful memory game application for toddlers in helping them learn the basic
 knowledge to be known and be enhanced in the future. With this application,
 toddlers will be more enticed to play and learn from this application.
-
-
-Technology Background
-
+<br>
+<br>
+<b>Technology Background</b>
+<br>
 Game-Based Learning (GBL) or the so-called Educational Games are
 the most common concept in creating application in markets for smart
 devices. GBL can provide challenging experiences that promote the intrinsic
@@ -239,9 +240,10 @@ appeal of the instructional computer games. Environments that vary in
 difficulty level increase both challenge and potential for learning and
 environments that evoke cognitive curiosity and then satisfy it can be both
 captivating and educational.
-
-
-Definition of Terms
+<br>
+<br>
+<b>Definition of Terms</b>
+<br>
 <ul>
 <li>Corona SDK – a software development kit created by Walter Luh,
 allows software programmers to build mobile applications for iPhone,
