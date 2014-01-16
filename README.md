@@ -14,7 +14,7 @@ Marcel Tunichii Villaruz
 
 TITLE:
 
-IMPLEMENTING THOMAS MALONE’S FRAMEWORK FOR A THEORY OF INTRINSICALLY MOTIVATING INSTRUCTION IN A GAME-BASED LEARNING TOOL FOR TODDLERS
+<center><b>IMPLEMENTING THOMAS MALONE’S FRAMEWORK FOR A THEORY OF INTRINSICALLY MOTIVATING INSTRUCTION IN A GAME-BASED LEARNING TOOL FOR TODDLERS</b></center>
 
 <b>Abstract</b>
 <br>
@@ -132,7 +132,7 @@ development of casual games specifically for toddlers with simple,
 easy, short and designed for repeated playing. Casual games can be
 distinguished by their simple rules. The main concept of this study is to
 develop a knowledge recalling game for toddlers in Android.
-7.1.1 Development of the Modules
+<br>7.1.1 Development of the Modules
 On this phase, the proponents gathered modules from
 Little Champ Schoolhouse in creating and developing a memory
 game with storylines in helping the children understand the right
@@ -141,7 +141,7 @@ the use of the research of Thomas Malone’s Intrinsically
 Motivating Instruction. In implementing it, a storyline was
 created basing on the Kishotenketsu Model regarding on how the
 application flows basing of the storyline created.
-7.1.2 User Interface Development
+<br>7.1.2 User Interface Development
 A research study of Gilutz and Black from the Columbia
 University in New York was used as basis in the creation of the
 user interface of the application. In their research some
@@ -149,19 +149,19 @@ guideline were shown that should be acknowledge before the
 implementation so the proponents of this study used those
 guidelines upon the creation of the user interface using the
 following: Corona SDK, Lua, SublimeText, and Adobe Photoshop.
-7.2 Testing/Survey of the Learning Tool
-7.2.1 Testing Phase
+<br><br>7.2 Testing/Survey of the Learning Tool
+<br>7.2.1 Testing Phase
 The finished product will be tested to the toddler’s for
 survey to
 be conducted to the teachers of the Little Champ Schoolhouse.
-7.2.2 Conduct Survey for Teachers
+<br>7.2.2 Conduct Survey for Teachers
 Survey forms will be provided to the teachers for some
 questions regarding the principles of HCI (Accessibility,
 Affordance, Usability) of the application made for toddlers if it
 had met the applications goal. The teachers are surveyed on
 how they see the application for the toddlers.
-7.3 Evaluation of the Learning Tool
-7.3.1 Analysis from the Survey gathered
+<br><br>7.3 Evaluation of the Learning Tool
+<br>7.3.1 Analysis from the Survey gathered
 Analysis from the calculated results from the teacher’s
 surveyed will tell if this study will work for toddlers or there
 should be improvements should be done in order to meet the
