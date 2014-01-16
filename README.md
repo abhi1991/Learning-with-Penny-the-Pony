@@ -1,4 +1,4 @@
-Penny-the-Pony
+Learning-with-Penny-the-Pony
 ==============
 
 Educational Game-based Learning for Toddlers
