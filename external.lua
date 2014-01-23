@@ -12,9 +12,13 @@ end
 function external.soundEffects(type)
 	audio.setVolume( 1, { channel=availableChannel } )
 	if type == "pop" then
-		audio.play(popSound)
+		local availableChannel = audio.findFreeChannel()
+        audio.setVolume( 1, { channel=availableChannel } )
+        audio.play(popSound, {channel=availableChannel})
 	elseif type == "finish" then
-		audio.play(endSound)
+		local availableChannel2 = audio.findFreeChannel()
+        audio.setVolume( 1, { channel=availableChannel2 } )
+        audio.play(endSound, {channel=availableChannel2})
 	end
 end
 

@@ -24,11 +24,11 @@ function scene:createScene( event )
 	local balloon, balloon2, balloon3, balloon4, balloon5
 
 	--> Add Background Image
-	local background = display.newImage("images/yellow-clouds-hd-wallpaper.jpg")
+	local background = display.newImage("images/bg1.jpg")
 	background.x = display.contentWidth * 0.5
 	background.y = display.contentHeight * 0.5
 
-	local rainbow = display.newImage ("images/rainbow.png", 900, 300)
+	--local rainbow = display.newImage ("images/rainbow.png", 900, 300)
 	-- local pony = display.newImage ("mainCharacter2.png", 250, 600)
 
 	--background.x = center
@@ -37,12 +37,23 @@ function scene:createScene( event )
 	local instruction = display.newText("", 0, 0, native.systemFont, 100)
 	instruction.x = display.contentWidth * 0.5
 	instruction.y = display.contentHeight * 0.15
-	instruction:setFillColor(0,0,0)
+	instruction:setTextColor(0,0,0)
 
 	local number = display.newText(numberBalloon, 0, 0, native.systemFont, 100)
 	number.x = display.contentWidth * 0.5
 	number.y = display.contentHeight * 0.3
-	number:setFillColor(0,0,0)
+	number:setTextColor(0,0,0)
+
+	-- local backButton = widget.newButton{
+	-- 	defaultFile = "images/backButton.png",
+	-- 	overFile = "images/backButtonOver.png",
+	-- 	onRelease = function()
+	-- 		storyboard.gotoScene("menu","fade",400)
+	-- 	end,
+	-- }
+	-- backButton.x = 10
+	-- backButton.y = display.contentHeight * 0.1
+	-- backButton:scale(2,2)
 
 	local function createBalloons()
 		balloon = display.newImage("images/pop1.png")
@@ -88,8 +99,14 @@ function scene:createScene( event )
 	]]--
 
 	--> Add Floor
-	local floor = display.newImage("images/border.png", 100,50)
+	-- local floor = display.newImage("images/border.png", 100,50)
+	-- floor.y = display.contentHeight - floor.stageHeight
+	-- physics.addBody(floor, "static", {bounce = 0.0, friction = 1.0})
+
+	local floor = display.newRect(0,0,1500,25)
+	floor.x = display.contentWidth * 0.5
 	floor.y = display.contentHeight - floor.stageHeight
+	floor:setFillColor(0,0,0,1)
 	physics.addBody(floor, "static", {bounce = 0.0, friction = 1.0})
 
 	--> Touch Event Listener
@@ -256,7 +273,7 @@ function scene:createScene( event )
 	balloon5:addEventListener("tap", tapBalloon5)
 
 	screenGroup:insert(background)
-	screenGroup:insert(rainbow)
+	--screenGroup:insert(rainbow)
 	screenGroup:insert(balloon)
 	screenGroup:insert(balloon2)
 	screenGroup:insert(balloon3)
