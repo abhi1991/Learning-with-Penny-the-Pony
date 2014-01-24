@@ -15,48 +15,48 @@ function scene:createScene( event )
     storyboard.removeScene("menu")
 
 
-    local splashScreen = display.newImage("images/bg2.jpg", display.contentWidth, display.contentHeight)
+    local splashScreen = display.newImageRect("images/bg2.jpg", display.contentWidth, display.contentHeight)
     splashScreen.x = display.contentWidth * 0.5
     splashScreen.y = display.contentHeight * 0.5
     
     local function mainSplash()        
-        local title = display.newImage("images/bg1.jpg", display.contentWidth, display.contentHeight)
+        local title = display.newImageRect("images/bg1.jpg", display.contentWidth, display.contentHeight)
         title.x = display.contentWidth * 0.5
         title.y = display.contentHeight * 0.5
         --title:scale(1.75,1.75)
         
         local circle = display.newImage("images/circle_yellow.png")
-        circle.x = display.contentWidth * 0
+        circle.x = display.contentWidth * 0.2
         circle.y = display.contentHeight * 0.4
         circle.rotate = 20
         
         local circle2 = display.newImage("images/circle_green.png")
-        circle2.x = display.contentWidth * 0.17
+        circle2.x = display.contentWidth * 0.3
         circle2.y = display.contentHeight * 0.4
         circle2.rotate = 20
         
         local circle3 = display.newImage("images/circle_blue.png")
-        circle3.x = display.contentWidth * 0.34
+        circle3.x = display.contentWidth * 0.4
         circle3.y = display.contentHeight * 0.4
         circle3.rotate = 20
         
         local circle4 = display.newImage("images/circle_red.png")
-        circle4.x = display.contentWidth * 0.51
+        circle4.x = display.contentWidth * 0.5
         circle4.y = display.contentHeight * 0.4
         circle4.rotate = 20
         
         local circle5 = display.newImage("images/circle_yellow.png")
-        circle5.x = display.contentWidth * 0.68
+        circle5.x = display.contentWidth * 0.6
         circle5.y = display.contentHeight * 0.4
         circle5.rotate = 20
         
         local circle6 = display.newImage("images/circle_green.png")
-        circle6.x = display.contentWidth * 0.85
+        circle6.x = display.contentWidth * 0.7
         circle6.y = display.contentHeight * 0.4
         circle6.rotate = 20
         
         local circle7 = display.newImage("images/circle_blue.png")
-        circle7.x = display.contentWidth * 0.992
+        circle7.x = display.contentWidth * 0.8
         circle7.y = display.contentHeight * 0.4
         circle7.rotate = 20
         

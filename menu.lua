@@ -15,23 +15,12 @@ function scene:createScene( event )
 
     
 
-    local background = display.newImage("images/titlepage.png")
+    local background = display.newImageRect("images/titlepage.png", display.contentWidth, display.contentHeight)
     background.x = display.contentWidth * 0.5
     background.y = display.contentHeight * 0.5
 
     local function nextScene()
         storyboard.gotoScene( "anotherMenu", "fade", 400 )
-    end
-
-    local function goToCredits(event)
-        local options =
-        {
-            effect = "slideRight",
-            time = 300,
-            isModal = true
-        }
-        storyboard.showOverlay("credits", options)
---        storyboard.gotoScene( "settings", "fade", 300 )
     end
 
     local playButton = widget.newButton
@@ -42,7 +31,7 @@ function scene:createScene( event )
     }
     playButton.x = display.contentWidth * 0.25
     playButton.y = display.contentHeight * 0.42
-    playButton:scale(2.5,2.5) -- makes the image 3x of the original size
+    playButton:scale(1.5,1.5) -- makes the image 3x of the original size
 
     local settingsButton = widget.newButton
     {
@@ -54,7 +43,7 @@ function scene:createScene( event )
     }
     settingsButton.x = display.contentWidth * 0
     settingsButton.y = display.contentHeight * 0.56
-    settingsButton:scale(2.5,2.5) 
+    settingsButton:scale(1.5,1.5) 
 
     local storyModeButton = widget.newButton
     {
@@ -66,7 +55,7 @@ function scene:createScene( event )
     }
     storyModeButton.x = display.contentWidth * 0.75
     storyModeButton.y = display.contentHeight * 0.42
-    storyModeButton:scale(2.5,2.5) 
+    storyModeButton:scale(1.5,1.5) 
 
     local howToPlayButton = widget.newButton
     {
@@ -78,18 +67,19 @@ function scene:createScene( event )
     }
     howToPlayButton.x = display.contentWidth * 0.50
     howToPlayButton.y = display.contentHeight * 0.56
-    howToPlayButton:scale(2.5,2.5) 
+    howToPlayButton:scale(1.5,1.5) 
 
     local creditsButton = widget.newButton
     {
         defaultFile = "buttons/credits2.png",
         overFile = "buttons/credits2_2.png",
-        id = "credits",
-        onRelease = goToCredits,
+        onRelease = function()
+            storyboard.gotoScene( "credits", "fade", 400 )
+        end,
     }
     creditsButton.x = display.contentWidth * 0.995
     creditsButton.y = display.contentHeight * 0.56
-    creditsButton:scale(2.5,2.5) 
+    creditsButton:scale(1.5,1.5) 
 
     -- screenGroup groups all the images. IMPORTANT to add all items inside the screenGroup (images and texts only)
     screenGroup:insert(background)

@@ -3,7 +3,7 @@ display.setStatusBar( display.HiddenStatusBar )
 local storyboard = require("storyboard")
 local widget = require("widget")
 local scene = storyboard.newScene()
-local external = require("external")
+
 
 function scene:willEnterScene( event )
     local group = self.view
@@ -13,59 +13,58 @@ end
 function scene:createScene( event )
     local screenGroup = self.view
 
-    local bigBlue = false
-    local bigRed = false
-    local bigGreen = false
 
-    local background = display.newImage("anotherBG_1.png")
-    background.x = display.contentWidth * 0.5
-    background.y = display.contentHeight * 0.5
+    local W = display.contentWidth
+    local H = display.contentHeight
 
-    local blue = display.newImage("images/blue.png")
-    blue.x = display.contentWidth * 0.5
-    blue.y = display.contentHeight * 0.5
+    local color = {}
+    local colorCount = 0
 
-    local red = display.newImage("images/red.png")
-    red.x = display.contentWidth * 0.5
-    red.y = display.contentHeight * 0.2
+    local bg = display.newImageRect("images/anotherBG_1.png", W, H)
+    bg.x = W * 0.5
+    bg.y = H * 0.5
 
-    local green = display.newImage("images/green.png")
-    green.x = display.contentWidth * 0.5
-    green.y = display.contentHeight * 0.8
+    local kind
 
-    local backButton = widget.newButton{
-        defaultFile = "images/backButton.png",    
-        overFile = "images/backButtonOver.png",
-        onRelease = function()
-            storyboard.gotoScene( "anotherMenu", "fade", 400 )
-        end,
-    }   
-    backButton.x = display.contentWidth * 0.1
-    backButton.y = display.contentHeight * 0.9
+    local option1 = display.newImage("images/circle_yellow.png")
+    option1.x = W * 0.5; option1.y = H * 0.3
+    local option2 = display.newImage("images/circle_yellow.png")
+    option2.x = W * 0.5; option2.y = H * 0.3
+    local option3 = display.newImage("images/circle_yellow.png")
+    option3.x = W * 0.5; option3.y = H * 0.3
 
-    local function pressedBlue()
-        if bigBlue == false then
-            bigBlue = true
-            transition.to(red, {alpha = 0, time = 1000})
-            transition.to(green, {alpha = 0, time = 1000})
-            transition.to(blue, {xScale = 2, yScale = 2, time = 1000})
-        else
-            bigBlue = false
-            transition.to(red, {alpha = 1, time = 1000})
-            transition.to(green, {alpha = 1, time = 1000})
-            transition.to(blue, {x = green.x, y = green.y, time = 1000})
-            transition.to(green, {x = display.contentWidth * 0.5, y = display.contentHeight * 0.5})
-            transition.to(blue, {xScale = 1, yScale = 1, time = 1000})
+    local function random()
+        local rand = math.random(1,4)
+
+        if rand == 1 then
+            color[colorCount] = display.newImage("images/circle_green.png")
+            kind = "green"
+        elseif rand == 2 then
+            color[colorCount] = display.newImage("images/circle_yellow.png")
+            kind = "yellow"
+        elseif rand == 3 then
+            color[colorCount] = display.newImage("images/circle_blue.png")
+            kind = "blue"
+        elseif rand == 4 then
+            color[colorCount] = display.newImage("images/circle_red.png")
+            kind = "red"
         end
+
+        color[colorCount].x = W * 0.5
+        color[colorCount].y = H * 0.3
+        color[colorCount]:scale(2.5,2.5)
+
+        transition.to(option1, {x = W * 0.3, y = H * 0.7})
+        transition.to(option2, {x = W * 0.5, y = H * 0.7})
+        transition.to(option3, {x = W * 0.7, y = H * 0.7})
+        -- screenGroup:insert(color[colorCount])
+
+        colorCount = colorCount + 1
     end
 
-    blue:addEventListener("tap", pressedBlue)
+    random()
 
-    screenGroup:insert(background)
-    screenGroup:insert(backButton)
-    screenGroup:insert(red)
-    screenGroup:insert(green)
-    screenGroup:insert(blue)
+    screenGroup:insert(bg)
 end
 
 function scene:exitScene( event )
