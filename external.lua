@@ -1,5 +1,15 @@
 local external = {}
 
+local prevScene = ""
+
+function external.setPreviousScene(scene)
+	prevScene = scene
+end
+
+function external.getPreviousScene()
+	return prevScene
+end
+
 -- SOUNDS --
 local bmusic = audio.loadStream("sounds/Upbeat Ukulele Background Music - Sunny Side Up by Alumo.mp3")
 local popSound = audio.loadSound("sounds/pop.mp3")

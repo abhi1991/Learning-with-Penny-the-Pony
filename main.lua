@@ -11,6 +11,7 @@ end
 
 timer.performWithDelay(3000, checkmem, 0)
 
+-- storyboard.gotoScene( "splash", "fade", 400 )
 storyboard.gotoScene( "colorMatching", "fade", 400 )
 
 

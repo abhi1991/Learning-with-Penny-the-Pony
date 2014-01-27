@@ -13,82 +13,141 @@ end
 function scene:createScene( event )
     local screenGroup = self.view
 
-    local background = display.newImage("images/anotherBG_1.png")
+    local background = display.newImageRect("images/anotherBG_1.png", display.contentWidth, display.contentHeight)
     background.x = display.contentWidth * 0.5
     background.y = display.contentHeight * 0.5
 
     --INSERT BUTTONS
-    local gameOne = display.newImage("buttons/colorMatch.png")
-    gameOne.x = display.contentWidth * 0
-    gameOne.y = display.contentHeight * 0.25
-    gameOne:scale(1.2,1.2)
 
-    local gameTwo = display.newImage("buttons/bigsmall.png")
-    gameTwo.x = display.contentWidth * 0.45
-    gameTwo.y = display.contentHeight * 0.25
-    gameTwo:scale(1.2,1.2)
+    local gameOne = widget.newButton
+    {
+        defaultFile = "buttons2/colorMatch.png",
+        overFile = "buttons2/colorMatchHover.png",
+        onRelease = function()
+            storyboard.gotoScene( "colorMatching", "fade", 400 )
+        end,
+    }
+    gameOne.x = display.contentWidth * 0.25
+    gameOne.y = display.contentHeight * 0.22
+    gameOne:scale(2,2)
 
-    local gameThree = display.newImage("buttons/shapes.png")
-    gameThree.x = display.contentWidth * 0.9
-    gameThree.y = display.contentHeight * 0.25
-    gameThree:scale(1.2,1.2)
 
-    local gameFour = display.newImage("buttons/numbers.png")
-    gameFour.x = display.contentWidth * 0
-    gameFour.y = display.contentHeight * 0.48
-    gameFour:scale(1.2,1.2)
+    local gameTwo = widget.newButton
+    {
+        defaultFile = "buttons2/bigSmall.png",
+        overFile = "buttons2/bigSmallHover.png",
+        onRelease = function()
+            storyboard.gotoScene( "menuStoryMode", "fade", 400 )
+        end,
+    }
+    gameTwo.x = display.contentWidth * 0.5
+    gameTwo.y = display.contentHeight * 0.22
+    gameTwo:scale(2,2)
 
-    local gameFive = display.newImage("buttons/balloonPop.png")
-    gameFive.x = display.contentWidth * 0.45
-    gameFive.y = display.contentHeight * 0.48
-    gameFive:scale(1.2,1.2)
 
-    local gameSix = display.newImage("buttons/tracing.png")
-    gameSix.x = display.contentWidth * 0.9
-    gameSix.y = display.contentHeight * 0.48
-    gameSix:scale(1.2,1.2)
+    local gameThree = widget.newButton
+    {
+        defaultFile = "buttons2/identifyShapes.png",
+        overFile = "buttons2/identifyShapesHover.png",
+        onRelease = function()
+            storyboard.gotoScene( "menuStoryMode", "fade", 400 )
+        end,
+    }
+    gameThree.x = display.contentWidth * 0.75
+    gameThree.y = display.contentHeight * 0.22
+    gameThree:scale(2,2)
 
-    local gameSeven = display.newImage("buttons/alphabets.png")
-    gameSeven.x = display.contentWidth * 0.45
+
+    local gameFour = widget.newButton
+    {
+        defaultFile = "buttons2/number.png",
+        overFile = "buttons2/numberHover.png",
+        onRelease = function()
+            storyboard.gotoScene( "menuStoryMode", "fade", 400 )
+        end,
+    }
+    gameFour.x = display.contentWidth * 0.25
+    gameFour.y = display.contentHeight * 0.47
+    gameFour:scale(2,2)
+
+
+    local gameFive = widget.newButton
+    {
+        defaultFile = "buttons2/balloonPop.png",
+        overFile = "buttons2/balloonPopHover.png",
+        onRelease = function()
+            storyboard.gotoScene( "balloonGame", "fade", 400 )
+        end,
+    }
+    gameFive.x = display.contentWidth * 0.5
+    gameFive.y = display.contentHeight * 0.47
+    gameFive:scale(2,2)
+
+
+    local gameSix = widget.newButton
+    {
+        defaultFile = "buttons2/targetAlphabet.png",
+        overFile = "buttons2/targetAlphabetHover.png",
+        onRelease = function()
+            storyboard.gotoScene( "menuStoryMode", "fade", 400 )
+        end,
+    }
+    gameSix.x = display.contentWidth * 0.75
+    gameSix.y = display.contentHeight * 0.47
+    gameSix:scale(2,2)
+
+
+    local gameSeven = widget.newButton
+    {
+        defaultFile = "buttons2/mixColors.png",
+        overFile = "buttons2/mixColorsHover.png",
+        onRelease = function()
+            storyboard.gotoScene( "menuStoryMode", "fade", 400 )
+        end,
+    }
+    gameSeven.x = display.contentWidth * 0.5
     gameSeven.y = display.contentHeight * 0.72
-    gameSeven:scale(1.2,1.2)
+    gameSeven:scale(2,2)
+
+
+
     --END INSERT BUTTONS
 
     --INSERT TEST FOR BUTTONS
-    local gameOneText = display.newText("Color Matching", 0, 0, "Chinacat", 30)
+    local gameOneText = display.newText("Color Matching", 0, 0, "Chinacat", 25)
     gameOneText.x = gameOne.x
-    gameOneText.y = gameOne.y + 115
-    gameOneText:setTextColor(0,0,0)
+    gameOneText.y = gameOne.y + 80
+    gameOneText:setTextColor(1,1,1)
    
-    local gameTwoText = display.newText("Big and Small", 0, 0, "Chinacat", 30)
+    local gameTwoText = display.newText("Identify Sizes", 0, 0, "Chinacat", 25)
     gameTwoText.x = gameTwo.x
-    gameTwoText.y = gameTwo.y + 115
-    gameTwoText:setTextColor(0,0,0)
+    gameTwoText.y = gameTwo.y + 80
+    gameTwoText:setTextColor(1,1,1)
 
-    local gameThreeText = display.newText("Identify Shapes", 0, 0, "Chinacat", 30)
+    local gameThreeText = display.newText("Identify Shapes", 0, 0, "Chinacat", 25)
     gameThreeText.x = gameThree.x
-    gameThreeText.y = gameThree.y + 115
-    gameThreeText:setTextColor(0,0,0)
+    gameThreeText.y = gameThree.y + 80
+    gameThreeText:setTextColor(1,1,1)
 
-    local gameFourText = display.newText("Counting Numbers", 0, 0, "Chinacat", 30)
+    local gameFourText = display.newText("Counting Numbers", 0, 0, "Chinacat", 25)
     gameFourText.x = gameFour.x
-    gameFourText.y = gameFour.y + 115
-    gameFourText:setTextColor(0,0,0)
+    gameFourText.y = gameFour.y + 80
+    gameFourText:setTextColor(1,1,1)
 
-    local gameFiveText = display.newText("Pop Balloons", 0, 0, "Chinacat", 30)
+    local gameFiveText = display.newText("Pop Balloons", 0, 0, "Chinacat", 25)
     gameFiveText.x = gameFive.x
-    gameFiveText.y = gameFive.y + 115
-    gameFiveText:setTextColor(0,0,0)
+    gameFiveText.y = gameFive.y + 80
+    gameFiveText:setTextColor(1,1,1)
 
-    local gameSixText = display.newText("Tracing", 0, 0, "Chinacat", 30)
+    local gameSixText = display.newText("Alphabet Target", 0, 0, "Chinacat", 25)
     gameSixText.x = gameSix.x
-    gameSixText.y = gameSix.y + 115
-    gameSixText:setTextColor(0,0,0)
+    gameSixText.y = gameSix.y + 80
+    gameSixText:setTextColor(1,1,1)
 
-    local gameSevenText = display.newText("Alphabets", 0, 0, "Chinacat", 30)
+    local gameSevenText = display.newText("Mixing Colors", 0, 0, "Chinacat", 25)
     gameSevenText.x = gameSeven.x
-    gameSevenText.y = gameSeven.y + 115
-    gameSevenText:setTextColor(0,0,0)
+    gameSevenText.y = gameSeven.y + 80
+    gameSevenText:setTextColor(1,1,1)
    --END INSERT TEXT
 
    --GO TO SCENE
@@ -113,13 +172,13 @@ function scene:createScene( event )
             storyboard.gotoScene( "menu", "flip", 400 )
         end,
     }
-    prevButton.x = display.contentWidth * 0.99
-    prevButton.y = display.contentHeight * 0.7
+    prevButton.x = display.contentWidth * 0.92
+    prevButton.y = display.contentHeight * 0.78
     prevButton:scale(1.2,1.2) 
 
-    local prevButtonText = display.newText("RETURN TO MENU", 0, 0, "Chinacat", 40)
+    local prevButtonText = display.newText("MENU", 0, 0, "Chinacat", 25)
     prevButtonText.x = prevButton.x
-    prevButtonText.y = prevButton.y + 90
+    prevButtonText.y = prevButton.y + 57
     prevButtonText:setTextColor(0,0,0)
 
     screenGroup:insert(background)

@@ -29,9 +29,9 @@ function scene:createScene( event )
         overFile = "buttons/play1_1.png",
         onRelease = nextScene,
     }
-    playButton.x = display.contentWidth * 0.25
-    playButton.y = display.contentHeight * 0.42
-    playButton:scale(1.5,1.5) -- makes the image 3x of the original size
+    playButton.x = display.contentWidth * 0.5
+    playButton.y = display.contentHeight * 0.40
+    playButton:scale(2,2) -- makes the image 3x of the original size
 
     local settingsButton = widget.newButton
     {
@@ -41,7 +41,7 @@ function scene:createScene( event )
             storyboard.gotoScene( "settings", "fade", 400 )
         end,
     }
-    settingsButton.x = display.contentWidth * 0
+    settingsButton.x = display.contentWidth * 0.4
     settingsButton.y = display.contentHeight * 0.56
     settingsButton:scale(1.5,1.5) 
 
@@ -53,8 +53,8 @@ function scene:createScene( event )
             storyboard.gotoScene( "menuStoryMode", "fade", 400 )
         end,
     }
-    storyModeButton.x = display.contentWidth * 0.75
-    storyModeButton.y = display.contentHeight * 0.42
+    storyModeButton.x = display.contentWidth * 0.2
+    storyModeButton.y = display.contentHeight * 0.56
     storyModeButton:scale(1.5,1.5) 
 
     local howToPlayButton = widget.newButton
@@ -65,7 +65,7 @@ function scene:createScene( event )
             storyboard.gotoScene( "empty", "fade", 400 )
         end,
     }
-    howToPlayButton.x = display.contentWidth * 0.50
+    howToPlayButton.x = display.contentWidth * 0.6
     howToPlayButton.y = display.contentHeight * 0.56
     howToPlayButton:scale(1.5,1.5) 
 
@@ -77,7 +77,7 @@ function scene:createScene( event )
             storyboard.gotoScene( "credits", "fade", 400 )
         end,
     }
-    creditsButton.x = display.contentWidth * 0.995
+    creditsButton.x = display.contentWidth * 0.8
     creditsButton.y = display.contentHeight * 0.56
     creditsButton:scale(1.5,1.5) 
 
