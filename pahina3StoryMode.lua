@@ -11,7 +11,7 @@ end
 function scene:createScene( event )
     local screenGroup = self.view
 
-    local background = display.newImage("storyline/4.jpg")
+    local background = display.newImageRect("storyline/4.jpg", display.contentWidth, display.contentHeight)
     background.x = display.contentWidth * 0.5
     background.y = display.contentHeight * 0.5
 
@@ -24,8 +24,8 @@ function scene:createScene( event )
             storyboard.gotoScene( "pahina4StoryMode", "flip", 400 )
         end,
     }
-    nextButton.x = display.contentWidth * 0.99
-    nextButton.y = display.contentHeight * 0.85
+    nextButton.x = display.contentWidth * 0.9
+    nextButton.y = display.contentHeight * 0.75
     nextButton:scale(1.5,1.5) 
 
      local prevButton = widget.newButton
@@ -36,41 +36,36 @@ function scene:createScene( event )
             storyboard.gotoScene( "pahina2StoryMode", "flip", 400 )
         end,
     }
-    prevButton.x = display.contentWidth * 0
-    prevButton.y = display.contentHeight * 0.85
+    prevButton.x = display.contentWidth * 0.1
+    prevButton.y = display.contentHeight * 0.75
     prevButton:scale(1.5,1.5) 
 
 
-    local nextButtonText = display.newText("NEXT", 0, 0, "Chinacat", 50)
+    local nextButtonText = display.newText("NEXT", 0, 0, "Chinacat", 40)
     nextButtonText.x = nextButton.x
     nextButtonText.y = nextButton.y + 90
     nextButtonText:setTextColor(0,0,0)
 
-    local prevButtonText = display.newText("BACK", 0, 0, "Chinacat", 50)
+    local prevButtonText = display.newText("BACK", 0, 0, "Chinacat", 40)
     prevButtonText.x = prevButton.x
     prevButtonText.y = prevButton.y + 90
     prevButtonText:setTextColor(0,0,0)
 
 
-    local text2 = display.newText("kinahihiligan niya ang paggalugad sa Fantasia   ", 100, 100, "Chinacat", 50)
-    text2.x = display.contentWidth * 0.35
+    local text2 = display.newText("kinahihiligan niya ang paggalugad sa Fantasia   ", 100, 100, "Chinacat", 40)
+    text2.x = display.contentWidth * 0.5
     text2.y = display.contentHeight * 0.35
     text2:setTextColor(0,0,1)
     
-    local text3 = display.newText("at nakakauwi naman ito bago pa dumilim.kahit ", 100, 100, "Chinacat", 50)
+    local text3 = display.newText("at nakakauwi naman ito bago pa dumilim kahit ", 100, 100, "Chinacat", 40)
     text3.x = display.contentWidth * 0.5
     text3.y = display.contentHeight * 0.42
     text3:setTextColor(0,0,1)
 
-    local text4 = display.newText("ito’y masyadong malaki para sa kanya at  ", 100, 100, "Chinacat", 50)
-    text4.x = display.contentWidth * 0.7
+    local text4 = display.newText("ito’y masyadong malaki para sa kanya. ", 100, 100, "Chinacat", 40)
+    text4.x = display.contentWidth * 0.5
     text4.y = display.contentHeight * 0.49
     text4:setTextColor(0,0,1)
-
-    local text5 = display.newText("nakakauwi naman ito bago pa dumilim.", 100, 100, "Chinacat", 50)
-    text5.x = display.contentWidth * 0.6
-    text5.y = display.contentHeight * 0.56
-    text5:setTextColor(0,0,1)
 
     
     screenGroup:insert(background)
@@ -81,7 +76,6 @@ function scene:createScene( event )
     screenGroup:insert(text2)
     screenGroup:insert(text3)
     screenGroup:insert(text4)
-    screenGroup:insert(text5)
 end
 
 function scene:exitScene( event )

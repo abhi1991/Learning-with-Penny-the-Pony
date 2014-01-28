@@ -11,7 +11,7 @@ end
 function scene:createScene( event )
     local screenGroup = self.view
 
-    local background = display.newImage("images/bg1.jpg")
+    local background = display.newImageRect("images/8.jpg", display.contentWidth, display.contentHeight)
     background.x = display.contentWidth * 0.5
     background.y = display.contentHeight * 0.5
     

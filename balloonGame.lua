@@ -24,7 +24,7 @@ function scene:createScene( event )
 	local balloon, balloon2, balloon3, balloon4, balloon5
 
 	--> Add Background Image
-	local background = display.newImage("images/bg1.jpg")
+	local background = display.newImageRect("images/7.jpg", display.contentWidth, display.contentHeight)
 	background.x = display.contentWidth * 0.5
 	background.y = display.contentHeight * 0.5
 
@@ -57,57 +57,65 @@ function scene:createScene( event )
 
 	local function createBalloons()
 		balloon = display.newImage("images/pop1.png")
-		balloon.width = 230
-		balloon.height = 250
-		balloon.x = display.contentWidth - 50
+		balloon.width = 180
+		balloon.height = 200
+		balloon.x = display.contentWidth * 0.15
+		balloon.y = display.contentHeight * 0.75
 		physics.addBody(balloon, {bounce = 0.5, radius = 100, friction = 1.0})
 		balloon.myName = "balloon"
 		
 		balloon2 = display.newImage("images/pop2.png")
-		balloon2.width = 230
-		balloon2.height = 250
-		balloon2.x = display.contentWidth - 300
+		balloon2.width = 180
+		balloon2.height = 200
+		balloon2.x = display.contentWidth * 0.30
+		balloon2.y = display.contentHeight * 0.75
 		physics.addBody(balloon2, {bounce = 0.4, radius = 100, friction = 1.0})
 		balloon2.myName = "balloon"
 
 		balloon3 = display.newImage("images/pop3.png")
-		balloon3.width = 230
-		balloon3.height = 250
-		balloon3.x = display.contentWidth - 550
+		balloon3.width = 180
+		balloon3.height = 200
+		balloon3.x = display.contentWidth * 0.5
+		balloon3.y = display.contentHeight * 0.75
 		physics.addBody(balloon3, {bounce = 0.3, radius = 100, friction = 1.0})
 		balloon3.myName = "balloon"
 
 		balloon4 = display.newImage("images/pop4.png")
-		balloon4.width = 230
-		balloon4.height = 250
-		balloon4.x = display.contentWidth - 800
+		balloon4.width = 180
+		balloon4.height = 200
+		balloon4.x = display.contentWidth * 0.70
+		balloon4.y = display.contentHeight * 0.75
 		physics.addBody(balloon4, {bounce = 0.5, radius = 100, friction = 1.0})
 		balloon4.myName = "balloon"
 
 		balloon5 = display.newImage("images/pop5.png")
-		balloon5.width = 230
-		balloon5.height = 250
-		balloon5.x = display.contentWidth - (-200)
+		balloon5.width = 180
+		balloon5.height = 200
+		balloon5.x = display.contentWidth * 0.85
+		balloon5.y = display.contentHeight * 0.75
 		physics.addBody(balloon5, {bounce = 0.4, radius = 100, friction = 1.0})
 		balloon5.myName = "balloon"
 	end
 
-	--[[
+	
 	local leftWall = display.newRect(0, 0, 1, display.contentHeight	)
 	local rightWall = display.newRect(display.contentWidth, 0, 1, display.contentHeight	)
 	local ceiling = display.newRect(0, 0, display.contentWidth, 1 )
-	]]--
+	
+	physics.addBody(leftWall, "static", {bounce = 0.0, friction = 1.0})
+	physics.addBody(rightWall, "static", {bounce = 0.0, friction = 1.0})
+	physics.addBody(ceiling, "static", {bounce = 0.0, friction = 1.0})
 
 	--> Add Floor
 	-- local floor = display.newImage("images/border.png", 100,50)
 	-- floor.y = display.contentHeight - floor.stageHeight
 	-- physics.addBody(floor, "static", {bounce = 0.0, friction = 1.0})
 
-	local floor = display.newRect(0,0,1500,25)
+	local floor = display.newRect(0,0,1000,0)
 	floor.x = display.contentWidth * 0.5
 	floor.y = display.contentHeight - floor.stageHeight
 	floor:setFillColor(0,0,0,1)
-	physics.addBody(floor, "static", {bounce = 0.0, friction = 1.0})
+	physics.addBody(floor, "static", {bounce = 0.5, friction = 1.0})
 
 	--> Touch Event Listener
 
@@ -197,7 +205,7 @@ function scene:createScene( event )
 	end	
 
 	local function goToMenu()
-		storyboard.gotoScene( "menu", "fade", 400 )
+		storyboard.gotoScene( "anotherMenu", "fade", 400 )
 	end
 
 	local function restartGame()
