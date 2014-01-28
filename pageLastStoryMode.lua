@@ -11,22 +11,22 @@ end
 function scene:createScene( event )
     local screenGroup = self.view
 
-    local background = display.newImage("images/anotherBG_1.png")
+    local background = display.newImageRect("images/anotherBG_1.png", display.contentWidth, display.contentHeight)
     background.x = display.contentWidth * 0.5
     background.y = display.contentHeight * 0.5
 
     --STORY LINE
-    local text = display.newText("For her to return home,", 100, 100, "Chinacat", 50)
+    local text = display.newText("For her to return home,", 100, 100, "Chinacat", 30)
     text.x = display.contentWidth * 0.5
     text.y = display.contentHeight * 0.20
     text:setTextColor(0,0,1)
 
-    local text2 = display.newText("she needs to solve solve a series of problem ", 100, 100, "Chinacat", 50)
+    local text2 = display.newText("she needs to solve a series of problem ", 100, 100, "Chinacat", 30)
     text2.x = display.contentWidth * 0.5
     text2.y = display.contentHeight * 0.25
     text2:setTextColor(0,0,1)
     
-    local text3 = display.newText("that will serve as a guide for her way back...", 100, 100, "Chinacat", 50)
+    local text3 = display.newText("that will serve as a guide for her way back...", 100, 100, "Chinacat", 30)
     text3.x = display.contentWidth * 0.5
     text3.y = display.contentHeight * 0.30
     text3:setTextColor(0,0,1)
@@ -42,7 +42,7 @@ function scene:createScene( event )
     }
     playButton.x = display.contentWidth * 0.5
     playButton.y = display.contentHeight * 0.5
-    playButton:scale(3,3) 
+    playButton:scale(2,2) 
 
 
     local mainMenuButton = widget.newButton
@@ -55,7 +55,7 @@ function scene:createScene( event )
     }
     mainMenuButton.x = display.contentWidth * 0.5
     mainMenuButton.y = display.contentHeight * 0.7
-    mainMenuButton:scale(3,3) 
+    mainMenuButton:scale(2,2) 
 
     
     screenGroup:insert(background)

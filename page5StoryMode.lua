@@ -11,7 +11,7 @@ end
 function scene:createScene( event )
     local screenGroup = self.view
 
-    local background = display.newImage("storyline/6.jpg")
+    local background = display.newImageRect("storyline/6.jpg", display.contentWidth, display.contentHeight)
     background.x = display.contentWidth * 0.5
     background.y = display.contentHeight * 0.5
 
@@ -24,8 +24,8 @@ function scene:createScene( event )
             storyboard.gotoScene( "pageLastStoryMode", "flip", 400 )
         end,
     }
-    nextButton.x = display.contentWidth * 0.99
-    nextButton.y = display.contentHeight * 0.85
+    nextButton.x = display.contentWidth * 0.9
+    nextButton.y = display.contentHeight * 0.75
     nextButton:scale(1.5,1.5) 
 
      local prevButton = widget.newButton
@@ -36,24 +36,24 @@ function scene:createScene( event )
             storyboard.gotoScene( "page4StoryMode", "flip", 400 )
         end,
     }
-    prevButton.x = display.contentWidth * 0
-    prevButton.y = display.contentHeight * 0.85
+    prevButton.x = display.contentWidth * 0.1
+    prevButton.y = display.contentHeight * 0.75
     prevButton:scale(1.5,1.5) 
 
 
-    local nextButtonText = display.newText("NEXT", 0, 0, "Chinacat", 50)
+    local nextButtonText = display.newText("NEXT", 0, 0, "Chinacat", 40)
     nextButtonText.x = nextButton.x
     nextButtonText.y = nextButton.y + 90
     nextButtonText:setTextColor(0,0,0)
 
-    local prevButtonText = display.newText("BACK", 0, 0, "Chinacat", 50)
+    local prevButtonText = display.newText("BACK", 0, 0, "Chinacat", 40)
     prevButtonText.x = prevButton.x
     prevButtonText.y = prevButton.y + 90
     prevButtonText:setTextColor(0,0,0)
 
 
     --STORY LINE
-    local text = display.newText("she got lost in Fantasia and forgets her path going home. ", 100, 100, "Chinacat", 50)
+    local text = display.newText("she got lost in Fantasia and forgets her path going home. ", 100, 100, "Chinacat", 30)
     text.x = display.contentWidth * 0.5
     text.y = display.contentHeight * 0.55
     text:setTextColor(0,0,1)

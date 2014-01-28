@@ -209,7 +209,7 @@ function scene:createScene( event )
             end
 
             color[colorCount] = display.newImage(value)
-            color[colorCount]:scale(2.5,2.5)
+            color[colorCount]:scale(2.5,3)
             color[colorCount].x = W * 0.5
             color[colorCount].y = H * 0.25
             screenGroup:insert(color[colorCount])
