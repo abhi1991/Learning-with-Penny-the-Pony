@@ -91,10 +91,10 @@ function scene:createScene( event )
 
     local function createOptions()
         if colorCount ~= 8 then
-            local r = math.random(1,8)
-            local r2 = math.random(1,8)
+            local r = 0
+            local r2 = 0
             local r3 = math.random(1,8)
-
+            
             if option1 ~= nil then
                 option1:removeSelf()
                 option2:removeSelf()
@@ -150,39 +150,30 @@ function scene:createScene( event )
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             end
+            
+            local check1 = true
+            local check2 = true
 
-            if r ~= currentNum then
-                option2 = display.newImage(chooseOptionColor(r))
-                option2.x = W * 0.5 option2.y = H * 0.25
-                option2:addEventListener("tap", wrong)
-                screenGroup:insert(option2)
-            else
-                storeNum = r
-                option2 = display.newImage(chooseOptionColor(r3)) 
-                option2.x = W * 0.5 option2.y = H * 0.25
-                option2:addEventListener("tap", wrong)
-                screenGroup:insert(option2)
-            end
---jamun check this.
-            if r2 == currentNum and currentNum == storeNum then --try this with ~= 
-                if r2 ~= 8 then
-                    --before assigning to chooseOptionSkema, make sure that its not equal to currentNum and storeNum
-                    --or try na may while loop. assign lang once the condition r2 == currentNum and currentNum == storeNum is false
-                    option3 = display.newImage(chooseOptionColor(r2 + 1))
-                    option3.x = W * 0.5 option3.y = H * 0.25
-                    option3:addEventListener("tap", wrong)
-                    screenGroup:insert(option3)
-                else
-                    option3 = display.newImage(chooseOptionColor(r2 - 1))
-                    option3.x = W * 0.5 option3.y = H * 0.25
-                    option3:addEventListener("tap", wrong)
-                    screenGroup:insert(option3)
+            while check1 do
+                r = math.random(1,8)
+                if r~=currentNum then
+                    option2 = display.newImage(chooseOptionColor(r))
+                    option2.x = W * 0.5 option2.y = H * 0.25
+                    option2:addEventListener("tap", wrong)
+                    screenGroup:insert(option2)
+                    check1 = false
                 end
-            else
-                option3 = display.newImage(chooseOptionColor(r2))
-                option3.x = W * 0.5 option3.y = H * 0.25
-                option3:addEventListener("tap", wrong)
-                screenGroup:insert(option3)
+            end
+
+            while check2 do
+                r2 = math.random(1,8)
+                if r2~=r and r2~=currentNum then
+                    option3 = display.newImage(chooseOptionColor(r2))
+                    option3.x = W * 0.5 option3.y = H * 0.25
+                    option3:addEventListener("tap", wrong)
+                    screenGroup:insert(option3)
+                    check2 = false
+                end
             end
 
             -- option1.x = W * 0.5
