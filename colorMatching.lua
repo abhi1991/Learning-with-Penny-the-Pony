@@ -158,13 +158,13 @@ function scene:createScene( event )
                 screenGroup:insert(option2)
             else
                 storeNum = r
-                option2 = display.newImage(chooseOptionColor(r3))
+                option2 = display.newImage(chooseOptionColor(r3)) 
                 option2.x = W * 0.5 option2.y = H * 0.25
                 option2:addEventListener("tap", wrong)
                 screenGroup:insert(option2)
             end
 --jamun check this.
-            if r2 == currentNum and currentNum == storeNum then
+            if r2 == currentNum and currentNum == storeNum then --try this with ~= 
                 if r2 ~= 8 then
                     --before assigning to chooseOptionSkema, make sure that its not equal to currentNum and storeNum
                     --or try na may while loop. assign lang once the condition r2 == currentNum and currentNum == storeNum is false
