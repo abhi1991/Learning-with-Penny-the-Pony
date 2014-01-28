@@ -205,7 +205,7 @@ function scene:createScene( event )
 	end	
 
 	local function goToMenu()
-		storyboard.gotoScene( "menu", "fade", 400 )
+		storyboard.gotoScene( "anotherMenu", "fade", 400 )
 	end
 
 	local function restartGame()

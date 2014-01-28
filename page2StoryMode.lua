@@ -16,6 +16,8 @@ function scene:createScene( event )
     background.y = display.contentHeight * 0.5
 
 
+    external.page2Sound()
+
      local nextButton = widget.newButton
     {
         defaultFile = "images/nextButton.png",

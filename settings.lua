@@ -20,15 +20,15 @@ function scene:createScene( event )
     settingsTitle.y = display.contentHeight * 0.22
     settingsTitle:setTextColor(1,1,1)
 
-    local sound = display.newText("Music: ", 100, 100, "Chinacat", 50)
-    sound.x = display.contentWidth * 0.25
-    sound.y = display.contentHeight * 0.34
-    sound:setTextColor(1,1,1)
-
-    local soundEffectLabel = display.newText("Sound Effects: ", 0,0, "Chinacat", 50)
+    local musicLabel = display.newText("Music: ", 0,0, "Chinacat", 40)
+    musicLabel.x = display.contentWidth * 0.25
+    musicLabel.y = display.contentHeight * 0.35
+    musicLabel:setFillColor(50,50,50)
+    
+    local soundEffectLabel = display.newText("Sound Effects: ", 0,0, "Chinacat", 40)
     soundEffectLabel.x = display.contentWidth * 0.36
     soundEffectLabel.y = display.contentHeight * 0.45
-    soundEffectLabel:setFillColor(1,1,1)
+    soundEffectLabel:setFillColor(50,50,50)
 
     local music = widget.newSwitch
     {
@@ -41,10 +41,10 @@ function scene:createScene( event )
 --        onPress = musicFunction
     }
     music.x = display.contentWidth/2 + 175
-    music.y = sound.y
+    music.y = musicLabel.y
     music:scale(1.25,1.25)
-
-    local soundfx = widget.newSwitch
+    
+    local sound = widget.newSwitch
     {
         left = 250,
         top = 230,
@@ -54,9 +54,9 @@ function scene:createScene( event )
 --        onRelease = soundFunction,
 --        onPress = soundFunction
     }
-    soundfx.x = display.contentWidth/2 + 175
-    soundfx.y = soundEffectLabel.y
-    soundfx:scale(1.25,1.25)
+    sound.x = display.contentWidth/2 + 175
+    sound.y = soundEffectLabel.y
+    sound:scale(1.25,1.25)
 
 
     local backButton = widget.newButton
@@ -74,9 +74,9 @@ function scene:createScene( event )
     
     screenGroup:insert(background)
     screenGroup:insert(settingsTitle)
-    screenGroup:insert(sound)
-    screenGroup:insert(soundfx)
     screenGroup:insert(music)
+    screenGroup:insert(sound)
+    screenGroup:insert(musicLabel)
     screenGroup:insert(soundEffectLabel)
     screenGroup:insert(backButton)
 end
