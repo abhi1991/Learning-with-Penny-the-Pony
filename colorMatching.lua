@@ -1,3 +1,4 @@
+--olwa present from here to
 display.setStatusBar( display.HiddenStatusBar )
 
 local storyboard = require("storyboard")
@@ -9,6 +10,7 @@ function scene:willEnterScene( event )
     local group = self.view
     storyboard.removeAll()
 end
+-- here
 
 function scene:createScene( event )
     local screenGroup = self.view
@@ -161,9 +163,11 @@ function scene:createScene( event )
                 option2:addEventListener("tap", wrong)
                 screenGroup:insert(option2)
             end
-
+--jamun check this.
             if r2 == currentNum and currentNum == storeNum then
                 if r2 ~= 8 then
+                    --before assigning to chooseOptionSkema, make sure that its not equal to currentNum and storeNum
+                    --or try na may while loop. assign lang once the condition r2 == currentNum and currentNum == storeNum is false
                     option3 = display.newImage(chooseOptionColor(r2 + 1))
                     option3.x = W * 0.5 option3.y = H * 0.25
                     option3:addEventListener("tap", wrong)
