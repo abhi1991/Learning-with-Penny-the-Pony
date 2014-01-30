@@ -1,3 +1,4 @@
+--olwa present from here to
 display.setStatusBar( display.HiddenStatusBar )
 
 local storyboard = require("storyboard")
@@ -9,6 +10,7 @@ function scene:willEnterScene( event )
     local group = self.view
     storyboard.removeAll()
 end
+-- here
 
 function scene:createScene( event )
     local screenGroup = self.view
@@ -89,10 +91,10 @@ function scene:createScene( event )
 
     local function createOptions()
         if colorCount ~= 8 then
-            local r = math.random(1,8)
-            local r2 = math.random(1,8)
+            local r = 0
+            local r2 = 0
             local r3 = math.random(1,8)
-
+            
             if option1 ~= nil then
                 option1:removeSelf()
                 option2:removeSelf()
@@ -148,37 +150,30 @@ function scene:createScene( event )
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             end
+            
+            local check1 = true
+            local check2 = true
 
-            if r ~= currentNum then
-                option2 = display.newImage(chooseOptionColor(r))
-                option2.x = W * 0.5 option2.y = H * 0.25
-                option2:addEventListener("tap", wrong)
-                screenGroup:insert(option2)
-            else
-                storeNum = r
-                option2 = display.newImage(chooseOptionColor(r3))
-                option2.x = W * 0.5 option2.y = H * 0.25
-                option2:addEventListener("tap", wrong)
-                screenGroup:insert(option2)
+            while check1 do
+                r = math.random(1,8)
+                if r~=currentNum then
+                    option2 = display.newImage(chooseOptionColor(r))
+                    option2.x = W * 0.5 option2.y = H * 0.25
+                    option2:addEventListener("tap", wrong)
+                    screenGroup:insert(option2)
+                    check1 = false
+                end
             end
 
-            if r2 == currentNum and currentNum == storeNum then
-                if r2 ~= 8 then
-                    option3 = display.newImage(chooseOptionColor(r2 + 1))
+            while check2 do
+                r2 = math.random(1,8)
+                if r2~=r and r2~=currentNum then
+                    option3 = display.newImage(chooseOptionColor(r2))
                     option3.x = W * 0.5 option3.y = H * 0.25
                     option3:addEventListener("tap", wrong)
                     screenGroup:insert(option3)
-                else
-                    option3 = display.newImage(chooseOptionColor(r2 - 1))
-                    option3.x = W * 0.5 option3.y = H * 0.25
-                    option3:addEventListener("tap", wrong)
-                    screenGroup:insert(option3)
+                    check2 = false
                 end
-            else
-                option3 = display.newImage(chooseOptionColor(r2))
-                option3.x = W * 0.5 option3.y = H * 0.25
-                option3:addEventListener("tap", wrong)
-                screenGroup:insert(option3)
             end
 
             -- option1.x = W * 0.5
