@@ -15,6 +15,8 @@ function scene:createScene( event )
     background.x = display.contentWidth * 0.5
     background.y = display.contentHeight * 0.5
 
+    external.hulingSound()
+
     --STORY LINE
     local text = display.newText("Upang siya’y makabalik sa kaniyang bahay,", 100, 100, "Chinacat", 30)
     text.x = display.contentWidth * 0.5
@@ -34,10 +36,12 @@ function scene:createScene( event )
 
     local playButton = widget.newButton
     {
+        
         defaultFile = "buttons/play1.png",
         overFile = "buttons/play1_1.png",
         onRelease = function()
             storyboard.gotoScene( "anotherMenu", "fade", 400 )
+            external.resumeMusic()
         end,
     }
     playButton.x = display.contentWidth * 0.5
@@ -47,10 +51,12 @@ function scene:createScene( event )
 
     local mainMenuButton = widget.newButton
     {
+        
         defaultFile = "buttons/mainmenu.png",
         overFile = "buttons/mainmenuOver.png",
         onRelease = function()
             storyboard.gotoScene( "menu", "fade", 400 )
+            external.resumeMusic()
         end,
     }
     mainMenuButton.x = display.contentWidth * 0.5

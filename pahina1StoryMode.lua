@@ -15,6 +15,9 @@ function scene:createScene( event )
     background.x = display.contentWidth * 0.5
     background.y = display.contentHeight * 0.5
 
+    external.pauseMusic()
+    external.pahina1Sound()
+
 
      local nextButton = widget.newButton
     {

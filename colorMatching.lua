@@ -43,17 +43,32 @@ function scene:createScene( event )
     bg.y = H * 0.5
     screenGroup:insert(bg)
 
-    local restartButton = display.newText("Restart", 0, 0, "Chinacat", 60)
-    restartButton.x = W * 0.5
-    restartButton.y = H * 0.35
+
+    --WIDGETS
+    restartButton = widget.newButton
+    {
+        defaultFile = "buttons/replay.png",
+        overFile = "buttons/replayOver.png",
+        onRelease = restartGame,
+    }
+    restartButton.x = display.contentWidth * 0.5
+    restartButton.y = display.contentHeight * 0.4
+    restartButton:scale(2.5,2.5)
     restartButton.alpha = 0
     screenGroup:insert(restartButton)
 
-    local exitButton = display.newText("Exit", 0, 0, "Chinacat", 60)
-    exitButton.x = W * 0.5
-    exitButton.y = H * 0.55
+    exitButton = widget.newButton
+    {
+        defaultFile = "buttons/menu.png",
+        overFile = "buttons/menuOver.png",
+        onRelease = goToMenu,
+    }
+    exitButton.x = display.contentWidth * 0.5
+    exitButton.y = display.contentHeight * 0.6
+    exitButton:scale(2.5,2.5)
     exitButton.alpha = 0
     screenGroup:insert(exitButton)
+
 
     local nextButton = display.newText("Next", 0, 0, "Chinacat", 40)
     nextButton.x = W * 0.5

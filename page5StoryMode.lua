@@ -54,9 +54,9 @@ function scene:createScene( event )
 
 
     --STORY LINE
-    local text = display.newText("she got lost in Fantasia and forgets her path going home. ", 100, 100, "Chinacat", 30)
+    local text = display.newText("she got lost in Fantasia and forgets her path going home. ", 100, 100, "Chinacat", 35)
     text.x = display.contentWidth * 0.5
-    text.y = display.contentHeight * 0.55
+    text.y = display.contentHeight * 0.5
     text:setTextColor(0,0,1)
 
     
