@@ -18,17 +18,17 @@ function scene:createScene( event )
     external.lastPageSound()
 
     --STORY LINE
-    local text = display.newText("For her to return home,", 100, 100, "Chinacat", 30)
+    local text = display.newText("For her to return home,", 100, 100, "Chinacat", 35)
     text.x = display.contentWidth * 0.5
     text.y = display.contentHeight * 0.20
     text:setTextColor(0,0,1)
 
-    local text2 = display.newText("she needs to solve a series of problem ", 100, 100, "Chinacat", 30)
+    local text2 = display.newText("she needs to solve a series of problem ", 100, 100, "Chinacat", 35)
     text2.x = display.contentWidth * 0.5
     text2.y = display.contentHeight * 0.25
     text2:setTextColor(0,0,1)
     
-    local text3 = display.newText("that will serve as a guide for her way back...", 100, 100, "Chinacat", 30)
+    local text3 = display.newText("that will serve as a guide for her way back...", 100, 100, "Chinacat", 35)
     text3.x = display.contentWidth * 0.5
     text3.y = display.contentHeight * 0.30
     text3:setTextColor(0,0,1)
@@ -36,10 +36,12 @@ function scene:createScene( event )
 
     local playButton = widget.newButton
     {
+        
         defaultFile = "buttons/play1.png",
         overFile = "buttons/play1_1.png",
         onRelease = function()
             storyboard.gotoScene( "anotherMenu", "fade", 400 )
+            external.resumeMusic()
         end,
     }
     playButton.x = display.contentWidth * 0.5
@@ -49,10 +51,12 @@ function scene:createScene( event )
 
     local mainMenuButton = widget.newButton
     {
+        
         defaultFile = "buttons/mainmenu.png",
         overFile = "buttons/mainmenuOver.png",
         onRelease = function()
             storyboard.gotoScene( "menu", "fade", 400 )
+            external.resumeMusic()
         end,
     }
     mainMenuButton.x = display.contentWidth * 0.5

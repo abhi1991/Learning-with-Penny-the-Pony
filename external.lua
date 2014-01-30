@@ -22,13 +22,21 @@ local page5 = audio.loadSound("story_telling/story/fifthPage.mp3")
 local lastPage = audio.loadSound("story_telling/story/lastPage.mp3")
 local pahina1 = audio.loadSound("story_telling/story/una.mp3")
 local pahina2 = audio.loadSound("story_telling/story/Pangalawa.mp3")
-local pahina3 = audio.loadSound("story_telling/story/pangatlo.mp3")
+local pahina3 = audio.loadSound("story_telling/story/ikatlo.mp3")
 local pahina4 = audio.loadSound("story_telling/story/ikaapat.mp3")
 local pahina5 = audio.loadSound("story_telling/story/ikalima.mp3")
 local huli = audio.loadSound("story_telling/story/huli.mp3")
 
 function external.playMusic()
     audio.play(bmusic, {channel = 0.5, loops = -1})
+end
+
+function external.pauseMusic()
+	audio.pause(bmusic, {channel = 0.5, loops = -1})
+end
+
+function external.resumeMusic()
+	audio.resume(bmusic, {channel = 0.5, loops = -1})
 end
 
 --STORY TELLING SOUND
