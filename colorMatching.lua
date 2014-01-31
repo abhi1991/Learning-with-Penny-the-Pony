@@ -10,15 +10,12 @@ function scene:willEnterScene( event )
     storyboard.removeAll()
 end
 
-
 function scene:createScene( event )
     local screenGroup = self.view
-
 
     local W = display.contentWidth
     local H = display.contentHeight
 
---not needed from here to
     local color = {}
     local colorCount = 0
     local colorName = ""
@@ -37,13 +34,11 @@ function scene:createScene( event )
     local answer
     local currentNum = 0
     local storeNum = 0
--- here
---needed here
+
     local bg = display.newImageRect("images/9.jpg", W, H)
     bg.x = W * 0.5
     bg.y = H * 0.5
     screenGroup:insert(bg)
-
 
     --WIDGETS
     restartButton = widget.newButton
@@ -70,7 +65,6 @@ function scene:createScene( event )
     exitButton.alpha = 0
     screenGroup:insert(exitButton)
 
-
     local nextButton = display.newText("Next", 0, 0, "Chinacat", 40)
     nextButton.x = W * 0.5
     nextButton.y = H * 0.8
@@ -84,9 +78,7 @@ function scene:createScene( event )
 
     local verdict = display.newText("", 0, 0, "Chinacat", 70)
     verdict.x = W * 0.5; verdict.y = H * 0.4
--- to here
 
---not needed function
     local function chooseOptionColor(num)
         if num == 1 then
             return "images/colors/pop1.png"
@@ -107,7 +99,6 @@ function scene:createScene( event )
         end
     end
 
-	--not needed
     local function createOptions()
         if colorCount ~= 8 then
             local r = 0
@@ -216,7 +207,7 @@ function scene:createScene( event )
         
     end
 
-    local function prepareColor(value) --big balloon
+    local function prepareColor(value)
         if colorCount ~= 8 then
 
             verdict.alpha = 0
@@ -241,7 +232,7 @@ function scene:createScene( event )
             verdict.alpha = 0
         end
     end
-	--needed
+
     local function goHere() --location
         local rand1 = math.random(1,3)
 
@@ -260,12 +251,11 @@ function scene:createScene( event )
         end
     end
 	
-	--as one ang function for randomly choosing the animals
     local function nextColor()
         showColors()
     end
 
-    function showColors() --randomly assigns the big balloon. if napili na, choose again
+    function showColors() 
         local rand = math.random(1,8)
 
         if rand == 1 then
