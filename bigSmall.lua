@@ -16,9 +16,9 @@ function scene:createScene( event )
     local W = display.contentWidth
     local H = display.contentHeight
 
-    local big = false
-
-        local showColors, option1, option2, option3, right, wrong
+    local big
+    local animal = {}
+    local option1, option2, right, wrong
 
     local purpleDone = false
     local blueDone = false
@@ -29,7 +29,6 @@ function scene:createScene( event )
     local blackDone = false
     local brownDone = false
 
-    local answer
     local counter = 0
 
     local bg = display.newImageRect("images/9.jpg", W, H)
@@ -67,8 +66,6 @@ function scene:createScene( event )
     instruction:setTextColor(0,0,0)
 
     --WIDGETS
- 
-
     local nextButton = display.newText("Next", 0, 0, "Chinacat", 40)
     nextButton.x = W * 0.5
     nextButton.y = H * 0.8
@@ -105,13 +102,14 @@ function scene:createScene( event )
     end
 
     local function createOptions()
-         if counter ~=8 then
+        if counter~=8 then           
             if option1 ~= nil then
                 option1:removeSelf()
                 option2:removeSelf()
             end
             
-            if big then 
+            if big==1 then
+                verdict.alpha = 0 
                 if colorName == "purple" then
                     option1 = display.newImage("images/colors/pop1.png")
                     option1:scale(2.3,3)
@@ -207,7 +205,7 @@ function scene:createScene( event )
                     option1 = display.newImage("images/colors/pop1.png")
                     option1:scale(2.3,3)
                     option1.x = W * 0.5;  option1.y = H * 0.25
-                    option1:addEventListener("tap", Wrong)
+                    option1:addEventListener("tap", wrong)
                     screenGroup:insert(option1)
                     option2 = display.newImage(chooseOptionColor(1))
                     option2.x = W * 0.5 option2.y = H * 0.25
@@ -273,7 +271,7 @@ function scene:createScene( event )
                     option1 = display.newImage("images/colors/pop7.png")
                     option1:scale(2.3,3)
                     option1.x = W * 0.5;  option1.y = H * 0.25
-                    option1:addEventListener("tap", Wrong)
+                    option1:addEventListener("tap", wrong)
                     screenGroup:insert(option1)
                     option2 = display.newImage(chooseOptionColor(7))
                     option2.x = W * 0.5 option2.y = H * 0.25
@@ -284,7 +282,7 @@ function scene:createScene( event )
                     option1 = display.newImage("images/colors/pop8.png")
                     option1:scale(2.3,3)
                     option1.x = W * 0.5 option1.y = H * 0.25
-                    option1:addEventListener("tap", Wrong)
+                    option1:addEventListener("tap", wrong)
                     screenGroup:insert(option1)
                     option2 = display.newImage(chooseOptionColor(8))
                     option2.x = W * 0.5 option2.y = H * 0.25
@@ -293,14 +291,14 @@ function scene:createScene( event )
                     counter= counter+1
                 end
             end
-           else
-                option1:removeSelf()
-                option2:removeSelf()
-                instruction.text = ""
-                nextButton.alpha = 0
-                restartButton.alpha = 1
-                exitButton.alpha = 1
-                verdict.alpha = 0
+        else
+            instruction.alpha = 0
+            option1:removeSelf()                
+            option2:removeSelf()
+            nextButton.alpha = 0
+            restartButton.alpha = 1
+            exitButton.alpha = 1
+            verdict.alpha = 0
         end
     end
 
@@ -308,107 +306,123 @@ function scene:createScene( event )
         local rand1 = math.random(1,2)
 
         if rand1 == 1 then
-            transition.to(option1, {x = W * 0.3, y = H * 0.8, time = 500})
-            transition.to(option2, {x = W * 0.5, y = H * 0.8, time = 500})
+            transition.to(option1, {x = W * 0.3, y = H * 0.5, time = 500})
+            transition.to(option2, {x = W * 0.5, y = H * 0.5, time = 500})
         elseif rand1 == 2 then
-            transition.to(option1, {x = W * 0.5, y = H * 0.6, time = 500})
-            transition.to(option2, {x = W * 0.3, y = H * 0.6, time = 500})
+            transition.to(option1, {x = W * 0.5, y = H * 0.5, time = 500})
+            transition.to(option2, {x = W * 0.3, y = H * 0.5, time = 500})
         end
     end
 
     local function instructionFunction()
+        verdict.alpha = 0
         local r = math.random(1,2)
-
         if r == 1 then
             instruction.text = "Tap the BIG animal"
-            big = true
-        elseif r==2 then
+            big = 1
+        else
             instruction.text = "Tap the SMALL animal"
+            big = 0
         end
     end
 	
-
-
     local function nextAnimal()
         chooseAnimal()
     end
 
     function chooseAnimal()
-        instructionFunction()
         local rand = math.random(1,8)
-
-        if rand == 1 then
-            if purpleDone == false then
-                purpleDone = true
-                colorName = "purple"
-                createOptions()
-                goHere()
-            else
-                nextAnimal()
+        if counter~=8 then
+            if rand == 1 then
+                if purpleDone == false then
+                    purpleDone = true
+                    colorName = "purple"
+                    instructionFunction()
+                    createOptions()
+                    goHere()
+                else
+                    nextAnimal()
+                end
+            elseif rand == 2 then
+                if blueDone == false then
+                    blueDone = true
+                    colorName = "blue"
+                    instructionFunction()
+                    createOptions()
+                    goHere()
+                else
+                    nextAnimal()
+                end
+            elseif rand == 3 then
+                if redDone == false then
+                    redDone = true
+                    colorName = "red"
+                    instructionFunction()
+                    createOptions()
+                    goHere()
+                else
+                    nextAnimal()
+                end
+            elseif rand == 4 then
+                if greenDone == false then
+                    greenDone = true
+                    colorName = "green"
+                    instructionFunction()
+                    createOptions()
+                    goHere()
+                else
+                    nextAnimal()
+                end
+            elseif rand == 5 then
+                if orangeDone == false then
+                    orangeDone = true
+                    colorName = "orange"
+                    instructionFunction()
+                    createOptions()
+                    goHere()
+                else
+                    nextAnimal()
+                end
+            elseif rand == 6 then
+                if yellowDone == false then
+                    yellowDone = true
+                    colorName = "yellow"
+                    instructionFunction()
+                    createOptions()
+                    goHere()
+                else
+                    nextAnimal()
+                end
+            elseif rand == 7 then
+                if blackDone == false then
+                    blackDone = true
+                    colorName = "black"
+                    instructionFunction()
+                    createOptions()
+                    goHere()
+                else
+                    nextAnimal()
+                end
+            elseif rand == 8 then
+                if brownDone == false then
+                    brownDone = true
+                    colorName = "brown"
+                    instructionFunction()
+                    createOptions()
+                    goHere()
+                else
+                    nextAnimal()
+                end
             end
-        elseif rand == 2 then
-            if blueDone == false then
-                blueDone = true
-                colorName = "blue"
-                createOptions()
-                goHere()
-            else
-                nextAnimal()
-            end
-        elseif rand == 3 then
-            if redDone == false then
-                redDone = true
-                colorName = "red"
-                createOptions()
-                goHere()
-            else
-                nextAnimal()
-            end
-        elseif rand == 4 then
-            if greenDone == false then
-                greenDone = true
-                colorName = "green"
-                createOptions()
-                goHere()
-            else
-                nextAnimal()
-            end
-        elseif rand == 5 then
-            if orangeDone == false then
-                orangeDone = true
-                colorName = "orange"
-                createOptions()
-                goHere()
-            else
-                nextAnimal()
-            end
-        elseif rand == 6 then
-            if yellowDone == false then
-                yellowDone = true
-                colorName = "yellow"
-                createOptions()
-                goHere()
-            else
-                nextAnimal()
-            end
-        elseif rand == 7 then
-            if blackDone == false then
-                blackDone = true
-                colorName = "black"
-                createOptions()
-                goHere()
-            else
-                nextAnimal()
-            end
-        elseif rand == 8 then
-            if brownDone == false then
-                brownDone = true
-                colorName = "brown"
-                createOptions()
-                goHere()
-            else
-                nextAnimal()
-            end
+        else
+            option2:removeSelf()
+            option1:removeSelf()
+            instruction.alpha=0
+            nextButton.alpha = 0
+            restartButton.alpha = 1
+            exitButton.alpha = 1
+            verdict.alpha = 0
+            
         end
     end
 
@@ -429,16 +443,12 @@ function scene:createScene( event )
     function right()
         verdict.text = "Correct"
         verdict.alpha = 1
-        --option1:removeSelf()
-        --option2:removeSelf()
         option1.alpha = 0
         option2.alpha = 0
     end
 
     function wrong()
         verdict.text = "Wrong"
-        --option1:removeSelf()
-        --option2:removeSelf()
         verdict.alpha = 1
         option1.alpha = 0
         option2.alpha = 0
