@@ -1,4 +1,3 @@
---olwa present from here to
 display.setStatusBar( display.HiddenStatusBar )
 
 local storyboard = require("storyboard")
@@ -10,7 +9,7 @@ function scene:willEnterScene( event )
     local group = self.view
     storyboard.removeAll()
 end
--- here
+
 
 function scene:createScene( event )
     local screenGroup = self.view
@@ -204,7 +203,7 @@ function scene:createScene( event )
             -- option3.y = H * 0.25
             else
 			
-			--check this first
+			
                 color[colorCount-1]:removeSelf()
                 option1:removeSelf()
                 option2:removeSelf()
@@ -217,7 +216,6 @@ function scene:createScene( event )
         
     end
 
-	--needed
     local function prepareColor(value) --big balloon
         if colorCount ~= 8 then
 
@@ -227,7 +225,7 @@ function scene:createScene( event )
             end
 
             color[colorCount] = display.newImage(value)
-            color[colorCount]:scale(2.5,3)
+            color[colorCount]:scale(2.3,3)
             color[colorCount].x = W * 0.5
             color[colorCount].y = H * 0.25
             screenGroup:insert(color[colorCount])
