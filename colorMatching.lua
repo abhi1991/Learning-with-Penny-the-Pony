@@ -1,4 +1,3 @@
---olwa present from here to
 display.setStatusBar( display.HiddenStatusBar )
 
 local storyboard = require("storyboard")
@@ -10,7 +9,7 @@ function scene:willEnterScene( event )
     local group = self.view
     storyboard.removeAll()
 end
--- here
+
 
 function scene:createScene( event )
     local screenGroup = self.view
@@ -19,6 +18,7 @@ function scene:createScene( event )
     local W = display.contentWidth
     local H = display.contentHeight
 
+--not needed from here to
     local color = {}
     local colorCount = 0
     local colorName = ""
@@ -37,7 +37,8 @@ function scene:createScene( event )
     local answer
     local currentNum = 0
     local storeNum = 0
-
+-- here
+--needed here
     local bg = display.newImageRect("images/9.jpg", W, H)
     bg.x = W * 0.5
     bg.y = H * 0.5
@@ -83,7 +84,9 @@ function scene:createScene( event )
 
     local verdict = display.newText("", 0, 0, "Chinacat", 70)
     verdict.x = W * 0.5; verdict.y = H * 0.4
+-- to here
 
+--not needed function
     local function chooseOptionColor(num)
         if num == 1 then
             return "images/colors/pop1.png"
@@ -104,6 +107,7 @@ function scene:createScene( event )
         end
     end
 
+	--not needed
     local function createOptions()
         if colorCount ~= 8 then
             local r = 0
@@ -198,6 +202,8 @@ function scene:createScene( event )
             -- option3.x = W * 0.5
             -- option3.y = H * 0.25
             else
+			
+			
                 color[colorCount-1]:removeSelf()
                 option1:removeSelf()
                 option2:removeSelf()
@@ -210,7 +216,7 @@ function scene:createScene( event )
         
     end
 
-    local function prepareColor(value)
+    local function prepareColor(value) --big balloon
         if colorCount ~= 8 then
 
             verdict.alpha = 0
@@ -219,7 +225,7 @@ function scene:createScene( event )
             end
 
             color[colorCount] = display.newImage(value)
-            color[colorCount]:scale(2.5,3)
+            color[colorCount]:scale(2.3,3)
             color[colorCount].x = W * 0.5
             color[colorCount].y = H * 0.25
             screenGroup:insert(color[colorCount])
@@ -235,8 +241,8 @@ function scene:createScene( event )
             verdict.alpha = 0
         end
     end
-
-    local function goHere()
+	--needed
+    local function goHere() --location
         local rand1 = math.random(1,3)
 
         if rand1 == 1 then
@@ -253,12 +259,13 @@ function scene:createScene( event )
             transition.to(option3, {x = W * 0.3, y = H * 0.6, time = 500})
         end
     end
-
+	
+	--as one ang function for randomly choosing the animals
     local function nextColor()
         showColors()
     end
 
-    function showColors()
+    function showColors() --randomly assigns the big balloon. if napili na, choose again
         local rand = math.random(1,8)
 
         if rand == 1 then

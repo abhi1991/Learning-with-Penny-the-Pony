@@ -37,7 +37,7 @@ function scene:createScene( event )
         defaultFile = "buttons2/bigSmall.png",
         overFile = "buttons2/bigSmallHover.png",
         onRelease = function()
-            storyboard.gotoScene( "menuStoryMode", "fade", 400 )
+            storyboard.gotoScene( "bigSmall", "fade", 400 )
         end,
     }
     gameTwo.x = display.contentWidth * 0.5
@@ -159,6 +159,10 @@ function scene:createScene( event )
         storyboard.gotoScene( "colorMatching", "fade", 400 ) 
     end
 
+    local function goToGameTwo()
+        storyboard.gotoScene( "bigSmall", "fade", 400 ) 
+    end
+    gameTwo:addEventListener("tap", goToGameTwo)
     gameFive:addEventListener("tap", goToGameFive)
     gameOne:addEventListener("tap", goToGameOne)
     --END OF GO TO SCENE
