@@ -30,12 +30,15 @@ function scene:createScene( event )
     local greenDone = false
     local blackDone = false
     local brownDone = false
+    local whiteDone = false
+    local pinkDone = false
+
 
     local answer
     local currentNum = 0
     local storeNum = 0
 
-    local bg = display.newImageRect("images/9.jpg", W, H)
+    local bg = display.newImageRect("images/9_1.jpg", W, H)
     bg.x = W * 0.5
     bg.y = H * 0.5
     screenGroup:insert(bg)
@@ -47,9 +50,9 @@ function scene:createScene( event )
         overFile = "buttons/replayOver.png",
         onRelease = restartGame,
     }
-    restartButton.x = display.contentWidth * 0.5
+    restartButton.x = display.contentWidth * 0.82
     restartButton.y = display.contentHeight * 0.4
-    restartButton:scale(2.5,2.5)
+    restartButton:scale(2,2)
     restartButton.alpha = 0
     screenGroup:insert(restartButton)
 
@@ -59,20 +62,20 @@ function scene:createScene( event )
         overFile = "buttons/menuOver.png",
         onRelease = goToMenu,
     }
-    exitButton.x = display.contentWidth * 0.5
+    exitButton.x = display.contentWidth * 0.82
     exitButton.y = display.contentHeight * 0.6
-    exitButton:scale(2.5,2.5)
+    exitButton:scale(2,2)
     exitButton.alpha = 0
     screenGroup:insert(exitButton)
 
-    local nextButton = display.newText("Next", 0, 0, "Chinacat", 40)
-    nextButton.x = W * 0.5
-    nextButton.y = H * 0.8
+    local nextButton = display.newText("Next", 0, 0, "Chinacat", 60)
+    nextButton.x = W * 0.80
+    nextButton.y = H * 0.5
     nextButton.alpha = 0
     screenGroup:insert(nextButton)
 
     local startButton = display.newText("Start", 0, 0, "Chinacat", 70)
-    startButton.x = W * 0.5
+    startButton.x = W * 0.35
     startButton.y = H * 0.5
     screenGroup:insert(startButton)
 
@@ -81,29 +84,33 @@ function scene:createScene( event )
 
     local function chooseOptionColor(num)
         if num == 1 then
-            return "images/colors/pop1.png"
+            return "images/colorMatchGame/purplesmall.png" -- purple
         elseif num == 2 then
-            return "images/colors/pop2.png"
+            return "images/colorMatchGame/bluesmall.png" -- blue
         elseif num == 3 then
-            return "images/colors/pop3.png"
+            return "images/colorMatchGame/redsmall.png" -- red
         elseif num == 4 then
-            return "images/colors/pop4.png"
+            return "images/colorMatchGame/greensmall.png" -- green
         elseif num == 5 then
-            return "images/colors/pop5.png"
+            return "images/colorMatchGame/orangesmall.png" -- orange
         elseif num == 6 then
-            return "images/colors/pop6.png"
+            return "images/colorMatchGame/yellowsmall.png" -- yellow
         elseif num == 7 then
-            return "images/colors/pop7.png"
+            return "images/colorMatchGame/blacksmall.png" -- black
         elseif num == 8 then
-            return "images/colors/pop8.png"
+            return "images/colorMatchGame/brownsmall.png" -- brown
+        elseif num == 9 then
+            return "images/colorMatchGame/whitesmall.png" -- brown
+        elseif num == 10 then
+            return "images/colorMatchGame/pinksmall.png" -- brown
         end
     end
 
     local function createOptions()
-        if colorCount ~= 8 then
+        if colorCount ~= 10 then
             local r = 0
             local r2 = 0
-            local r3 = math.random(1,8)
+            local r3 = math.random(1,10)
             
             if option1 ~= nil then
                 option1:removeSelf()
@@ -113,50 +120,62 @@ function scene:createScene( event )
             
             if colorName == "purple" then
                 currentNum = 1
-                option1 = display.newImage("images/colors/pop1.png")
-                option1.x = W * 0.5;  option1.y = H * 0.25
+                option1 = display.newImage("images/colorMatchGame/purplesmall.png")
+                option1.x = W * 0.35;  option1.y = H * 0.25
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "blue" then
                 currentNum = 2
-                option1 = display.newImage("images/colors/pop2.png")
-                option1.x = W * 0.5;  option1.y = H * 0.25
+                option1 = display.newImage("images/colorMatchGame/bluesmall.png")
+                option1.x = W * 0.35;  option1.y = H * 0.25
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "red" then
                 currentNum = 3
-                option1 = display.newImage("images/colors/pop3.png")
-                option1.x = W * 0.5;  option1.y = H * 0.25
+                option1 = display.newImage("images/colorMatchGame/redsmall.png")
+                option1.x = W * 0.35;  option1.y = H * 0.25
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "green" then
                 currentNum = 4
-                option1 = display.newImage("images/colors/pop4.png")
-                option1.x = W * 0.5;  option1.y = H * 0.25
+                option1 = display.newImage("images/colorMatchGame/greensmall.png")
+                option1.x = W * 0.35;  option1.y = H * 0.25
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "orange" then
                 currentNum = 5
-                option1 = display.newImage("images/colors/pop5.png")
-                option1.x = W * 0.5;  option1.y = H * 0.25
+                option1 = display.newImage("images/colorMatchGame/orangesmall.png")
+                option1.x = W * 0.35;  option1.y = H * 0.25
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "yellow" then
                 currentNum = 6
-                option1 = display.newImage("images/colors/pop6.png")
-                option1.x = W * 0.5;  option1.y = H * 0.25
+                option1 = display.newImage("images/colorMatchGame/yellowsmall.png")
+                option1.x = W * 0.35;  option1.y = H * 0.25
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "black" then
                 currentNum = 7
-                option1 = display.newImage("images/colors/pop7.png")
-                option1.x = W * 0.5;  option1.y = H * 0.25
+                option1 = display.newImage("images/colorMatchGame/blacksmall.png")
+                option1.x = W * 0.35;  option1.y = H * 0.25
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "brown" then
                 currentNum = 8
-                option1 = display.newImage("images/colors/pop8.png")
-                option1.x = W * 0.5 option1.y = H * 0.25
+                option1 = display.newImage("images/colorMatchGame/brownsmall.png")
+                option1.x = W * 0.35 option1.y = H * 0.25
+                option1:addEventListener("tap", right)
+                screenGroup:insert(option1)
+            elseif colorName == "white" then
+                currentNum = 9
+                option1 = display.newImage("images/colorMatchGame/whitesmall.png")
+                option1.x = W * 0.35 option1.y = H * 0.25
+                option1:addEventListener("tap", right)
+                screenGroup:insert(option1)
+            elseif colorName == "pink" then
+                currentNum = 10
+                option1 = display.newImage("images/colorMatchGame/pinksmall.png")
+                option1.x = W * 0.35 option1.y = H * 0.25
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             end
@@ -165,10 +184,10 @@ function scene:createScene( event )
             local check2 = true
 
             while check1 do
-                r = math.random(1,8)
+                r = math.random(1,10)
                 if r~=currentNum then
                     option2 = display.newImage(chooseOptionColor(r))
-                    option2.x = W * 0.5 option2.y = H * 0.25
+                    option2.x = W * 0.35 option2.y = H * 0.25
                     option2:addEventListener("tap", wrong)
                     screenGroup:insert(option2)
                     check1 = false
@@ -176,10 +195,10 @@ function scene:createScene( event )
             end
 
             while check2 do
-                r2 = math.random(1,8)
+                r2 = math.random(1,10)
                 if r2~=r and r2~=currentNum then
                     option3 = display.newImage(chooseOptionColor(r2))
-                    option3.x = W * 0.5 option3.y = H * 0.25
+                    option3.x = W * 0.35 option3.y = H * 0.25
                     option3:addEventListener("tap", wrong)
                     screenGroup:insert(option3)
                     check2 = false
@@ -208,7 +227,7 @@ function scene:createScene( event )
     end
 
     local function prepareColor(value)
-        if colorCount ~= 8 then
+        if colorCount ~= 10 then
 
             verdict.alpha = 0
             if colorName ~= "" then
@@ -216,9 +235,9 @@ function scene:createScene( event )
             end
 
             color[colorCount] = display.newImage(value)
-            color[colorCount]:scale(2.3,3)
-            color[colorCount].x = W * 0.5
-            color[colorCount].y = H * 0.25
+            --color[colorCount]:scale(2.3,3)
+            color[colorCount].x = W * 0.35
+            color[colorCount].y = H * 0.35
             screenGroup:insert(color[colorCount])
             colorCount = colorCount + 1
         else
@@ -237,17 +256,17 @@ function scene:createScene( event )
         local rand1 = math.random(1,3)
 
         if rand1 == 1 then
-            transition.to(option1, {x = W * 0.3, y = H * 0.6, time = 500})
-            transition.to(option2, {x = W * 0.5, y = H * 0.6, time = 500})
-            transition.to(option3, {x = W * 0.7, y = H * 0.6, time = 500})
+            transition.to(option1, {x = W * 0.16, y = H * 0.67, time = 500})
+            transition.to(option2, {x = W * 0.36, y = H * 0.67, time = 500})
+            transition.to(option3, {x = W * 0.56, y = H * 0.67, time = 500})
         elseif rand1 ==2 then
-            transition.to(option1, {x = W * 0.5, y = H * 0.6, time = 500})
-            transition.to(option2, {x = W * 0.3, y = H * 0.6, time = 500})
-            transition.to(option3, {x = W * 0.7, y = H * 0.6, time = 500})
+            transition.to(option1, {x = W * 0.36, y = H * 0.67, time = 500})
+            transition.to(option2, {x = W * 0.16, y = H * 0.67, time = 500})
+            transition.to(option3, {x = W * 0.56, y = H * 0.67, time = 500})
         elseif rand1 == 3 then
-            transition.to(option1, {x = W * 0.5, y = H * 0.6, time = 500})
-            transition.to(option2, {x = W * 0.7, y = H * 0.6, time = 500})
-            transition.to(option3, {x = W * 0.3, y = H * 0.6, time = 500})
+            transition.to(option1, {x = W * 0.36, y = H * 0.67, time = 500})
+            transition.to(option2, {x = W * 0.56, y = H * 0.67, time = 500})
+            transition.to(option3, {x = W * 0.16, y = H * 0.67, time = 500})
         end
     end
 	
@@ -256,12 +275,12 @@ function scene:createScene( event )
     end
 
     function showColors() 
-        local rand = math.random(1,8)
+        local rand = math.random(1,10)
 
         if rand == 1 then
             if purpleDone == false then
                 purpleDone = true
-                prepareColor("images/colors/pop1.png")
+                prepareColor("images/colorMatchGame/purple.png")
                 colorName = "purple"
                 createOptions()
                 goHere()
@@ -271,7 +290,7 @@ function scene:createScene( event )
         elseif rand == 2 then
             if blueDone == false then
                 blueDone = true
-                prepareColor("images/colors/pop2.png")
+                prepareColor("images/colorMatchGame/blue.png")
                 colorName = "blue"
                 createOptions()
                 goHere()
@@ -281,7 +300,7 @@ function scene:createScene( event )
         elseif rand == 3 then
             if redDone == false then
                 redDone = true
-                prepareColor("images/colors/pop3.png")
+                prepareColor("images/colorMatchGame/red.png")
                 colorName = "red"
                 createOptions()
                 goHere()
@@ -291,7 +310,7 @@ function scene:createScene( event )
         elseif rand == 4 then
             if greenDone == false then
                 greenDone = true
-                prepareColor("images/colors/pop4.png")
+                prepareColor("images/colorMatchGame/green.png")
                 colorName = "green"
                 createOptions()
                 goHere()
@@ -301,7 +320,7 @@ function scene:createScene( event )
         elseif rand == 5 then
             if orangeDone == false then
                 orangeDone = true
-                prepareColor("images/colors/pop5.png")
+                prepareColor("images/colorMatchGame/orange.png")
                 colorName = "orange"
                 createOptions()
                 goHere()
@@ -311,7 +330,7 @@ function scene:createScene( event )
         elseif rand == 6 then
             if yellowDone == false then
                 yellowDone = true
-                prepareColor("images/colors/pop6.png")
+                prepareColor("images/colorMatchGame/yellow.png")
                 colorName = "yellow"
                 createOptions()
                 goHere()
@@ -321,7 +340,7 @@ function scene:createScene( event )
         elseif rand == 7 then
             if blackDone == false then
                 blackDone = true
-                prepareColor("images/colors/pop7.png")
+                prepareColor("images/colorMatchGame/black.png")
                 colorName = "black"
                 createOptions()
                 goHere()
@@ -331,8 +350,28 @@ function scene:createScene( event )
         elseif rand == 8 then
             if brownDone == false then
                 brownDone = true
-                prepareColor("images/colors/pop8.png")
+                prepareColor("images/colorMatchGame/brown.png")
                 colorName = "brown"
+                createOptions()
+                goHere()
+            else
+                nextColor()
+            end
+        elseif rand == 9 then
+            if whiteDone == false then
+                whiteDone = true
+                prepareColor("images/colorMatchGame/white.png")
+                colorName = "white"
+                createOptions()
+                goHere()
+            else
+                nextColor()
+            end
+        elseif rand == 10 then
+            if pinkDone == false then
+                pinkDone = true
+                prepareColor("images/colorMatchGame/pink.png")
+                colorName = "pink"
                 createOptions()
                 goHere()
             else
