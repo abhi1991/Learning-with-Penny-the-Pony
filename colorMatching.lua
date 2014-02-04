@@ -79,8 +79,8 @@ function scene:createScene( event )
     startButton.y = H * 0.5
     screenGroup:insert(startButton)
 
-    local verdict = display.newText("", 0, 0, "Chinacat", 70)
-    verdict.x = W * 0.5; verdict.y = H * 0.4
+    local verdict = display.newText("", 0, 0, "Chinacat", 60)
+    verdict.x = W * 0.35; verdict.y = H * 0.4
 
     local function chooseOptionColor(num)
         if num == 1 then
@@ -110,7 +110,6 @@ function scene:createScene( event )
         if colorCount ~= 10 then
             local r = 0
             local r2 = 0
-            local r3 = math.random(1,10)
             
             if option1 ~= nil then
                 option1:removeSelf()
@@ -121,61 +120,61 @@ function scene:createScene( event )
             if colorName == "purple" then
                 currentNum = 1
                 option1 = display.newImage("images/colorMatchGame/purplesmall.png")
-                option1.x = W * 0.35;  option1.y = H * 0.25
+                option1.x = W * 0.35;  option1.y = H * 0.3
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "blue" then
                 currentNum = 2
                 option1 = display.newImage("images/colorMatchGame/bluesmall.png")
-                option1.x = W * 0.35;  option1.y = H * 0.25
+                option1.x = W * 0.35;  option1.y = H * 0.3
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "red" then
                 currentNum = 3
                 option1 = display.newImage("images/colorMatchGame/redsmall.png")
-                option1.x = W * 0.35;  option1.y = H * 0.25
+                option1.x = W * 0.35;  option1.y = H * 0.3
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "green" then
                 currentNum = 4
                 option1 = display.newImage("images/colorMatchGame/greensmall.png")
-                option1.x = W * 0.35;  option1.y = H * 0.25
+                option1.x = W * 0.35;  option1.y = H * 0.3
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "orange" then
                 currentNum = 5
                 option1 = display.newImage("images/colorMatchGame/orangesmall.png")
-                option1.x = W * 0.35;  option1.y = H * 0.25
+                option1.x = W * 0.35;  option1.y = H * 0.3
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "yellow" then
                 currentNum = 6
                 option1 = display.newImage("images/colorMatchGame/yellowsmall.png")
-                option1.x = W * 0.35;  option1.y = H * 0.25
+                option1.x = W * 0.35;  option1.y = H * 0.3
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "black" then
                 currentNum = 7
                 option1 = display.newImage("images/colorMatchGame/blacksmall.png")
-                option1.x = W * 0.35;  option1.y = H * 0.25
+                option1.x = W * 0.35;  option1.y = H * 0.3
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "brown" then
                 currentNum = 8
                 option1 = display.newImage("images/colorMatchGame/brownsmall.png")
-                option1.x = W * 0.35 option1.y = H * 0.25
+                option1.x = W * 0.35 option1.y = H * 0.3
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "white" then
                 currentNum = 9
                 option1 = display.newImage("images/colorMatchGame/whitesmall.png")
-                option1.x = W * 0.35 option1.y = H * 0.25
+                option1.x = W * 0.35 option1.y = H * 0.3
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "pink" then
                 currentNum = 10
                 option1 = display.newImage("images/colorMatchGame/pinksmall.png")
-                option1.x = W * 0.35 option1.y = H * 0.25
+                option1.x = W * 0.35 option1.y = H * 0.3
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             end
@@ -187,7 +186,7 @@ function scene:createScene( event )
                 r = math.random(1,10)
                 if r~=currentNum then
                     option2 = display.newImage(chooseOptionColor(r))
-                    option2.x = W * 0.35 option2.y = H * 0.25
+                    option2.x = W * 0.35 option2.y = H * 0.3
                     option2:addEventListener("tap", wrong)
                     screenGroup:insert(option2)
                     check1 = false
@@ -198,7 +197,7 @@ function scene:createScene( event )
                 r2 = math.random(1,10)
                 if r2~=r and r2~=currentNum then
                     option3 = display.newImage(chooseOptionColor(r2))
-                    option3.x = W * 0.35 option3.y = H * 0.25
+                    option3.x = W * 0.35 option3.y = H * 0.3
                     option3:addEventListener("tap", wrong)
                     screenGroup:insert(option3)
                     check2 = false
@@ -391,7 +390,7 @@ function scene:createScene( event )
     end
 
     local function restartGame()
-        storyboard.gotoScene("refresh", "fade", 300)
+        storyboard.gotoScene("refresh_colormatching", "fade", 300)
     end
 
     function right()
