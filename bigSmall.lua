@@ -20,18 +20,23 @@ function scene:createScene( event )
     local animal = {}
     local option1, option2, right, wrong
 
-    local purpleDone = false
-    local blueDone = false
-    local redDone = false
-    local orangeDone = false
-    local yellowDone = false
-    local greenDone = false
-    local blackDone = false
-    local brownDone = false
+        
+    local beeDone = false
+    local bunnyDone = false
+    local catDOne = false
+    local chickenDone = false
+    local cowDone = false
+    local dogDone = false
+    local duckDone = false
+    local elephantDone = false
+    local horseDone = false
+    local pigDOne = false
+    local sheepDone = false
+    local turkeyDone = false
 
     local counter = 0
 
-    local bg = display.newImageRect("images/9.jpg", W, H)
+    local bg = display.newImageRect("images/bgOption.jpg", W, H)
     bg.x = W * 0.5
     bg.y = H * 0.5
     screenGroup:insert(bg)
@@ -72,7 +77,7 @@ function scene:createScene( event )
     nextButton.alpha = 0
     screenGroup:insert(nextButton)
 
-    local startButton = display.newText("Start", 0, 0, "Chinacat", 70)
+    local startButton = display.newText("UNDER CONSTRUCTION", 0, 0, "Chinacat", 70)
     startButton.x = W * 0.5
     startButton.y = H * 0.5
     screenGroup:insert(startButton)
@@ -83,26 +88,34 @@ function scene:createScene( event )
 
     local function chooseOptionColor(num)
         if num == 1 then
-            return "images/colors/pop1.png"
+            return "images/animals/beeSmall.png"
         elseif num == 2 then
-            return "images/colors/pop2.png"
+            return "images/animals/bunnySmall.png"
         elseif num == 3 then
-            return "images/colors/pop3.png"
+            return "images/animals/catSmall.png"
         elseif num == 4 then
-            return "images/colors/pop4.png"
+            return "images/animals/chickenSmall.png"
         elseif num == 5 then
-            return "images/colors/pop5.png"
+            return "images/animals/cowSmall.png"
         elseif num == 6 then
-            return "images/colors/pop6.png"
+            return "images/animals/dogSmall.png"
         elseif num == 7 then
-            return "images/colors/pop7.png"
+            return "images/animals/duckSmall.png"
         elseif num == 8 then
-            return "images/colors/pop8.png"
+            return "images/animals/elephantSmall.png"
+        elseif num == 9 then
+            return "images/animals/horseSmall.png"
+        elseif num == 10 then
+            return "images/animals/pigSmall.png"
+        elseif num == 11 then
+            return "images/animals/sheepSmall.png"
+        elseif num == 12 then
+            return "images/animals/turkeySmall.png"
         end
     end
 
     local function createOptions()
-        if counter~=8 then           
+        if counter~=12 then           
             if option1 ~= nil then
                 option1:removeSelf()
                 option2:removeSelf()
@@ -110,7 +123,7 @@ function scene:createScene( event )
             
             if big==1 then
                 verdict.alpha = 0 
-                if colorName == "purple" then
+                if colorName == "bee" then
                     option1 = display.newImage("images/colors/pop1.png")
                     option1:scale(2.3,3)
                     option1.x = W * 0.5;  option1.y = H * 0.25
@@ -183,6 +196,50 @@ function scene:createScene( event )
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
                     option2 = display.newImage(chooseOptionColor(7))
+                    option2.x = W * 0.5 option2.y = H * 0.25
+                    option2:addEventListener("tap", wrong)
+                    screenGroup:insert(option2)
+                    counter= counter+1
+                elseif colorName == "brown" then
+                    option1 = display.newImage("images/colors/pop8.png")
+                    option1:scale(2.3,3)
+                    option1.x = W * 0.5 option1.y = H * 0.25
+                    option1:addEventListener("tap", right)
+                    screenGroup:insert(option1)
+                    option2 = display.newImage(chooseOptionColor(8))
+                    option2.x = W * 0.5 option2.y = H * 0.25
+                    option2:addEventListener("tap", wrong)
+                    screenGroup:insert(option2)
+                    counter= counter+1
+                elseif colorName == "brown" then
+                    option1 = display.newImage("images/colors/pop8.png")
+                    option1:scale(2.3,3)
+                    option1.x = W * 0.5 option1.y = H * 0.25
+                    option1:addEventListener("tap", right)
+                    screenGroup:insert(option1)
+                    option2 = display.newImage(chooseOptionColor(8))
+                    option2.x = W * 0.5 option2.y = H * 0.25
+                    option2:addEventListener("tap", wrong)
+                    screenGroup:insert(option2)
+                    counter= counter+1
+                elseif colorName == "brown" then
+                    option1 = display.newImage("images/colors/pop8.png")
+                    option1:scale(2.3,3)
+                    option1.x = W * 0.5 option1.y = H * 0.25
+                    option1:addEventListener("tap", right)
+                    screenGroup:insert(option1)
+                    option2 = display.newImage(chooseOptionColor(8))
+                    option2.x = W * 0.5 option2.y = H * 0.25
+                    option2:addEventListener("tap", wrong)
+                    screenGroup:insert(option2)
+                    counter= counter+1
+                elseif colorName == "brown" then
+                    option1 = display.newImage("images/colors/pop8.png")
+                    option1:scale(2.3,3)
+                    option1.x = W * 0.5 option1.y = H * 0.25
+                    option1:addEventListener("tap", right)
+                    screenGroup:insert(option1)
+                    option2 = display.newImage(chooseOptionColor(8))
                     option2.x = W * 0.5 option2.y = H * 0.25
                     option2:addEventListener("tap", wrong)
                     screenGroup:insert(option2)
@@ -289,6 +346,51 @@ function scene:createScene( event )
                     option2:addEventListener("tap", right)
                     screenGroup:insert(option2)
                     counter= counter+1
+                elseif colorName == "brown" then
+                    option1 = display.newImage("images/colors/pop8.png")
+                    option1:scale(2.3,3)
+                    option1.x = W * 0.5 option1.y = H * 0.25
+                    option1:addEventListener("tap", wrong)
+                    screenGroup:insert(option1)
+                    option2 = display.newImage(chooseOptionColor(8))
+                    option2.x = W * 0.5 option2.y = H * 0.25
+                    option2:addEventListener("tap", right)
+                    screenGroup:insert(option2)
+                    counter= counter+1
+                elseif colorName == "brown" then
+                    option1 = display.newImage("images/colors/pop8.png")
+                    option1:scale(2.3,3)
+                    option1.x = W * 0.5 option1.y = H * 0.25
+                    option1:addEventListener("tap", wrong)
+                    screenGroup:insert(option1)
+                    option2 = display.newImage(chooseOptionColor(8))
+                    option2.x = W * 0.5 option2.y = H * 0.25
+                    option2:addEventListener("tap", right)
+                    screenGroup:insert(option2)
+                    counter= counter+1
+                elseif colorName == "brown" then
+                    option1 = display.newImage("images/colors/pop8.png")
+                    option1:scale(2.3,3)
+                    option1.x = W * 0.5 option1.y = H * 0.25
+                    option1:addEventListener("tap", wrong)
+                    screenGroup:insert(option1)
+                    option2 = display.newImage(chooseOptionColor(8))
+                    option2.x = W * 0.5 option2.y = H * 0.25
+                    option2:addEventListener("tap", right)
+                    screenGroup:insert(option2)
+                    counter= counter+1
+                elseif colorName == "brown" then
+                    option1 = display.newImage("images/colors/pop8.png")
+                    option1:scale(2.3,3)
+                    option1.x = W * 0.5 option1.y = H * 0.25
+                    option1:addEventListener("tap", wrong)
+                    screenGroup:insert(option1)
+                    option2 = display.newImage(chooseOptionColor(8))
+                    option2.x = W * 0.5 option2.y = H * 0.25
+                    option2:addEventListener("tap", right)
+                    screenGroup:insert(option2)
+                    counter= counter+1
+
                 end
             end
         else
@@ -331,12 +433,12 @@ function scene:createScene( event )
     end
 
     function chooseAnimal()
-        local rand = math.random(1,8)
-        if counter~=8 then
+        local rand = math.random(1,12)
+        if counter~=12 then
             if rand == 1 then
-                if purpleDone == false then
-                    purpleDone = true
-                    colorName = "purple"
+                if beeDone == false then
+                    beeDone = true
+                    colorName = "bee"
                     instructionFunction()
                     createOptions()
                     goHere()
@@ -344,9 +446,9 @@ function scene:createScene( event )
                     nextAnimal()
                 end
             elseif rand == 2 then
-                if blueDone == false then
-                    blueDone = true
-                    colorName = "blue"
+                if bunnyDone == false then
+                    bunnyDone = true
+                    colorName = "bunny"
                     instructionFunction()
                     createOptions()
                     goHere()
@@ -354,9 +456,9 @@ function scene:createScene( event )
                     nextAnimal()
                 end
             elseif rand == 3 then
-                if redDone == false then
-                    redDone = true
-                    colorName = "red"
+                if catDOne == false then
+                    catDone = true
+                    colorName = "cat"
                     instructionFunction()
                     createOptions()
                     goHere()
@@ -364,9 +466,9 @@ function scene:createScene( event )
                     nextAnimal()
                 end
             elseif rand == 4 then
-                if greenDone == false then
-                    greenDone = true
-                    colorName = "green"
+                if dogDone == false then
+                    dogDone = true
+                    colorName = "dog"
                     instructionFunction()
                     createOptions()
                     goHere()
@@ -374,9 +476,9 @@ function scene:createScene( event )
                     nextAnimal()
                 end
             elseif rand == 5 then
-                if orangeDone == false then
-                    orangeDone = true
-                    colorName = "orange"
+                if chickenDone == false then
+                    chickenDone = true
+                    colorName = "chicken"
                     instructionFunction()
                     createOptions()
                     goHere()
@@ -384,9 +486,9 @@ function scene:createScene( event )
                     nextAnimal()
                 end
             elseif rand == 6 then
-                if yellowDone == false then
-                    yellowDone = true
-                    colorName = "yellow"
+                if cowDone == false then
+                    cowDone = true
+                    colorName = "cow"
                     instructionFunction()
                     createOptions()
                     goHere()
@@ -394,9 +496,9 @@ function scene:createScene( event )
                     nextAnimal()
                 end
             elseif rand == 7 then
-                if blackDone == false then
-                    blackDone = true
-                    colorName = "black"
+                if duckDone == false then
+                    duckDone = true
+                    colorName = "duck"
                     instructionFunction()
                     createOptions()
                     goHere()
@@ -404,9 +506,49 @@ function scene:createScene( event )
                     nextAnimal()
                 end
             elseif rand == 8 then
-                if brownDone == false then
-                    brownDone = true
-                    colorName = "brown"
+                if elephantDone == false then
+                    elephantDone = true
+                    colorName = "elephant"
+                    instructionFunction()
+                    createOptions()
+                    goHere()
+                else
+                    nextAnimal()
+                end
+            elseif rand == 9 then
+                if horseDone == false then
+                    horseDone = true
+                    colorName = "horse"
+                    instructionFunction()
+                    createOptions()
+                    goHere()
+                else
+                    nextAnimal()
+                end
+            elseif rand == 10 then
+                if pigDOne == false then
+                    pigDOne = true
+                    colorName = "pig"
+                    instructionFunction()
+                    createOptions()
+                    goHere()
+                else
+                    nextAnimal()
+                end
+            elseif rand == 11 then
+                if sheepDone == false then
+                    sheepDone = true
+                    colorName = "sheep"
+                    instructionFunction()
+                    createOptions()
+                    goHere()
+                else
+                    nextAnimal()
+                end
+            elseif rand == 12 then
+                if turkeyDone == false then
+                    turkeyDone = true
+                    colorName = "turkey"
                     instructionFunction()
                     createOptions()
                     goHere()
