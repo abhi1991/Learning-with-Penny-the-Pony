@@ -35,6 +35,7 @@ function scene:createScene( event )
     local turkeyDone = false
 
     local counter = 0
+    local colorName, exitButton, restartButton
 
     local bg = display.newImageRect("images/bgOption.jpg", W, H)
     bg.x = W * 0.5

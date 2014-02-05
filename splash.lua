@@ -15,7 +15,7 @@ function scene:createScene( event )
     storyboard.removeScene("menu")
 
 
-    local splashScreen = display.newImageRect("images/bg2.jpg", display.contentWidth, display.contentHeight)
+    local splashScreen = display.newImageRect("images/bg4.jpg", display.contentWidth, display.contentHeight)
     splashScreen.x = display.contentWidth * 0.5
     splashScreen.y = display.contentHeight * 0.5
     

@@ -50,7 +50,7 @@ function scene:createScene( event )
         defaultFile = "buttons2/identifyShapes.png",
         overFile = "buttons2/identifyShapesHover.png",
         onRelease = function()
-            storyboard.gotoScene( "menuStoryMode", "fade", 400 )
+            storyboard.gotoScene( "identifyShapes", "fade", 400 )
         end,
     }
     gameThree.x = display.contentWidth * 0.75

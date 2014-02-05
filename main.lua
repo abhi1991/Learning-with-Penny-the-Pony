@@ -1,6 +1,6 @@
 display.setStatusBar( display.HiddenStatusBar )
 
-local storyboard = require "storyboard"
+local storyboard = require("storyboard")
 require "sqlite3"
 -- local external = require("external")
 
@@ -11,7 +11,7 @@ end
 
 timer.performWithDelay(3000, checkmem, 0)
 
--- storyboard.gotoScene( "splash", "fade", 400 )
-storyboard.gotoScene( "balloonGame", "fade", 400 )
+storyboard.gotoScene( "anotherMenu", "fade", 400 )
+-- storyboard.gotoScene( "identifyShapes", "fade", 400 )
 
 
