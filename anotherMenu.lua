@@ -63,7 +63,7 @@ function scene:createScene( event )
         defaultFile = "buttons2/number.png",
         overFile = "buttons2/numberHover.png",
         onRelease = function()
-            storyboard.gotoScene( "menuStoryMode", "fade", 400 )
+            storyboard.gotoScene( "countingNumGame", "fade", 400 )
         end,
     }
     gameFour.x = display.contentWidth * 0.25

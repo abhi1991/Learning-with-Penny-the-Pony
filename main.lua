@@ -11,7 +11,7 @@ end
 
 timer.performWithDelay(3000, checkmem, 0)
 
-storyboard.gotoScene( "anotherMenu", "fade", 400 )
--- storyboard.gotoScene( "identifyShapes", "fade", 400 )
+--storyboard.gotoScene( "anotherMenu", "fade", 400 )
+ storyboard.gotoScene( "identifyShapes", "fade", 400 )
 
 
