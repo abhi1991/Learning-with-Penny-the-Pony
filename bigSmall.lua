@@ -422,10 +422,10 @@ function scene:createScene( event )
         verdict.alpha = 0
         local r = math.random(1,2)
         if r == 1 then
-            instruction.text = "Tap the BIG animal"
+            instruction.text = "Tap the BIGGER animal"
             big = 1
         else
-            instruction.text = "Tap the SMALL animal"
+            instruction.text = "Tap the SMALLER animal"
             big = 0
         end
     end
@@ -596,6 +596,7 @@ function scene:createScene( event )
         verdict.alpha = 1
         option1.alpha = 0
         option2.alpha = 0
+
     end
 
     startButton:addEventListener("tap", startGame)
