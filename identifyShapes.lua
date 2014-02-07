@@ -16,7 +16,7 @@ function scene:createScene( event )
     
     local moveOption1, moveOption2
 
-    local shape, option1, option2
+    local shape, option1, option2, createShape, restartButton, menuButton
     local endGame = false
     local diamondDone = false
     local circleDone = false
@@ -27,7 +27,9 @@ function scene:createScene( event )
     local triangleDone = false
     local option1Correct = false
     local option2Correct = false
-    local randomBlackShapes, rBlack, nextButton, createOptions
+    local randomBlackShapes, rBlack, createOptions, rand2
+    local questionNumber = 1
+    local scoreNum = 0
     
     local bg = display.newImageRect("images/bg5.png", W, H)
     bg.x = W * 0.5
@@ -40,11 +42,17 @@ function scene:createScene( event )
     title:setFillColor(0,0,0)
     screenGroup:insert(title)
     
-    local score = display.newText("10/10", 0, 0, "Chinacat", 40)
-    score.x = display.contentWidth * 0.725
-    score.y = display.contentHeight * 0.11
+    local score = display.newText("Score: "..scoreNum, 0, 0, "Chinacat", 30)
+    score.x = display.contentWidth * 0.73
+    score.y = display.contentHeight * 0.2
     score:setFillColor(0,0,0)
     screenGroup:insert(score)
+    
+    local questionNumText = display.newText("Question # "..questionNumber, 0, 0, "Chinacat", 30)
+    questionNumText.x = display.contentWidth * 0.725
+    questionNumText.y = display.contentHeight * 0.11
+    questionNumText:setFillColor(0,0,0)
+    screenGroup:insert(questionNumText)
     
     local function randomBlackNum()
         rBlack = math.random(1,7)
@@ -53,7 +61,12 @@ function scene:createScene( event )
 
     function randomBlackShapes()
         if diamondDone == true and circleDone == true and squareDone == true and starDone == true and rectangleDone == true and ovalDone == true and triangleDone == true then
-            nextButton.alpha = 0
+            questionNumText.alpha = 0
+            score.size = 50
+            transition.to(score, {x = title.x, y = H * 0.4, time = 500})
+            transition.to(restartButton, {x = title.x, y = H * 0.75, time = 500})
+            transition.to(menuButton, {x = title.x, y = H * 0.6, time = 500})
+            title.text = "Yehey!!"
             endGame = true
         else
             if rBlack == 1 then
@@ -130,7 +143,7 @@ function scene:createScene( event )
         end
     end
     
-    local function randomShapes(r)
+    local function answerShape(r)
         if r == 1 then
             return "images/shapeGame/diamond.png"
         elseif r == 2 then
@@ -148,18 +161,44 @@ function scene:createScene( event )
         end
     end
     
+    local function randomShapes()
+        rand2 = math.random(1,7)
+        if rand2 == 1 then
+            return "images/shapeGame/diamond.png"
+        elseif rand2 == 2 then
+            return "images/shapeGame/circle.png"
+        elseif rand2 == 3 then
+            return "images/shapeGame/square.png"
+        elseif rand2 == 4 then
+            return "images/shapeGame/star.png"
+        elseif rand2 == 5 then
+            return "images/shapeGame/rectangle.png"
+        elseif rand2 == 6 then
+            return "images/shapeGame/oval.png"
+        elseif rand2 == 7 then
+            return "images/shapeGame/triangle.png"
+        end
+    end
+    
     function createOptions()
         local randOption = math.random(1,2)
-        local rand2 = math.random(1,7)
 
         if randOption == 1 then
             option1Correct = true
-            option1 = display.newImage(randomShapes(rBlack))
-            option2 = display.newImage(randomShapes(rand2))
+            option1 = display.newImage(answerShape(rBlack))
+            if rand2 == rBlack then
+                option2 = display.newImage(randomShapes())  
+            else
+                option2 = display.newImage(randomShapes())
+            end
         else
             option2Correct = true
-            option2 = display.newImage(randomShapes(rBlack))          
-            option1 = display.newImage(randomShapes(rand2))
+            option2 = display.newImage(answerShape(rBlack))          
+            if rand2 == rBlack then
+                option1 = display.newImage(randomShapes())  
+            else
+                option1 = display.newImage(randomShapes())
+            end
         end
 
         option1.x = W * 0.625
@@ -177,7 +216,7 @@ function scene:createScene( event )
         option2:addEventListener("touch", moveOption2)
     end
 
-    local function createShape()
+    function createShape()
         
         option1Correct = false
         option2Correct = false
@@ -207,13 +246,23 @@ function scene:createScene( event )
         if isOption2 == false then
             isOption1 = true
             if event.phase == "ended" then
-                if (event.x >= shape.x - 10 or event.x <= shape.x - 10) and (event.y >= shape.y - 10 or event.y <= shape.y - 10) then
+                if (option1.x <= shape.x + 100 and option1.x >= shape.x - 100) and (option1.y <= shape.y + 100 and option1.y >= shape.y - 100) then
                     if option1Correct == true then
+                        option1Correct = false
+                        isOption1 = false
+                        scoreNum = scoreNum + 1
+                        score.text = "Score: "..scoreNum
+                        questionNumber = questionNumber + 1
+                        questionNumText.text = "Question # "..questionNumber
                         createShape()
+                    else
+                        isOption1 = false
+                        transition.to(option1, {x = W * 0.625, y = H * 0.475, xScale = 0.7, yScale = 0.7, transition=easing.inOutExpo, time = 500})
                     end
+                else
+                    isOption1 = false
+                    transition.to(option1, {x = W * 0.625, y = H * 0.475, xScale = 0.7, yScale = 0.7, transition=easing.inOutExpo, time = 500})  
                 end
-                isOption1 = false
-                transition.to(option1, {x = W * 0.625, y = H * 0.475, xScale = 0.7, yScale = 0.7, transition=easing.inOutExpo, time = 500}) 
             else
                 if event.x <= 900 and event.x >= 60 and event.y <= 560 and event.y >= 60 then
                     option1.xScale = 1; option1.yScale = 1
@@ -228,13 +277,23 @@ function scene:createScene( event )
         if isOption1 == false then
             isOption2 = true
             if event.phase == "ended" then
-                if (event.x >= option2.x - 10 or event.x <= option2.x - 10) and (event.y >= option2.y - 10 or event.y <= option2.y - 10) then
+                if (option2.x <= shape.x + 100 and option2.x >= shape.x - 100) and (option2.y <= shape.y + 100 and option2.y >= shape.y - 100) then
                     if option2Correct == true then
+                        option2Correct = false
+                        isOption2 = false
+                        scoreNum = scoreNum + 1
+                        score.text = "Score: "..scoreNum
+                        questionNumber = questionNumber + 1
+                        questionNumText.text = "Question # "..questionNumber
                         createShape()
+                    else
+                       isOption2 = false
+                       transition.to(option2, {x = W * 0.875, y = H * 0.475, xScale = 0.7, yScale = 0.7, transition=easing.inOutExpo, time = 500})  
                     end
-                end
+                else
                     isOption2 = false
-                    transition.to(option1, {x = W * 0.625, y = H * 0.475, xScale = 0.7, yScale = 0.7, transition=easing.inOutExpo, time = 500}) 
+                    transition.to(option2, {x = W * 0.875, y = H * 0.475, xScale = 0.7, yScale = 0.7, transition=easing.inOutExpo, time = 500})
+                end 
             else
                 if event.x <= 900 and event.x >= 60 and event.y <= 560 and event.y >= 60 then
                     option2.xScale = 1; option2.yScale = 1
@@ -245,31 +304,21 @@ function scene:createScene( event )
         end
     end
     
-    nextButton = widget.newButton{
-        defaultFile = "images/buttons/next.png",
-        overFile = "images/buttons/nextOver.png",
-        onRelease = function()
-            createShape()
-        end,
-    }
-    nextButton.x = W * 0.75
-    nextButton.y = H * 0.78
-    nextButton:scale(1.5,1.75)
-    screenGroup:insert(nextButton)
-    
     createShape()
     
-    local restartButton = widget.newButton{
+    restartButton = widget.newButton{
         defaultFile = "images/buttons/restart.png",
         overFile = "images/buttons/restartOver.png",
-        onRelease = function()end,
+        onRelease = function()
+            storyboard.gotoScene("refresh_identifyShapes", "fade", 200)
+        end,
     }
     restartButton.x = W * 0.625
-    restartButton.y = H * 0.92
+    restartButton.y = H * 0.85
     restartButton:scale(1.5,1.75)
     screenGroup:insert(restartButton)
         
-    local menuButton = widget.newButton{
+    menuButton = widget.newButton{
         defaultFile = "images/buttons/menu.png",
         overFile = "images/buttons/menuOver.png",
         onRelease = function()
@@ -277,7 +326,7 @@ function scene:createScene( event )
         end,
     }
     menuButton.x = W * 0.875
-    menuButton.y = H * 0.92
+    menuButton.y = H * 0.85
     menuButton:scale(1.5,1.75)
     screenGroup:insert(menuButton)
 end
