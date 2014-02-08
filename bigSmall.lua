@@ -600,8 +600,8 @@ function scene:createScene( event )
         overFile = "images/buttons/next2Over.png",
 
     }
-    nextButton.x = W * 0.8
-    nextButton.y = H * 0.1
+    nextButton.x = W * 0.5
+    nextButton.y = H * 0.08
     nextButton:scale(2,2)
     nextButton.alpha = 0
     screenGroup:insert(nextButton)
