@@ -35,50 +35,19 @@ function scene:createScene( event )
     local turkeyDone = false
 
     local counter = 0
-    local colorName, exitButton, restartButton
+    local colorName, exitButton, startButton, startGame, nextButton, restartButton
 
     local bg = display.newImageRect("images/bgOption.jpg", W, H)
     bg.x = W * 0.5
     bg.y = H * 0.5
     screenGroup:insert(bg)
 
-    restartButton = widget.newButton
-    {
-        defaultFile = "buttons/replay.png",
-        overFile = "buttons/replayOver.png",
-        onRelease = restartGame,
-    }
-    restartButton.x = display.contentWidth * 0.5
-    restartButton.y = display.contentHeight * 0.4
-    restartButton:scale(2.5,2.5)
-    restartButton.alpha = 0
-    screenGroup:insert(restartButton)
 
-    exitButton = widget.newButton
-    {
-        defaultFile = "buttons/menu.png",
-        overFile = "buttons/menuOver.png",
-        onRelease = goToMenu,
-    }
-    exitButton.x = display.contentWidth * 0.5
-    exitButton.y = display.contentHeight * 0.6
-    exitButton:scale(2.5,2.5)
-    exitButton.alpha = 0
-    screenGroup:insert(exitButton)
-
-   
-
-    --WIDGETS
     local nextButton = display.newText("Next", 0, 0, "Chinacat", 60)
     nextButton.x = W * 0.5
     nextButton.y = H * 0.1
     nextButton.alpha = 0
     screenGroup:insert(nextButton)
-
-    local startButton = display.newText("Start", 0, 0, "Chinacat", 70)
-    startButton.x = W * 0.5
-    startButton.y = H * 0.5
-    screenGroup:insert(startButton)
 
     local verdict = display.newText("", 0, 0, "Chinacat", 60)
     verdict.x = W * 0.5; verdict.y = H * 0.8
@@ -409,6 +378,7 @@ function scene:createScene( event )
     local function goHere() --location
         local rand1 = math.random(1,2)
 
+
         if rand1 == 1 then
             transition.to(option1, {x = W * 0.3, y = H * 0.5, time = 500})
             transition.to(option2, {x = W * 0.65, y = H * 0.5, time = 500})
@@ -422,10 +392,10 @@ function scene:createScene( event )
         verdict.alpha = 0
         local r = math.random(1,2)
         if r == 1 then
-            instruction.text = "Tap the BIG animal"
+            instruction.text = "Tap the BIGGER animal"
             big = 1
         else
-            instruction.text = "Tap the SMALL animal"
+            instruction.text = "Tap the SMALLER animal"
             big = 0
         end
     end
@@ -596,7 +566,56 @@ function scene:createScene( event )
         verdict.alpha = 1
         option1.alpha = 0
         option2.alpha = 0
+
     end
+
+--WIDGETS
+    restartButton = widget.newButton
+    {
+        defaultFile = "buttons/replay.png",
+        overFile = "buttons/replayOver.png",
+        onRelease = restartGame,
+    }
+    restartButton.x = display.contentWidth * 0.5
+    restartButton.y = display.contentHeight * 0.4
+    restartButton:scale(2.5,2.5)
+    restartButton.alpha = 0
+    screenGroup:insert(restartButton)
+
+    exitButton = widget.newButton
+    {
+        defaultFile = "buttons/menu.png",
+        overFile = "buttons/menuOver.png",
+        onRelease = goToMenu,
+    }
+    exitButton.x = display.contentWidth * 0.5
+    exitButton.y = display.contentHeight * 0.6
+    exitButton:scale(2.5,2.5)
+    exitButton.alpha = 0
+    screenGroup:insert(exitButton)
+
+    nextButton = widget.newButton
+    {
+        defaultFile = "images/buttons/next2.png",
+        overFile = "images/buttons/next2Over.png",
+
+    }
+    nextButton.x = W * 0.5
+    nextButton.y = H * 0.08
+    nextButton:scale(2,2)
+    nextButton.alpha = 0
+    screenGroup:insert(nextButton)
+
+     startButton = widget.newButton
+    {
+        defaultFile = "images/buttons/start.png",
+        overFile = "images/buttons/startOver.png",
+        onRelease = startGame,
+    }
+    startButton.x = W * 0.5
+    startButton.y = H * 0.5
+    startButton:scale(2.5,2.5)
+    screenGroup:insert(startButton)
 
     startButton:addEventListener("tap", startGame)
     nextButton:addEventListener("tap", chooseAnimal)
