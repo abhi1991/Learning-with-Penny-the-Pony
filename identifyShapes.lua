@@ -31,6 +31,7 @@ function scene:createScene( event )
     local questionNumber = 1
     local scoreNum = 0
     
+
     local bg = display.newImageRect("images/bg5.png", W, H)
     bg.x = W * 0.5
     bg.y = H * 0.5
@@ -145,18 +146,25 @@ function scene:createScene( event )
     
     local function answerShape(r)
         if r == 1 then
+            --external.correctionEffects("correct")
             return "images/shapeGame/diamond.png"
         elseif r == 2 then
+           --external.correctionEffects("correct")
             return "images/shapeGame/circle.png"
         elseif r == 3 then
+            --external.correctionEffects("correct")
             return "images/shapeGame/square.png"
         elseif r == 4 then
+           --external.correctionEffects("correct")
             return "images/shapeGame/star.png"
         elseif r == 5 then
+            --external.correctionEffects("correct")
             return "images/shapeGame/rectangle.png"
         elseif r == 6 then
+            --external.correctionEffects("correct")
             return "images/shapeGame/oval.png"
         elseif r == 7 then
+            --external.correctionEffects("correct")
             return "images/shapeGame/triangle.png"
         end
     end

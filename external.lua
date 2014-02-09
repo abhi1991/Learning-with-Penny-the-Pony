@@ -26,8 +26,8 @@ local pahina3 = audio.loadSound("story_telling/story/ikatlo.mp3")
 local pahina4 = audio.loadSound("story_telling/story/ikaapat.mp3")
 local pahina5 = audio.loadSound("story_telling/story/ikalima.mp3")
 local huli = audio.loadSound("story_telling/story/huli.mp3")
-local correct = audio.loadSound("Sounds/correct.mp3")
-local wrong = audio.loadSound("Sounds/wrong.mp3")
+local correct = audio.loadSound("Sounds/Correct.mp3")
+local wrong = audio.loadSound("Sounds/Wrong.mp3")
 
 function external.playMusic()
     audio.play(bmusic, {channel = 0.5, loops = -1})
@@ -119,7 +119,6 @@ function external.correctionEffects(type)
 		audio.play( wrong, { channel=availableChannel2})
 	end
 end
-
 
 
 return external

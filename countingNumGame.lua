@@ -47,13 +47,13 @@ function scene:createScene( event )
     
 
     local colorNumText = display.newText("Color # "..colorNum, 0, 0, "Chinacat", 50)
-    colorNumText.x = W * 0.845
-    colorNumText.y = H * 0.15
+    colorNumText.x = W * 0.8
+    colorNumText.y = H * 0.45
     screenGroup:insert(colorNumText)
     
     local scoreText = display.newText("Score: "..scoreNum, 0, 0, "Chinacat", 45)
-    scoreText.x = W * 0.85
-    scoreText.y = H * 0.3
+    scoreText.x = W * 0.8
+    scoreText.y = H * 0.55
     screenGroup:insert(scoreText)
     
     local verdict = display.newText("", 0, 0, "Chinacat", 80)
@@ -204,7 +204,7 @@ function scene:createScene( event )
         
     end
 
-    local function prepareColor(value)
+    local function prepareNum(value)
         if colorCount ~= 10 then
 
             verdict.alpha = 0
@@ -214,7 +214,7 @@ function scene:createScene( event )
 
             color[colorCount] = display.newImage(value)
             color[colorCount]:scale(0.9,0.9)
-            color[colorCount].x = W * 0.35
+            color[colorCount].x = W * 0.4
             color[colorCount].y = H * 0.5
             screenGroup:insert(color[colorCount])
             colorCount = colorCount + 1
@@ -234,17 +234,17 @@ function scene:createScene( event )
         local rand1 = math.random(1,3)
 
         if rand1 == 1 then
-            transition.to(option1, {x = W * 0.55, y = H * 0.25, time = 500})
-            transition.to(option2, {x = W * 0.55, y = H * 0.5, time = 500})
-            transition.to(option3, {x = W * 0.55, y = H * 0.75, time = 500})
+            transition.to(option1, {x = W * 0.18, y = H * 0.5, time = 500})
+            transition.to(option2, {x = W * 0.38, y = H * 0.5, time = 500})
+            transition.to(option3, {x = W * 0.58, y = H * 0.5, time = 500})
         elseif rand1 ==2 then
-            transition.to(option1, {x = W * 0.55, y = H * 0.5, time = 500})
-            transition.to(option2, {x = W * 0.55, y = H * 0.25, time = 500})
-            transition.to(option3, {x = W * 0.55, y = H * 0.75, time = 500})
+            transition.to(option1, {x = W * 0.38, y = H * 0.5, time = 500})
+            transition.to(option2, {x = W * 0.18, y = H * 0.5, time = 500})
+            transition.to(option3, {x = W * 0.58, y = H * 0.5, time = 500})
         elseif rand1 == 3 then
-            transition.to(option1, {x = W * 0.55, y = H * 0.5, time = 500})
-            transition.to(option2, {x = W * 0.55, y = H * 0.75, time = 500})
-            transition.to(option3, {x = W * 0.55, y = H * 0.25, time = 500})
+            transition.to(option1, {x = W * 0.38, y = H * 0.5, time = 500})
+            transition.to(option2, {x = W * 0.58, y = H * 0.5, time = 500})
+            transition.to(option3, {x = W * 0.18, y = H * 0.5, time = 500})
         end
     end
     
@@ -260,7 +260,7 @@ function scene:createScene( event )
         if rand == 1 then
             if oneDone == false then
                 oneDone = true
-                prepareColor("images/numbers/partial/1.png")
+                prepareNum("images/numbers/partial/1.png")
                 numberName = "one"
                 createOptions()
                 goHere()
@@ -270,7 +270,7 @@ function scene:createScene( event )
         elseif rand == 2 then
             if twoDone == false then
                 twoDone = true
-                prepareColor("images/numbers/partial/2.png")
+                prepareNum("images/numbers/partial/2.png")
                 numberName = "two"
                 createOptions()
                 goHere()
@@ -280,7 +280,7 @@ function scene:createScene( event )
         elseif rand == 3 then
             if threeDone == false then
                 threeDone = true
-                prepareColor("images/numbers/partial/3.png")
+                prepareNum("images/numbers/partial/3.png")
                 numberName = "three"
                 createOptions()
                 goHere()
@@ -290,7 +290,7 @@ function scene:createScene( event )
         elseif rand == 4 then
             if fourDone == false then
                 fourDone = true
-                prepareColor("images/numbers/partial/4.png")
+                prepareNum("images/numbers/partial/4.png")
                 numberName = "four"
                 createOptions()
                 goHere()
@@ -300,7 +300,7 @@ function scene:createScene( event )
         elseif rand == 5 then
             if fiveDone == false then
                 fiveDone = true
-                prepareColor("images/numbers/partial/5.png")
+                prepareNum("images/numbers/partial/5.png")
                 numberName = "five"
                 createOptions()
                 goHere()
@@ -310,7 +310,7 @@ function scene:createScene( event )
         elseif rand == 6 then
             if sixDone == false then
                 sixDone = true
-                prepareColor("images/numbers/partial/6.png")
+                prepareNum("images/numbers/partial/6.png")
                 numberName = "six"
                 createOptions()
                 goHere()
@@ -320,7 +320,7 @@ function scene:createScene( event )
         elseif rand == 7 then
             if sevenDone == false then
                 sevenDone = true
-                prepareColor("images/numbers/partial/7.png")
+                prepareNum("images/numbers/partial/7.png")
                 numberName = "seven"
                 createOptions()
                 goHere()
@@ -330,7 +330,7 @@ function scene:createScene( event )
         elseif rand == 8 then
             if eightDone == false then
                 eightDone = true
-                prepareColor("images/numbers/partial/8.png")
+                prepareNum("images/numbers/partial/8.png")
                 numberName = "eight"
                 createOptions()
                 goHere()
@@ -340,7 +340,7 @@ function scene:createScene( event )
         elseif rand == 9 then
             if nineDone == false then
                 nineDone = true
-                prepareColor("images/numbers/partial/9.png")
+                prepareNum("images/numbers/partial/9.png")
                 numberName = "nine"
                 createOptions()
                 goHere()
@@ -350,7 +350,7 @@ function scene:createScene( event )
         elseif rand == 10 then
             if tenDone == false then
                 tenDone = true
-                prepareColor("images/numbers/partial/10.png")
+                prepareNum("images/numbers/partial/10.png")
                 numberName = "ten"
                 createOptions()
                 goHere()
@@ -419,7 +419,7 @@ function scene:createScene( event )
         onRelease = exitGame,
     }
     exitButton.x = display.contentWidth * 0.835
-    exitButton.y = display.contentHeight * 0.85
+    exitButton.y = display.contentHeight * 0.3
     exitButton:scale(2,2)
     exitButton.alpha = 0
     screenGroup:insert(exitButton)
@@ -435,7 +435,7 @@ function scene:createScene( event )
         end,
     }
     nextButton.x = verdict.x
-    nextButton.y = H * 0.7
+    nextButton.y = H * 0.6
     nextButton:scale(2,2)
     nextButton.alpha = 0
     screenGroup:insert(nextButton)

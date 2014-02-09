@@ -240,7 +240,7 @@ function scene:createScene( event )
 			transition.to(balloon10, {alpha = 0, time = 500}) 
 			transition.to(replayButton, {alpha = 1, time = 500})
 			transition.to(menuButton, {alpha = 1, time = 500})
-			external.soundEffects("finish")
+			external.correctionEffects("correct")
 		end
 	end
 

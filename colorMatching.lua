@@ -40,11 +40,12 @@ function scene:createScene( event )
     local colorNum = 0
     local scoreNum = 0
 
-    local bg = display.newImageRect("images/9_1.jpg", W, H)
+    local bg = display.newImageRect("images/9_2.jpg", W, H)
     bg.x = W * 0.5
     bg.y = H * 0.5
     screenGroup:insert(bg)
     
+
     local colorNumText = display.newText("Color # "..colorNum, 0, 0, "Chinacat", 50)
     colorNumText.x = W * 0.845
     colorNumText.y = H * 0.15
@@ -78,9 +79,9 @@ function scene:createScene( event )
         elseif num == 8 then
             return "images/colorMatchGame/brownsmall.png" -- brown
         elseif num == 9 then
-            return "images/colorMatchGame/whitesmall.png" -- brown
+            return "images/colorMatchGame/whitesmall.png" -- white
         elseif num == 10 then
-            return "images/colorMatchGame/pinksmall.png" -- brown
+            return "images/colorMatchGame/pinksmall.png" -- pink
         end
     end
 
@@ -189,8 +190,8 @@ function scene:createScene( event )
             -- option3.x = W * 0.5
             -- option3.y = H * 0.25
             else
-			
-			
+            
+            
                 color[colorCount-1]:removeSelf()
                 option1:removeSelf()
                 option2:removeSelf()
@@ -246,7 +247,7 @@ function scene:createScene( event )
             transition.to(option3, {x = W * 0.16, y = H * 0.71, time = 500})
         end
     end
-	
+    
     local function nextColor()
         showColors()
     end
@@ -383,6 +384,7 @@ function scene:createScene( event )
         color[colorCount - 1].alpha = 0
         scoreNum = scoreNum + 1
         scoreText.text = "Score: "..scoreNum
+        external.correctionEffects("correct")
         transition.to(nextButton, {alpha = 1, time = 200})
     end
 
@@ -393,6 +395,7 @@ function scene:createScene( event )
         option2.alpha = 0
         option3.alpha = 0
         color[colorCount - 1].alpha = 0
+        external.correctionEffects("worng")
         transition.to(nextButton, {alpha = 1, time = 200})
     end
     
@@ -443,8 +446,8 @@ function scene:createScene( event )
         overFile = "images/buttons/startOver.png",
         onRelease = startGame,
     }
-    startButton.x = W * 0.375
-    startButton.y = H * 0.5
+    startButton.x = W * 0.5
+    startButton.y = H * 0.7
     startButton:scale(2.5,2.5)
     screenGroup:insert(startButton)
 

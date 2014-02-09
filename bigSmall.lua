@@ -96,7 +96,7 @@ function scene:createScene( event )
                 verdict.alpha = 0 
                 if colorName == "bee" then
                     option1 = display.newImage("images/animals/beeSmall.png")
-                    option1:scale(1.5,1.5)
+                 --   option1:scale(1.5,1.5)
                     option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
@@ -107,7 +107,7 @@ function scene:createScene( event )
                     counter= counter+1
                 elseif colorName == "bunny" then
                     option1 = display.newImage("images/animals/bunnySmall.png")
-                    option1:scale(1.5,1.5)
+                --    option1:scale(1.5,1.5)
                     option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
@@ -118,7 +118,7 @@ function scene:createScene( event )
                     counter= counter+1
                 elseif colorName == "cat" then
                     option1 = display.newImage("images/animals/catSmall.png")
-                    option1:scale(1.5,1.5)
+                --    option1:scale(1.5,1.5)
                     option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
@@ -129,7 +129,7 @@ function scene:createScene( event )
                     counter= counter+1
                 elseif colorName == "chicken" then
                     option1 = display.newImage("images/animals/chickenSmall.png")
-                    option1:scale(1.5,1.5)
+                --    option1:scale(1.5,1.5)
                     option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
@@ -140,7 +140,7 @@ function scene:createScene( event )
                     counter= counter+1
                 elseif colorName == "cow" then
                     option1 = display.newImage("images/animals/cowSmall.png")
-                    option1:scale(1.5,1.5)
+                --    option1:scale(1.5,1.5)
                     option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
@@ -152,7 +152,7 @@ function scene:createScene( event )
                 elseif colorName == "dog" then
                     option1 = display.newImage("images/animals/dogSmall.png")
                     option1:scale(1.5,1.5)
-                    option1.x = W * 0.3 option1.y = H * 0.25
+                --    option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
                     option2 = display.newImage(chooseOptionColor(6))
@@ -162,7 +162,7 @@ function scene:createScene( event )
                     counter= counter+1
                 elseif colorName == "duck" then
                     option1 = display.newImage("images/animals/duckSmall.png")
-                    option1:scale(1.5,1.5)
+                --    option1:scale(1.5,1.5)
                     option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
@@ -173,7 +173,7 @@ function scene:createScene( event )
                     counter= counter+1
                 elseif colorName == "elephant" then
                     option1 = display.newImage("images/animals/elephantSmall.png")
-                    option1:scale(1.5,1.5)
+                --    option1:scale(1.5,1.5)
                     option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
@@ -184,7 +184,7 @@ function scene:createScene( event )
                     counter= counter+1
                 elseif colorName == "horse" then
                     option1 = display.newImage("images/animals/horseSmall.png")
-                    option1:scale(1.5,1.5)
+                --    option1:scale(1.5,1.5)
                     option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
@@ -195,7 +195,7 @@ function scene:createScene( event )
                     counter= counter+1
                 elseif colorName == "pig" then
                     option1 = display.newImage("images/animals/pigSmall.png")
-                    option1:scale(1.5,1.5)
+                --    option1:scale(1.5,1.5)
                     option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
@@ -206,7 +206,7 @@ function scene:createScene( event )
                     counter= counter+1
                 elseif colorName == "sheep" then
                     option1 = display.newImage("images/animals/sheepSmall.png")
-                    option1:scale(1.5,1.5)
+                --    option1:scale(1.5,1.5)
                     option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
@@ -218,7 +218,7 @@ function scene:createScene( event )
                 elseif colorName == "turkey" then
                     option1 = display.newImage("images/animals/turkeySmall.png")
                     option1:scale(1.5,1.5)
-                    option1.x = W * 0.3 option1.y = H * 0.25
+                --    option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
                     option2 = display.newImage(chooseOptionColor(8))
