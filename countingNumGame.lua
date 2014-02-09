@@ -18,21 +18,21 @@ function scene:createScene( event )
 
     local color = {}
     local colorCount = 0
-    local colorName = ""
+    local numberName = ""
 
     local showColors, option1, option2, option3, right, wrong
     local startButton, startGame, nextButton, restartButton
 
-    local purpleDone = false
-    local blueDone = false
-    local redDone = false
-    local orangeDone = false
-    local yellowDone = false
-    local greenDone = false
-    local blackDone = false
-    local brownDone = false
-    local whiteDone = false
-    local pinkDone = false
+    local oneDone = false
+    local twoDone = false
+    local threeDone = false
+    local fourDone = false
+    local fiveDone = false
+    local sixDone = false
+    local sevenDone = false
+    local eightDone = false
+    local nineDone = false
+    local tenDone = false
 
 
     local answer
@@ -44,11 +44,6 @@ function scene:createScene( event )
     bg.x = W * 0.5
     bg.y = H * 0.5
     screenGroup:insert(bg)
-    
-    local colorNumText = display.newText("UNDER CONSTRUCTION"..colorNum, 0, 0, "Chinacat", 50)
-    colorNumText.x = W * 0.5
-    colorNumText.y = H * 0.5
-    screenGroup:insert(colorNumText)
     
 
     local colorNumText = display.newText("Color # "..colorNum, 0, 0, "Chinacat", 50)
@@ -68,30 +63,30 @@ function scene:createScene( event )
 
     local function chooseOptionColor(num)
         if num == 1 then
-            return "images/numbers/partial/button1.png" -- purple
+            return "images/numbers/partial/button1.png" 
         elseif num == 2 then
-            return "images/numbers/partial/button2.png" -- blue
+            return "images/numbers/partial/button2.png" 
         elseif num == 3 then
-            return "images/numbers/partial/button3.png" -- red
+            return "images/numbers/partial/button3.png" 
         elseif num == 4 then
-            return "images/numbers/partial/button4.png" -- green
+            return "images/numbers/partial/button4.png" 
         elseif num == 5 then
-            return "images/numbers/partial/button5.png" -- orange
+            return "images/numbers/partial/button5.png" 
         elseif num == 6 then
-            return "images/numbers/partial/button6.png" -- yellow
+            return "images/numbers/partial/button6.png" 
         elseif num == 7 then
-            return "images/numbers/partial/button7.png" -- black
+            return "images/numbers/partial/button7.png"
         elseif num == 8 then
-            return "images/numbers/partial/button8.png" -- brown
+            return "images/numbers/partial/button8.png" 
         elseif num == 9 then
-            return "images/numbers/partial/button9.png" -- brown
+            return "images/numbers/partial/button9.png" 
         elseif num == 10 then
-            return "images/numbers/partial/button10.png" -- brown
+            return "images/numbers/partial/button10.png" 
         end
     end
 
     local function createOptions()
-        if colorCount ~= 9 then
+        if colorCount ~= 10 then
             local r = 0
             local r2 = 0
             
@@ -101,61 +96,61 @@ function scene:createScene( event )
                 option3:removeSelf()
             end
             
-            if colorName == "purple" then
+            if numberName == "one" then
                 currentNum = 1
                 option1 = display.newImage("images/numbers/partial/button1.png")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
-            elseif colorName == "blue" then
+            elseif numberName == "two" then
                 currentNum = 2
                 option1 = display.newImage("images/numbers/partial/button2.png")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
-            elseif colorName == "red" then
+            elseif numberName == "three" then
                 currentNum = 3
                 option1 = display.newImage("images/numbers/partial/button3.png")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
-            elseif colorName == "green" then
+            elseif numberName == "four" then
                 currentNum = 4
                 option1 = display.newImage("images/numbers/partial/button4.png")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
-            elseif colorName == "orange" then
+            elseif numberName == "five" then
                 currentNum = 5
                 option1 = display.newImage("images/numbers/partial/button5.png")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
-            elseif colorName == "yellow" then
-                currentNum = 6
+            elseif numberName == "six" then
+                numberName = 6
                 option1 = display.newImage("images/numbers/partial/button6.png")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
-            elseif colorName == "black" then
+            elseif numberName == "seven" then
                 currentNum = 7
                 option1 = display.newImage("images/numbers/partial/button7.png")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
-            elseif colorName == "brown" then
+            elseif numberName == "eight" then
                 currentNum = 8
                 option1 = display.newImage("images/numbers/partial/button8.png")
                 option1.x = W * 0.35 option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
-            elseif colorName == "white" then
+            elseif numberName == "nine" then
                 currentNum = 9
                 option1 = display.newImage("images/numbers/partial/button9.png")
                 option1.x = W * 0.35 option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
-            elseif colorName == "pink" then
+            elseif numberName == "ten" then
                 currentNum = 10
                 option1 = display.newImage("images/numbers/partial/button10.png")
                 option1.x = W * 0.35 option1.y = H * 0.4
@@ -213,14 +208,14 @@ function scene:createScene( event )
         if colorCount ~= 10 then
 
             verdict.alpha = 0
-            if colorName ~= "" then
+            if numberName ~= "" then
                 color[colorCount-1]:removeSelf()
             end
 
             color[colorCount] = display.newImage(value)
             color[colorCount]:scale(0.9,0.9)
             color[colorCount].x = W * 0.35
-            color[colorCount].y = H * 0.35
+            color[colorCount].y = H * 0.5
             screenGroup:insert(color[colorCount])
             colorCount = colorCount + 1
         else
@@ -239,17 +234,17 @@ function scene:createScene( event )
         local rand1 = math.random(1,3)
 
         if rand1 == 1 then
-            transition.to(option1, {x = W * 0.16, y = H * 0.71, time = 500})
-            transition.to(option2, {x = W * 0.36, y = H * 0.71, time = 500})
-            transition.to(option3, {x = W * 0.56, y = H * 0.71, time = 500})
+            transition.to(option1, {x = W * 0.55, y = H * 0.25, time = 500})
+            transition.to(option2, {x = W * 0.55, y = H * 0.5, time = 500})
+            transition.to(option3, {x = W * 0.55, y = H * 0.75, time = 500})
         elseif rand1 ==2 then
-            transition.to(option1, {x = W * 0.36, y = H * 0.71, time = 500})
-            transition.to(option2, {x = W * 0.16, y = H * 0.71, time = 500})
-            transition.to(option3, {x = W * 0.56, y = H * 0.71, time = 500})
+            transition.to(option1, {x = W * 0.55, y = H * 0.5, time = 500})
+            transition.to(option2, {x = W * 0.55, y = H * 0.25, time = 500})
+            transition.to(option3, {x = W * 0.55, y = H * 0.75, time = 500})
         elseif rand1 == 3 then
-            transition.to(option1, {x = W * 0.36, y = H * 0.71, time = 500})
-            transition.to(option2, {x = W * 0.56, y = H * 0.71, time = 500})
-            transition.to(option3, {x = W * 0.16, y = H * 0.71, time = 500})
+            transition.to(option1, {x = W * 0.55, y = H * 0.5, time = 500})
+            transition.to(option2, {x = W * 0.55, y = H * 0.75, time = 500})
+            transition.to(option3, {x = W * 0.55, y = H * 0.25, time = 500})
         end
     end
     
@@ -263,100 +258,100 @@ function scene:createScene( event )
         transition.to(nextButton, {alpha = 0, time = 200})
         
         if rand == 1 then
-            if purpleDone == false then
-                purpleDone = true
-                prepareColor("images/colorMatchGame/purple.png")
-                colorName = "purple"
+            if oneDone == false then
+                oneDone = true
+                prepareColor("images/numbers/partial/1.png")
+                numberName = "one"
                 createOptions()
                 goHere()
             else
                 nextColor()
             end
         elseif rand == 2 then
-            if blueDone == false then
-                blueDone = true
-                prepareColor("images/colorMatchGame/blue.png")
-                colorName = "blue"
+            if twoDone == false then
+                twoDone = true
+                prepareColor("images/numbers/partial/2.png")
+                numberName = "two"
                 createOptions()
                 goHere()
             else
                 nextColor()
             end
         elseif rand == 3 then
-            if redDone == false then
-                redDone = true
-                prepareColor("images/colorMatchGame/red.png")
-                colorName = "red"
+            if threeDone == false then
+                threeDone = true
+                prepareColor("images/numbers/partial/3.png")
+                numberName = "three"
                 createOptions()
                 goHere()
             else
                 nextColor()
             end
         elseif rand == 4 then
-            if greenDone == false then
-                greenDone = true
-                prepareColor("images/colorMatchGame/green.png")
-                colorName = "green"
+            if fourDone == false then
+                fourDone = true
+                prepareColor("images/numbers/partial/4.png")
+                numberName = "four"
                 createOptions()
                 goHere()
             else
                 nextColor()
             end
         elseif rand == 5 then
-            if orangeDone == false then
-                orangeDone = true
-                prepareColor("images/colorMatchGame/orange.png")
-                colorName = "orange"
+            if fiveDone == false then
+                fiveDone = true
+                prepareColor("images/numbers/partial/5.png")
+                numberName = "five"
                 createOptions()
                 goHere()
             else
                 nextColor()
             end
         elseif rand == 6 then
-            if yellowDone == false then
-                yellowDone = true
-                prepareColor("images/colorMatchGame/yellow.png")
-                colorName = "yellow"
+            if sixDone == false then
+                sixDone = true
+                prepareColor("images/numbers/partial/6.png")
+                numberName = "six"
                 createOptions()
                 goHere()
             else
                 nextColor()
             end
         elseif rand == 7 then
-            if blackDone == false then
-                blackDone = true
-                prepareColor("images/colorMatchGame/black.png")
-                colorName = "black"
+            if sevenDone == false then
+                sevenDone = true
+                prepareColor("images/numbers/partial/7.png")
+                numberName = "seven"
                 createOptions()
                 goHere()
             else
                 nextColor()
             end
         elseif rand == 8 then
-            if brownDone == false then
-                brownDone = true
-                prepareColor("images/colorMatchGame/brown.png")
-                colorName = "brown"
+            if eightDone == false then
+                eightDone = true
+                prepareColor("images/numbers/partial/8.png")
+                numberName = "eight"
                 createOptions()
                 goHere()
             else
                 nextColor()
             end
         elseif rand == 9 then
-            if whiteDone == false then
-                whiteDone = true
-                prepareColor("images/colorMatchGame/white.png")
-                colorName = "white"
+            if nineDone == false then
+                nineDone = true
+                prepareColor("images/numbers/partial/9.png")
+                numberName = "nine"
                 createOptions()
                 goHere()
             else
                 nextColor()
             end
         elseif rand == 10 then
-            if pinkDone == false then
-                pinkDone = true
-                prepareColor("images/colorMatchGame/pink.png")
-                colorName = "pink"
+            if tenDone == false then
+                tenDone = true
+                prepareColor("images/numbers/partial/10.png")
+                numberName = "ten"
                 createOptions()
                 goHere()
             else
@@ -389,6 +384,7 @@ function scene:createScene( event )
         color[colorCount - 1].alpha = 0
         scoreNum = scoreNum + 1
         scoreText.text = "Score: "..scoreNum
+        external.correctionEffects("correct")
         transition.to(nextButton, {alpha = 1, time = 200})
     end
 
@@ -399,6 +395,7 @@ function scene:createScene( event )
         option2.alpha = 0
         option3.alpha = 0
         color[colorCount - 1].alpha = 0
+        external.correctionEffects("wrong")
         transition.to(nextButton, {alpha = 1, time = 200})
     end
     

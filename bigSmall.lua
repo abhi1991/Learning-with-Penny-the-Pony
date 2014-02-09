@@ -560,6 +560,7 @@ function scene:createScene( event )
         option1.alpha = 0
         option2.alpha = 0
         external.correctionEffects("correct")
+        transition.to(nextButton, {alpha = 1, time = 200})
     end
 
     function wrong()
@@ -568,6 +569,7 @@ function scene:createScene( event )
         option1.alpha = 0
         option2.alpha = 0
         external.correctionEffects("wrong")
+        transition.to(nextButton, {alpha = 1, time = 200})
     end
 
 --WIDGETS

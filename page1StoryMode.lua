@@ -36,6 +36,7 @@ function scene:createScene( event )
         overFile = "images/backButtonOver.png",
         onRelease = function()
             storyboard.gotoScene( "menuStoryMode", "flip", 400 )
+            external.resumeMusic()
         end,
     }
     prevButton.x = display.contentWidth * 0.1
