@@ -14,10 +14,13 @@ function scene:createScene( event )
     
     storyboard.removeScene("menu")
 
+    local logo = display.newImage("images/splash.png")
+        logo.x = display.contentWidth * 0.5
+        logo.y = display.contentHeight * 0.5
 
-    local splashScreen = display.newImageRect("images/bg2.jpg", display.contentWidth, display.contentHeight)
-    splashScreen.x = display.contentWidth * 0.5
-    splashScreen.y = display.contentHeight * 0.5
+    -- local splashScreen = display.newImageRect("images/bg2.jpg", display.contentWidth, display.contentHeight)
+    -- splashScreen.x = display.contentWidth * 0.5
+    -- splashScreen.y = display.contentHeight * 0.5
     
     local function mainSplash()        
         local title = display.newImageRect("images/bg1.jpg", display.contentWidth, display.contentHeight)
@@ -255,7 +258,8 @@ function scene:createScene( event )
     end
     
     local function disappearScreen()
-        transition.to(splashScreen, {alpha = 0, time = 1000})
+        --transition.to(logo, {alpha = 0, time = 2000})
+        transition.to(logo, {alpha = 0, time = 1000})
         timer.performWithDelay(1000, mainSplash, 1)
     end
     

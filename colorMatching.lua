@@ -63,25 +63,25 @@ function scene:createScene( event )
 
     local function chooseOptionColor(num)
         if num == 1 then
-            return "images/colorMatchGame/purplesmall.png" -- purple
+            return "images/colorMatchGame/purplesmall_pic.png" -- purple
         elseif num == 2 then
-            return "images/colorMatchGame/bluesmall.png" -- blue
+            return "images/colorMatchGame/bluesmall_pic.png" -- blue
         elseif num == 3 then
-            return "images/colorMatchGame/redsmall.png" -- red
+            return "images/colorMatchGame/redsmall_pic.png" -- red
         elseif num == 4 then
-            return "images/colorMatchGame/greensmall.png" -- green
+            return "images/colorMatchGame/greensmall_pic.png" -- green
         elseif num == 5 then
-            return "images/colorMatchGame/orangesmall.png" -- orange
+            return "images/colorMatchGame/orangesmall_pic.png" -- orange
         elseif num == 6 then
-            return "images/colorMatchGame/yellowsmall.png" -- yellow
+            return "images/colorMatchGame/yellowsmall_pic.png" -- yellow
         elseif num == 7 then
-            return "images/colorMatchGame/blacksmall.png" -- black
+            return "images/colorMatchGame/blacksmall_pic.png" -- black
         elseif num == 8 then
-            return "images/colorMatchGame/brownsmall.png" -- brown
+            return "images/colorMatchGame/brownsmall_pic.png" -- brown
         elseif num == 9 then
-            return "images/colorMatchGame/whitesmall.png" -- white
+            return "images/colorMatchGame/whitesmall_pic.png" -- white
         elseif num == 10 then
-            return "images/colorMatchGame/pinksmall.png" -- pink
+            return "images/colorMatchGame/pinksmall_pic.png" -- pink
         end
     end
 
@@ -98,61 +98,61 @@ function scene:createScene( event )
             
             if colorName == "purple" then
                 currentNum = 1
-                option1 = display.newImage("images/colorMatchGame/purplesmall.png")
+                option1 = display.newImage("images/colorMatchGame/purplesmall_pic.png")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "blue" then
                 currentNum = 2
-                option1 = display.newImage("images/colorMatchGame/bluesmall.png")
+                option1 = display.newImage("images/colorMatchGame/bluesmall_pic.png")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "red" then
                 currentNum = 3
-                option1 = display.newImage("images/colorMatchGame/redsmall.png")
+                option1 = display.newImage("images/colorMatchGame/redsmall_pic.png")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "green" then
                 currentNum = 4
-                option1 = display.newImage("images/colorMatchGame/greensmall.png")
+                option1 = display.newImage("images/colorMatchGame/greensmall_pic.png")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "orange" then
                 currentNum = 5
-                option1 = display.newImage("images/colorMatchGame/orangesmall.png")
+                option1 = display.newImage("images/colorMatchGame/orangesmall_pic.png")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "yellow" then
                 currentNum = 6
-                option1 = display.newImage("images/colorMatchGame/yellowsmall.png")
+                option1 = display.newImage("images/colorMatchGame/yellowsmall_pic.png")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "black" then
                 currentNum = 7
-                option1 = display.newImage("images/colorMatchGame/blacksmall.png")
+                option1 = display.newImage("images/colorMatchGame/blacksmall_pic.png")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "brown" then
                 currentNum = 8
-                option1 = display.newImage("images/colorMatchGame/brownsmall.png")
+                option1 = display.newImage("images/colorMatchGame/brownsmall_pic.png")
                 option1.x = W * 0.35 option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "white" then
                 currentNum = 9
-                option1 = display.newImage("images/colorMatchGame/whitesmall.png")
+                option1 = display.newImage("images/colorMatchGame/whitesmall_pic.png")
                 option1.x = W * 0.35 option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif colorName == "pink" then
                 currentNum = 10
-                option1 = display.newImage("images/colorMatchGame/pinksmall.png")
+                option1 = display.newImage("images/colorMatchGame/pinksmall_pic.png")
                 option1.x = W * 0.35 option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
@@ -395,7 +395,7 @@ function scene:createScene( event )
         option2.alpha = 0
         option3.alpha = 0
         color[colorCount - 1].alpha = 0
-        external.correctionEffects("worng")
+        external.correctionEffects("wrong")
         transition.to(nextButton, {alpha = 1, time = 200})
     end
     

@@ -12,10 +12,13 @@ end
 
 function scene:createScene( event )
     local screenGroup = self.view
-
+    
+    
     local background = display.newImageRect("images/anotherBG_1.png", display.contentWidth, display.contentHeight)
     background.x = display.contentWidth * 0.5
     background.y = display.contentHeight * 0.5
+
+   
 
     --INSERT BUTTONS
 
@@ -28,8 +31,8 @@ function scene:createScene( event )
         end,
     }
     gameOne.x = display.contentWidth * 0.25
-    gameOne.y = display.contentHeight * 0.22
-    gameOne:scale(2,2)
+    gameOne.y = display.contentHeight * 0.28
+    gameOne:scale(2.5,2.5)
 
 
     local gameTwo = widget.newButton
@@ -41,8 +44,8 @@ function scene:createScene( event )
         end,
     }
     gameTwo.x = display.contentWidth * 0.5
-    gameTwo.y = display.contentHeight * 0.22
-    gameTwo:scale(2,2)
+    gameTwo.y = display.contentHeight * 0.28
+    gameTwo:scale(2.5,2.5)
 
 
     local gameThree = widget.newButton
@@ -54,8 +57,8 @@ function scene:createScene( event )
         end,
     }
     gameThree.x = display.contentWidth * 0.75
-    gameThree.y = display.contentHeight * 0.22
-    gameThree:scale(2,2)
+    gameThree.y = display.contentHeight * 0.28
+    gameThree:scale(2.5,2.5)
 
 
     local gameFour = widget.newButton
@@ -67,8 +70,8 @@ function scene:createScene( event )
         end,
     }
     gameFour.x = display.contentWidth * 0.25
-    gameFour.y = display.contentHeight * 0.47
-    gameFour:scale(2,2)
+    gameFour.y = display.contentHeight * 0.6
+    gameFour:scale(2.5,2.5)
 
 
     local gameFive = widget.newButton
@@ -80,8 +83,8 @@ function scene:createScene( event )
         end,
     }
     gameFive.x = display.contentWidth * 0.5
-    gameFive.y = display.contentHeight * 0.47
-    gameFive:scale(2,2)
+    gameFive.y = display.contentHeight * 0.6
+    gameFive:scale(2.5,2.5)
 
 
     local gameSix = widget.newButton
@@ -93,21 +96,21 @@ function scene:createScene( event )
         end,
     }
     gameSix.x = display.contentWidth * 0.75
-    gameSix.y = display.contentHeight * 0.47
-    gameSix:scale(2,2)
+    gameSix.y = display.contentHeight * 0.6
+    gameSix:scale(2.5,2.5)
 
 
-    local gameSeven = widget.newButton
-    {
-        defaultFile = "buttons2/mixColors.png",
-        overFile = "buttons2/mixColorsHover.png",
-        onRelease = function()
-            storyboard.gotoScene( "menuStoryMode", "fade", 400 )
-        end,
-    }
-    gameSeven.x = display.contentWidth * 0.5
-    gameSeven.y = display.contentHeight * 0.72
-    gameSeven:scale(2,2)
+    -- local gameSeven = widget.newButton
+    -- {
+    --     defaultFile = "buttons2/mixColors.png",
+    --     overFile = "buttons2/mixColorsHover.png",
+    --     onRelease = function()
+    --         storyboard.gotoScene( "menuStoryMode", "fade", 400 )
+    --     end,
+    -- }
+    -- gameSeven.x = display.contentWidth * 0.5
+    -- gameSeven.y = display.contentHeight * 0.72
+    -- gameSeven:scale(2,2)
 
 
 
@@ -144,10 +147,10 @@ function scene:createScene( event )
     gameSixText.y = gameSix.y + 80
     gameSixText:setTextColor(1,1,1)
 
-    local gameSevenText = display.newText("Mixing Colors", 0, 0, "Chinacat", 25)
-    gameSevenText.x = gameSeven.x
-    gameSevenText.y = gameSeven.y + 80
-    gameSevenText:setTextColor(1,1,1)
+    -- local gameSevenText = display.newText("Mixing Colors", 0, 0, "Chinacat", 25)
+    -- gameSevenText.x = gameSeven.x
+    -- gameSevenText.y = gameSeven.y + 80
+    -- gameSevenText:setTextColor(1,1,1)
    --END INSERT TEXT
 
    --GO TO SCENE
@@ -177,7 +180,7 @@ function scene:createScene( event )
         end,
     }
     prevButton.x = display.contentWidth * 0.92
-    prevButton.y = display.contentHeight * 0.78
+    prevButton.y = display.contentHeight * 0.15
     prevButton:scale(1.2,1.2) 
 
     local prevButtonText = display.newText("MENU", 0, 0, "Chinacat", 25)
@@ -192,7 +195,7 @@ function scene:createScene( event )
     screenGroup:insert(gameFour)
     screenGroup:insert(gameFive)
     screenGroup:insert(gameSix)
-    screenGroup:insert(gameSeven)
+    --screenGroup:insert(gameSeven)
     screenGroup:insert(prevButton)
     screenGroup:insert(gameOneText)
     screenGroup:insert(gameTwoText)
@@ -200,7 +203,7 @@ function scene:createScene( event )
     screenGroup:insert(gameFourText)
     screenGroup:insert(gameFiveText)
     screenGroup:insert(gameSixText)
-    screenGroup:insert(gameSevenText)
+    --screenGroup:insert(gameSevenText)
     screenGroup:insert(prevButtonText)
     
 end
