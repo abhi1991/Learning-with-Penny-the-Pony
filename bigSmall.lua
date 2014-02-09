@@ -559,6 +559,7 @@ function scene:createScene( event )
         verdict.alpha = 1
         option1.alpha = 0
         option2.alpha = 0
+        external.correctionEffects("correct")
     end
 
     function wrong()
@@ -566,7 +567,7 @@ function scene:createScene( event )
         verdict.alpha = 1
         option1.alpha = 0
         option2.alpha = 0
-
+        external.correctionEffects("wrong")
     end
 
 --WIDGETS
