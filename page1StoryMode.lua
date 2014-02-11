@@ -18,6 +18,12 @@ function scene:createScene( event )
     external.pauseMusic()
     external.page1Sound()
 
+    --STORY LINE
+    local text = display.newText("Penny the Pony lives in a farm called Fantasia. ", 100, 100, "Chinacat", 40)
+    text.x = display.contentWidth * 0.5
+    text.y = display.contentHeight * 0.5
+    text:setTextColor(0,0,1)
+
      local nextButton = widget.newButton
     {
         defaultFile = "images/nextButton.png",
@@ -54,13 +60,6 @@ function scene:createScene( event )
     prevButtonText.y = prevButton.y + 90
     prevButtonText:setTextColor(0,0,0)
 
-    --STORY LINE
-    local text = display.newText("Penny the Pony lives in a farm called Fantasia. ", 100, 100, "Chinacat", 40)
-    text.x = display.contentWidth * 0.5
-    text.y = display.contentHeight * 0.5
-    text:setTextColor(0,0,1)
-
-    
     screenGroup:insert(background)
     screenGroup:insert(nextButton)
     screenGroup:insert(prevButton)

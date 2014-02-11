@@ -49,8 +49,8 @@ function scene:createScene( event )
     nextButton.alpha = 0
     screenGroup:insert(nextButton)
 
-    local verdict = display.newText("", 0, 0, "Chinacat", 60)
-    verdict.x = W * 0.5; verdict.y = H * 0.8
+    local verdict = display.newText("", 0, 0, "Chinacat", 80)
+    verdict.x = W * 0.5; verdict.y = H * 0.5
  
     local instruction = display.newText("", 0, 0, "Chinacat", 70)
     instruction.x = W * 0.5
@@ -96,55 +96,60 @@ function scene:createScene( event )
                 verdict.alpha = 0 
                 if colorName == "bee" then
                     option1 = display.newImage("images/animals/beeSmall.png")
-                 --   option1:scale(1.5,1.5)
+                    option1:scale(1.5,1.5)
                     option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
                     option2 = display.newImage(chooseOptionColor(1))
+                    option2:scale(0.5,0.5)
                     option2.x = W * 0.65 option2.y = H * 0.25
                     option2:addEventListener("tap", wrong)
                     screenGroup:insert(option2)
                     counter= counter+1
                 elseif colorName == "bunny" then
                     option1 = display.newImage("images/animals/bunnySmall.png")
-                --    option1:scale(1.5,1.5)
+                    option1:scale(1.5,1.5)
                     option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
                     option2 = display.newImage(chooseOptionColor(2))
+                    option2:scale(0.5,0.5)
                     option2.x = W * 0.65 option2.y = H * 0.25
                     option2:addEventListener("tap", wrong)
                     screenGroup:insert(option2)
                     counter= counter+1
                 elseif colorName == "cat" then
                     option1 = display.newImage("images/animals/catSmall.png")
-                --    option1:scale(1.5,1.5)
+                    option1:scale(1.5,1.5)
                     option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
                     option2 = display.newImage(chooseOptionColor(3))
+                    option2:scale(0.5,0.5)
                     option2.x = W * 0.65 option2.y = H * 0.25
                     option2:addEventListener("tap", wrong)
                     screenGroup:insert(option2)
                     counter= counter+1
                 elseif colorName == "chicken" then
                     option1 = display.newImage("images/animals/chickenSmall.png")
-                --    option1:scale(1.5,1.5)
+                    option1:scale(1.5,1.5)
                     option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
                     option2 = display.newImage(chooseOptionColor(4))
+                    option2:scale(0.5,0.5)
                     option2.x = W * 0.65 option2.y = H * 0.25
                     option2:addEventListener("tap", wrong)
                     screenGroup:insert(option2)
                     counter= counter+1
                 elseif colorName == "cow" then
                     option1 = display.newImage("images/animals/cowSmall.png")
-                --    option1:scale(1.5,1.5)
+                    option1:scale(1.5,1.5)
                     option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
                     option2 = display.newImage(chooseOptionColor(5))
+                    option2:scale(0.5,0.5)
                     option2.x = W * 0.65 option2.y = H * 0.25
                     option2:addEventListener("tap", wrong)
                     screenGroup:insert(option2)
@@ -152,65 +157,71 @@ function scene:createScene( event )
                 elseif colorName == "dog" then
                     option1 = display.newImage("images/animals/dogSmall.png")
                     option1:scale(1.5,1.5)
-                --    option1.x = W * 0.3 option1.y = H * 0.25
+                    option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
                     option2 = display.newImage(chooseOptionColor(6))
+                    option2:scale(0.5,0.5)
                     option2.x = W * 0.65 option2.y = H * 0.25
                     option2:addEventListener("tap", wrong)
                     screenGroup:insert(option2)
                     counter= counter+1
                 elseif colorName == "duck" then
                     option1 = display.newImage("images/animals/duckSmall.png")
-                --    option1:scale(1.5,1.5)
+                    option1:scale(1.5,1.5)
                     option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
                     option2 = display.newImage(chooseOptionColor(7))
+                    option2:scale(0.5,0.5)
                     option2.x = W * 0.65 option2.y = H * 0.25
                     option2:addEventListener("tap", wrong)
                     screenGroup:insert(option2)
                     counter= counter+1
                 elseif colorName == "elephant" then
                     option1 = display.newImage("images/animals/elephantSmall.png")
-                --    option1:scale(1.5,1.5)
+                    option1:scale(1.5,1.5)
                     option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
                     option2 = display.newImage(chooseOptionColor(8))
+                    option2:scale(0.5,0.5)
                     option2.x = W * 0.65 option2.y = H * 0.25
                     option2:addEventListener("tap", wrong)
                     screenGroup:insert(option2)
                     counter= counter+1
                 elseif colorName == "horse" then
                     option1 = display.newImage("images/animals/horseSmall.png")
-                --    option1:scale(1.5,1.5)
+                    option1:scale(1.5,1.5)
                     option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
-                    option2 = display.newImage(chooseOptionColor(8))
+                    option2 = display.newImage(chooseOptionColor(9))
+                    option2:scale(0.5,0.5)
                     option2.x = W * 0.65 option2.y = H * 0.25
                     option2:addEventListener("tap", wrong)
                     screenGroup:insert(option2)
                     counter= counter+1
                 elseif colorName == "pig" then
                     option1 = display.newImage("images/animals/pigSmall.png")
-                --    option1:scale(1.5,1.5)
+                    option1:scale(1.5,1.5)
                     option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
-                    option2 = display.newImage(chooseOptionColor(8))
+                    option2 = display.newImage(chooseOptionColor(10))
+                    option2:scale(0.5,0.5)
                     option2.x = W * 0.65 option2.y = H * 0.25
                     option2:addEventListener("tap", wrong)
                     screenGroup:insert(option2)
                     counter= counter+1
                 elseif colorName == "sheep" then
                     option1 = display.newImage("images/animals/sheepSmall.png")
-                --    option1:scale(1.5,1.5)
+                    option1:scale(1.5,1.5)
                     option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
-                    option2 = display.newImage(chooseOptionColor(8))
+                    option2 = display.newImage(chooseOptionColor(11))
+                    option2:scale(0.5,0.5)
                     option2.x = W * 0.65 option2.y = H * 0.25
                     option2:addEventListener("tap", wrong)
                     screenGroup:insert(option2)
@@ -218,10 +229,11 @@ function scene:createScene( event )
                 elseif colorName == "turkey" then
                     option1 = display.newImage("images/animals/turkeySmall.png")
                     option1:scale(1.5,1.5)
-                --    option1.x = W * 0.3 option1.y = H * 0.25
+                    option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", right)
                     screenGroup:insert(option1)
-                    option2 = display.newImage(chooseOptionColor(8))
+                    option2 = display.newImage(chooseOptionColor(12))
+                    option2:scale(0.5,0.5)
                     option2.x = W * 0.65 option2.y = H * 0.25
                     option2:addEventListener("tap", wrong)
                     screenGroup:insert(option2)
@@ -236,6 +248,7 @@ function scene:createScene( event )
                     option1:addEventListener("tap", wrong)
                     screenGroup:insert(option1)
                     option2 = display.newImage(chooseOptionColor(1))
+                    option2:scale(0.5,0.5)
                     option2.x = W * 0.65 option2.y = H * 0.25
                     option2:addEventListener("tap", right)
                     screenGroup:insert(option2)
@@ -247,6 +260,7 @@ function scene:createScene( event )
                     option1:addEventListener("tap", wrong)
                     screenGroup:insert(option1)
                     option2 = display.newImage(chooseOptionColor(2))
+                    option2:scale(0.5,0.5)
                     option2.x = W * 0.65 option2.y = H * 0.25
                     option2:addEventListener("tap", right)
                     screenGroup:insert(option2)
@@ -258,6 +272,7 @@ function scene:createScene( event )
                     option1:addEventListener("tap", wrong)
                     screenGroup:insert(option1)
                     option2 = display.newImage(chooseOptionColor(3))
+                    option2:scale(0.5,0.5)
                     option2.x = W * 0.65 option2.y = H * 0.25
                     option2:addEventListener("tap", right)
                     screenGroup:insert(option2)
@@ -269,6 +284,7 @@ function scene:createScene( event )
                     option1:addEventListener("tap", wrong)
                     screenGroup:insert(option1)
                     option2 = display.newImage(chooseOptionColor(4))
+                    option2:scale(0.5,0.5)
                     option2.x = W * 0.65 option2.y = H * 0.25
                     option2:addEventListener("tap", right)
                     screenGroup:insert(option2)
@@ -280,6 +296,7 @@ function scene:createScene( event )
                     option1:addEventListener("tap", wrong)
                     screenGroup:insert(option1)
                     option2 = display.newImage(chooseOptionColor(5))
+                    option2:scale(0.5,0.5)
                     option2.x = W * 0.65 option2.y = H * 0.25
                     option2:addEventListener("tap", right)
                     screenGroup:insert(option2)
@@ -291,6 +308,7 @@ function scene:createScene( event )
                     option1:addEventListener("tap", wrong)
                     screenGroup:insert(option1)
                     option2 = display.newImage(chooseOptionColor(6))
+                    option2:scale(0.5,0.5)
                     option2.x = W * 0.65 option2.y = H * 0.25
                     option2:addEventListener("tap", right)
                     screenGroup:insert(option2)
@@ -302,6 +320,7 @@ function scene:createScene( event )
                     option1:addEventListener("tap", wrong)
                     screenGroup:insert(option1)
                     option2 = display.newImage(chooseOptionColor(7))
+                    option2:scale(0.5,0.5)
                     option2.x = W * 0.65 option2.y = H * 0.25
                     option2:addEventListener("tap", right)
                     screenGroup:insert(option2)
@@ -313,6 +332,7 @@ function scene:createScene( event )
                     option1:addEventListener("tap", wrong)
                     screenGroup:insert(option1)
                     option2 = display.newImage(chooseOptionColor(8))
+                    option2:scale(0.5,0.5)
                     option2.x = W * 0.65 option2.y = H * 0.25
                     option2:addEventListener("tap", right)
                     screenGroup:insert(option2)
@@ -323,7 +343,8 @@ function scene:createScene( event )
                     option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", wrong)
                     screenGroup:insert(option1)
-                    option2 = display.newImage(chooseOptionColor(8))
+                    option2 = display.newImage(chooseOptionColor(9))
+                    option2:scale(0.5,0.5)
                     option2.x = W * 0.65 option2.y = H * 0.25
                     option2:addEventListener("tap", right)
                     screenGroup:insert(option2)
@@ -334,7 +355,8 @@ function scene:createScene( event )
                     option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", wrong)
                     screenGroup:insert(option1)
-                    option2 = display.newImage(chooseOptionColor(8))
+                    option2 = display.newImage(chooseOptionColor(10))
+                    option2:scale(0.5,0.5)
                     option2.x = W * 0.65 option2.y = H * 0.25
                     option2:addEventListener("tap", right)
                     screenGroup:insert(option2)
@@ -345,7 +367,8 @@ function scene:createScene( event )
                     option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", wrong)
                     screenGroup:insert(option1)
-                    option2 = display.newImage(chooseOptionColor(8))
+                    option2 = display.newImage(chooseOptionColor(11))
+                    option2:scale(0.5,0.5)
                     option2.x = W * 0.65 option2.y = H * 0.25
                     option2:addEventListener("tap", right)
                     screenGroup:insert(option2)
@@ -356,7 +379,8 @@ function scene:createScene( event )
                     option1.x = W * 0.3 option1.y = H * 0.25
                     option1:addEventListener("tap", wrong)
                     screenGroup:insert(option1)
-                    option2 = display.newImage(chooseOptionColor(8))
+                    option2 = display.newImage(chooseOptionColor(12))
+                    option2:scale(0.5,0.5)
                     option2.x = W * 0.65 option2.y = H * 0.25
                     option2:addEventListener("tap", right)
                     screenGroup:insert(option2)
@@ -392,14 +416,14 @@ function scene:createScene( event )
         verdict.alpha = 0
         local r = math.random(1,2)
         if r == 1 then
-            instruction.text = "Tap the BIGGER animal"
+            instruction.text = "Tap the BIG Picture"
             big = 1
         else
-            instruction.text = "Tap the SMALLER animal"
+            instruction.text = "Tap the SMALL Picture"
             big = 0
         end
     end
-	
+
     local function nextAnimal()
         chooseAnimal()
     end
@@ -635,4 +659,3 @@ scene:addEventListener( "createScene", scene )
 scene:addEventListener( "willEnterScene", scene )
 
 return scene
-

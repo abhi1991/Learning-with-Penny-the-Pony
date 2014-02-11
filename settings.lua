@@ -21,7 +21,7 @@ function scene:createScene( event )
     settingsTitle:setTextColor(1,1,1)
 
     local musicLabel = display.newText("Music: ", 0,0, "Chinacat", 40)
-    musicLabel.x = display.contentWidth * 0.25
+    musicLabel.x = display.contentWidth * 0.36
     musicLabel.y = display.contentHeight * 0.35
     musicLabel:setFillColor(50,50,50)
     
