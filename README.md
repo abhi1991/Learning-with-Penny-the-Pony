@@ -4,18 +4,18 @@ Learning-with-Penny-the-Pony
 Educational Game-based Learning for Toddlers
 <br>
 Thesis Project By:
-Clemarie Secuya and
-Marcel Tunichii Villaruz
+<b>Clemarie Secuya and
+Marcel Tunichii Villaruz</b>
 <br>
 Open Source Project By:
-Janine Adrielle Munez;
+<b>Janine Adrielle Munez;
 Lovely Winnie Panlilio;
-Marcel Tunichii Villaruz
-<br>
+Marcel Tunichii Villaruz</b>
+<br><b>
 Graphics/Code Editors:
-Bryan Joseph Reas
-Bea Jimenez
-Czarteza Sombillon
+Bryan Joseph Reas;
+Bea Jimenez;
+Czarteza Sombillon</b>
 
 TITLE:
 
