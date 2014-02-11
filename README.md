@@ -11,9 +11,9 @@ Open Source Project By:
 <b>Janine Adrielle Munez;
 Lovely Winnie Panlilio;
 Marcel Tunichii Villaruz</b>
-<br><b>
+<br>
 Graphics/Code Editors:
-Bryan Joseph Reas;
+<b>Bryan Joseph Reas;
 Bea Jimenez;
 Czarteza Sombillon</b>
 
