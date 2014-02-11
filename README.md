@@ -11,6 +11,11 @@ Open Source Project By:
 Janine Adrielle Munez;
 Lovely Winnie Panlilio;
 Marcel Tunichii Villaruz
+<br>
+Graphics/Code Editors:
+Bryan Joseph Reas
+Bea Jimenez
+Czarteza Sombillon
 
 TITLE:
 
