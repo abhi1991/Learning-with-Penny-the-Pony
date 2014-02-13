@@ -92,7 +92,7 @@ function scene:createScene( event )
         defaultFile = "buttons2/targetAlphabet.png",
         overFile = "buttons2/targetAlphabetHover.png",
         onRelease = function()
-            storyboard.gotoScene( "menuStoryMode", "fade", 400 )
+            storyboard.gotoScene( "alphabet", "fade", 400 )
         end,
     }
     gameSix.x = display.contentWidth * 0.75
