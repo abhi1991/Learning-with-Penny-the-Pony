@@ -14,14 +14,12 @@ function scene:createScene( event )
     local screenGroup = self.view
     
     
-    local background = display.newImageRect("images/anotherBG_1.png", display.contentWidth, display.contentHeight)
+    local background = display.newImageRect("images/anotherBG_2.png", display.contentWidth, display.contentHeight)
     background.x = display.contentWidth * 0.5
     background.y = display.contentHeight * 0.5
-
    
 
-    --INSERT BUTTONS
-
+    -- INSERT BUTTONS --
     local gameOne = widget.newButton
     {
         defaultFile = "buttons2/colorMatch.png",
@@ -30,8 +28,8 @@ function scene:createScene( event )
             storyboard.gotoScene( "colorMatching", "fade", 400 )
         end,
     }
-    gameOne.x = display.contentWidth * 0.25
-    gameOne.y = display.contentHeight * 0.28
+    gameOne.x = display.contentWidth * 0.24
+    gameOne.y = display.contentHeight * 0.3
     gameOne:scale(2.5,2.5)
 
 
@@ -43,8 +41,8 @@ function scene:createScene( event )
             storyboard.gotoScene( "bigSmall", "fade", 400 )
         end,
     }
-    gameTwo.x = display.contentWidth * 0.5
-    gameTwo.y = display.contentHeight * 0.28
+    gameTwo.x = display.contentWidth * 0.48
+    gameTwo.y = display.contentHeight * 0.3
     gameTwo:scale(2.5,2.5)
 
 
@@ -56,8 +54,8 @@ function scene:createScene( event )
             storyboard.gotoScene( "identifyShapes", "fade", 400 )
         end,
     }
-    gameThree.x = display.contentWidth * 0.75
-    gameThree.y = display.contentHeight * 0.28
+    gameThree.x = display.contentWidth * 0.73
+    gameThree.y = display.contentHeight * 0.3
     gameThree:scale(2.5,2.5)
 
 
@@ -69,7 +67,7 @@ function scene:createScene( event )
             storyboard.gotoScene( "countingNumGame", "fade", 400 )
         end,
     }
-    gameFour.x = display.contentWidth * 0.25
+    gameFour.x = display.contentWidth * 0.23
     gameFour.y = display.contentHeight * 0.6
     gameFour:scale(2.5,2.5)
 
@@ -82,7 +80,7 @@ function scene:createScene( event )
             storyboard.gotoScene( "balloonGame", "fade", 400 )
         end,
     }
-    gameFive.x = display.contentWidth * 0.5
+    gameFive.x = display.contentWidth * 0.48
     gameFive.y = display.contentHeight * 0.6
     gameFive:scale(2.5,2.5)
 
@@ -95,7 +93,7 @@ function scene:createScene( event )
             storyboard.gotoScene( "alphabet", "fade", 400 )
         end,
     }
-    gameSix.x = display.contentWidth * 0.75
+    gameSix.x = display.contentWidth * 0.73
     gameSix.y = display.contentHeight * 0.6
     gameSix:scale(2.5,2.5)
 
@@ -113,45 +111,37 @@ function scene:createScene( event )
     -- gameSeven:scale(2,2)
 
 
-
-    --END INSERT BUTTONS
-
     --INSERT TEST FOR BUTTONS
     local gameOneText = display.newText("Color Matching", 0, 0, "Chinacat", 25)
     gameOneText.x = gameOne.x
-    gameOneText.y = gameOne.y + 80
+    gameOneText.y = gameOne.y + 85
     gameOneText:setTextColor(1,1,1)
    
     local gameTwoText = display.newText("Identify Sizes", 0, 0, "Chinacat", 25)
     gameTwoText.x = gameTwo.x
-    gameTwoText.y = gameTwo.y + 80
+    gameTwoText.y = gameTwo.y + 85
     gameTwoText:setTextColor(1,1,1)
 
     local gameThreeText = display.newText("Identify Shapes", 0, 0, "Chinacat", 25)
     gameThreeText.x = gameThree.x
-    gameThreeText.y = gameThree.y + 80
+    gameThreeText.y = gameThree.y + 85
     gameThreeText:setTextColor(1,1,1)
 
     local gameFourText = display.newText("Counting Numbers", 0, 0, "Chinacat", 25)
     gameFourText.x = gameFour.x
-    gameFourText.y = gameFour.y + 80
+    gameFourText.y = gameFour.y + 85
     gameFourText:setTextColor(1,1,1)
 
     local gameFiveText = display.newText("Pop Balloons", 0, 0, "Chinacat", 25)
     gameFiveText.x = gameFive.x
-    gameFiveText.y = gameFive.y + 80
+    gameFiveText.y = gameFive.y + 85
     gameFiveText:setTextColor(1,1,1)
 
-    local gameSixText = display.newText("Alphabet Target", 0, 0, "Chinacat", 25)
+    local gameSixText = display.newText("Arranging Alphabets", 0, 0, "Chinacat", 25)
     gameSixText.x = gameSix.x
-    gameSixText.y = gameSix.y + 80
+    gameSixText.y = gameSix.y + 85
     gameSixText:setTextColor(1,1,1)
 
-    -- local gameSevenText = display.newText("Mixing Colors", 0, 0, "Chinacat", 25)
-    -- gameSevenText.x = gameSeven.x
-    -- gameSevenText.y = gameSeven.y + 80
-    -- gameSevenText:setTextColor(1,1,1)
-   --END INSERT TEXT
 
    --GO TO SCENE
     local function goToGameFive()
@@ -173,20 +163,20 @@ function scene:createScene( event )
 
     local prevButton = widget.newButton
     {
-        defaultFile = "images/backButton.png",
-        overFile = "images/backButtonOver.png",
+        defaultFile = "images/back.png",
+        overFile = "images/backover.png",
         onRelease = function()
-            storyboard.gotoScene( "menu", "flip", 400 )
+            storyboard.gotoScene( "menu", "fade", 400 )
         end,
     }
     prevButton.x = display.contentWidth * 0.92
-    prevButton.y = display.contentHeight * 0.15
+    prevButton.y = display.contentHeight * 0.78
     prevButton:scale(1.2,1.2) 
 
-    local prevButtonText = display.newText("MENU", 0, 0, "Chinacat", 25)
-    prevButtonText.x = prevButton.x
-    prevButtonText.y = prevButton.y + 57
-    prevButtonText:setTextColor(0,0,0)
+    -- local prevButtonText = display.newText("MENU", 0, 0, "Chinacat", 25)
+    -- prevButtonText.x = prevButton.x
+    -- prevButtonText.y = prevButton.y + 57
+    -- prevButtonText:setTextColor(0,0,0)
 
     screenGroup:insert(background)
     screenGroup:insert(gameOne)
@@ -195,7 +185,6 @@ function scene:createScene( event )
     screenGroup:insert(gameFour)
     screenGroup:insert(gameFive)
     screenGroup:insert(gameSix)
-    --screenGroup:insert(gameSeven)
     screenGroup:insert(prevButton)
     screenGroup:insert(gameOneText)
     screenGroup:insert(gameTwoText)
@@ -203,8 +192,7 @@ function scene:createScene( event )
     screenGroup:insert(gameFourText)
     screenGroup:insert(gameFiveText)
     screenGroup:insert(gameSixText)
-    --screenGroup:insert(gameSevenText)
-    screenGroup:insert(prevButtonText)
+    -- screenGroup:insert(prevButtonText)
     
 end
 

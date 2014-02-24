@@ -1,16 +1,17 @@
 local storyboard = require("storyboard")
+local widget = require("widget")
 local scene = storyboard.newScene()
 local external = require("external")
 
 function scene:willEnterScene( event )
     local group = self.view
-    storyboard.removeAll()
-    storyboard.removeScene("balloonGame")
 end
 
 function scene:createScene( event )
     local screenGroup = self.view
 
+    storyboard.removeAll()
+    
     local function returnThere()
      storyboard.gotoScene("balloonGame", "fade", 400)
     end
@@ -26,4 +27,6 @@ scene:addEventListener( "createScene", scene )
 scene:addEventListener( "willEnterScene", scene )
 
 return scene
+
+
 

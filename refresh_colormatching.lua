@@ -5,12 +5,13 @@ local external = require("external")
 
 function scene:willEnterScene( event )
     local group = self.view
-    storyboard.removeAll()
 end
 
 function scene:createScene( event )
     local screenGroup = self.view
 
+    storyboard.removeAll()
+    
     local function returnThere()
      storyboard.gotoScene("colorMatching", "fade", 400)
     end
@@ -26,4 +27,6 @@ scene:addEventListener( "createScene", scene )
 scene:addEventListener( "willEnterScene", scene )
 
 return scene
+
+
 

@@ -14,7 +14,7 @@ function scene:createScene( event )
     
     storyboard.removeScene("menu")
 
-    local logo = display.newImage("images/splash.png")
+    local logo = display.newImage("images/titlepage_2.png")
         logo.x = display.contentWidth * 0.5
         logo.y = display.contentHeight * 0.5
 
@@ -67,9 +67,8 @@ function scene:createScene( event )
         button.x = display.contentWidth * 0.5
         button.y = display.contentHeight * 0.4
         button.alpha = 0.01
-        
     
-    
+        --  BACKGROUND MUSIC --
         external.playMusic()
                 
         -- LOADING --
@@ -225,7 +224,7 @@ function scene:createScene( event )
         
         local function gotoMenu()
             if game == true then
-                storyboard.gotoScene( "menu", "fade", 300 )
+                storyboard.gotoScene( "menuStoryMode", "fade", 300 )
             end
         end
         

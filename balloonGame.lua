@@ -22,9 +22,14 @@ function scene:createScene( event )
 	local numberBalloon = 0
 	local menuButton, replayButton
 	local balloon, balloon2, balloon3, balloon4, balloon5, balloon6, balloon7, balloon8, balloon9, balloon10
+	local startButton, backMenuButton, exitButton
+
+	local W = display.contentWidth
+    local H = display.contentHeight
+
 
 	--> Add Background Image
-	local background = display.newImageRect("images/7.jpg", display.contentWidth, display.contentHeight)
+	local background = display.newImageRect("images/backgrounds/BG_balloonGame.png", display.contentWidth, display.contentHeight)
 	background.x = display.contentWidth * 0.5
 	background.y = display.contentHeight * 0.5
 
@@ -34,26 +39,32 @@ function scene:createScene( event )
 	--background.x = center
 	--background.y = center
 
-	local instruction = display.newText("", 0, 0, "Chinacat", 90)
-	instruction.x = display.contentWidth * 0.5
-	instruction.y = display.contentHeight * 0.5
+	local instr = display.newImage("images/instructions/popBalloon.png")
+        instr.x = display.contentWidth * 0.5
+        instr.y = display.contentHeight * 0.5
+    instr:scale(0.7,0.7)
+    external.intruct("engBalloon")
+
+	local instruction = display.newText("", 0, 0, "Chinacat", 70)
+	instruction.x = display.contentWidth * 0.34
+	instruction.y = display.contentHeight * 0.85
 	instruction:setTextColor(0,0,1)
 
-	local number = display.newText(numberBalloon, 0, 0, "Chinacat", 120)
-	number.x = display.contentWidth * 0.5
-	number.y = display.contentHeight * 0.3
-	number:setTextColor(0,0,0)
+	local number = display.newText(numberBalloon, 0, 0, "Chinacat", 110)
+	number.x = display.contentWidth * 0.75
+	number.y = display.contentHeight * 0.85
+	number:setTextColor(1,1,1)
 
-	-- local backButton = widget.newButton{
-	-- 	defaultFile = "images/backButton.png",
-	-- 	overFile = "images/backButtonOver.png",
-	-- 	onRelease = function()
-	-- 		storyboard.gotoScene("menu","fade",400)
-	-- 	end,
-	-- }
-	-- backButton.x = 10
-	-- backButton.y = display.contentHeight * 0.1
-	-- backButton:scale(2,2)
+
+
+	function startGame()
+        transition.to(exitButton, {alpha = 0, time = 200})
+        transition.to(restartButton, {alpha = 0, time = 200})
+        transition.to(backMenuButton, {alpha = 0, time = 200})
+        transition.to(startButton, {alpha = 1, time = 200})
+        showColors()
+    end
+
 
 	local function createBalloons()
 		balloon = display.newImage("images/pop1.png")
@@ -188,34 +199,34 @@ function scene:createScene( event )
 		local rand = math.random(1,10)
 
 		if rand == 1 then
-			instruction.text = "Tap 1 balloon"
+			instruction.text = "Pop 1 balloon"
 			total = 1
 		elseif rand == 2 then
-			instruction.text = "Tap 2 balloons"
+			instruction.text = "Pop 2 balloons"
 			total = 2
 		elseif rand == 3 then
-			instruction.text = "Tap 3 balloons"
+			instruction.text = "Pop 3 balloons"
 			total = 3
 		elseif rand == 4 then
-			instruction.text = "Tap 4 balloons"
+			instruction.text = "Pop 4 balloons"
 			total = 4
 		elseif rand == 5 then
-			instruction.text = "Tap 5 balloons"
+			instruction.text = "Pop 5 balloons"
 			total = 5
 		elseif rand == 6 then
-			instruction.text = "Tap 6 balloons"
+			instruction.text = "Pop 6 balloons"
 			total = 6
 		elseif rand == 7 then
-			instruction.text = "Tap 7 balloons"
+			instruction.text = "Pop 7 balloons"
 			total = 7
 		elseif rand == 8 then
-			instruction.text = "Tap 8 balloons"
+			instruction.text = "Pop 8 balloons"
 			total = 8
 		elseif rand == 9 then
-			instruction.text = "Tap 9 balloons"
+			instruction.text = "Pop 9 balloons"
 			total = 9
 		else
-			instruction.text = "Tap 10 balloons"
+			instruction.text = "Pop 10 balloons"
 			total = 10
 		end
 	end
@@ -227,7 +238,7 @@ function scene:createScene( event )
 
 	local function check()
 		if total == numberBalloon then
-			instruction.text = "Very Good!!"
+			instruction.text = "Very Good!"
 			transition.to(balloon, {alpha = 0, time = 500})
 			transition.to(balloon2, {alpha = 0, time = 500})
 			transition.to(balloon3, {alpha = 0, time = 500})
@@ -240,7 +251,7 @@ function scene:createScene( event )
 			transition.to(balloon10, {alpha = 0, time = 500}) 
 			transition.to(replayButton, {alpha = 1, time = 500})
 			transition.to(menuButton, {alpha = 1, time = 500})
-			external.correctionEffects("correct")
+			external.correctionEffects("yehey")
 		end
 	end
 
@@ -411,9 +422,9 @@ function scene:createScene( event )
         overFile = "buttons/replayOver.png",
         onRelease = restartGame,
     }
-    replayButton.x = display.contentWidth * 0.5
+    replayButton.x = display.contentWidth * 0.35
     replayButton.y = display.contentHeight * 0.55
-    replayButton:scale(3,3)
+    replayButton:scale(2,2)
     replayButton.alpha = 0
 
 	menuButton = widget.newButton
@@ -422,10 +433,21 @@ function scene:createScene( event )
         overFile = "buttons/menuOver.png",
         onRelease = goToMenu,
     }
-    menuButton.x = display.contentWidth * 0.5
-    menuButton.y = display.contentHeight * 0.75
-    menuButton:scale(3,3)
+    menuButton.x = display.contentWidth * 0.65
+    menuButton.y = display.contentHeight * 0.55
+    menuButton:scale(2,2)
     menuButton.alpha = 0
+
+    local backButton = widget.newButton{
+		defaultFile = "images/homeButton.png",
+		overFile = "images/homeButtonOver.png",
+		onRelease = function()
+			storyboard.gotoScene("anotherMenu","fade",400)
+		end,
+	}
+	backButton.x = display.contentWidth * 0.9
+	backButton.y = display.contentHeight * 0.85
+	backButton:scale(1.5,1.5)
 
     -- START
 	instructionFunction()
@@ -443,8 +465,15 @@ function scene:createScene( event )
 	balloon9:addEventListener("tap", tapBalloon9)
 	balloon10:addEventListener("tap", tapBalloon10)
 
+
+
+	local function exitGame()
+        storyboard.gotoScene("anotherMenu", "fade", 400)
+    end
+
+	
+
 	screenGroup:insert(background)
-	--screenGroup:insert(rainbow)
 	screenGroup:insert(balloon)
 	screenGroup:insert(balloon2)
 	screenGroup:insert(balloon3)
@@ -460,9 +489,18 @@ function scene:createScene( event )
 	screenGroup:insert(floor)
 	screenGroup:insert(replayButton)
 	screenGroup:insert(menuButton)
+	screenGroup:insert(backButton)
         screenGroup:insert(rightWall)
         screenGroup:insert(leftWall)
         screenGroup:insert(top)
+
+    local function disappearScreen()
+        --transition.to(logo, {alpha = 0, time = 2000})
+        transition.to(instr, {alpha = 0, time = 1500})
+        timer.performWithDelay(1000, mainSplash, 1)
+    end
+    
+    timer.performWithDelay(1500, disappearScreen, 1)
 end
 
 function scene:exitScene( event )

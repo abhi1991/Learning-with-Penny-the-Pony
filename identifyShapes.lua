@@ -14,7 +14,7 @@ function scene:createScene( event )
     local W = display.contentWidth
     local H = display.contentHeight
     
-    local moveOption1, moveOption2
+    local moveOption1, moveOption2, nextButton
 
     local shape, option1, option2, createShape, restartButton, menuButton
     local endGame = false
@@ -31,6 +31,12 @@ function scene:createScene( event )
     local questionNumber = 1
     local scoreNum = 0
     
+
+    local instr = display.newImage("images/instructions/identShapes.png")
+        instr.x = display.contentWidth * 0.5
+        instr.y = display.contentHeight * 0.5
+    instr:scale(0.7,0.7)
+    external.intruct("engShape")
 
     local bg = display.newImageRect("images/bg5.png", W, H)
     bg.x = W * 0.5
@@ -49,6 +55,13 @@ function scene:createScene( event )
     score:setFillColor(0,0,0)
     screenGroup:insert(score)
     
+    local message = display.newText("", 0, 0, "Chinacat", 40)
+    message.x = display.contentWidth * 0.2725
+    message.y = display.contentHeight * 0.5
+    message:setTextColor(0,0,0)
+    message.alpha = 0
+    screenGroup:insert(message)
+    
     local questionNumText = display.newText("Question # "..questionNumber, 0, 0, "Chinacat", 30)
     questionNumText.x = display.contentWidth * 0.725
     questionNumText.y = display.contentHeight * 0.11
@@ -61,92 +74,87 @@ function scene:createScene( event )
     end
 
     function randomBlackShapes()
-        if diamondDone == true and circleDone == true and squareDone == true and starDone == true and rectangleDone == true and ovalDone == true and triangleDone == true then
-            questionNumText.alpha = 0
-            score.size = 50
-            transition.to(score, {x = title.x, y = H * 0.4, time = 500})
-            transition.to(restartButton, {x = title.x, y = H * 0.75, time = 500})
-            transition.to(menuButton, {x = title.x, y = H * 0.6, time = 500})
-            title.text = "Yehey!!"
-            endGame = true
-        else
-            if rBlack == 1 then
-                if diamondDone == false then
-                    diamondDone = true
-                    shape = display.newImage("images/shapeGame/diamondBlack.png")
-                    shape.x = W * 0.27
-                    shape.y = H * 0.55
-                    screenGroup:insert(shape)
-                else
-                    randomBlackNum()
-                end
-            elseif rBlack == 2 then
-                if circleDone == false then
-                    circleDone = true
-                    shape = display.newImage("images/shapeGame/circleBlack.png")
-                    shape.x = W * 0.27
-                    shape.y = H * 0.55
-                    screenGroup:insert(shape)
-                else
-                    randomBlackNum()
-                end
-            elseif rBlack == 3 then
-                if squareDone == false then
-                    squareDone = true
-                    shape = display.newImage("images/shapeGame/squareBlack.png")
-                    shape.x = W * 0.27
-                    shape.y = H * 0.55
-                    screenGroup:insert(shape)
-                else
-                    randomBlackNum()
-                end
-            elseif rBlack == 4 then
-                if starDone == false then
-                    starDone = true
-                    shape = display.newImage("images/shapeGame/starBlack.png")
-                    shape.x = W * 0.27
-                    shape.y = H * 0.55
-                    screenGroup:insert(shape)
-                else
-                    randomBlackNum()
-                end
-            elseif rBlack == 5 then
-                if rectangleDone == false then
-                    rectangleDone = true
-                    shape = display.newImage("images/shapeGame/rectangleBlack.png")
-                    shape.x = W * 0.27
-                    shape.y = H * 0.55
-                    screenGroup:insert(shape)
-                else
-                    randomBlackNum()
-                end
-            elseif rBlack == 6 then
-                if ovalDone == false then
-                    ovalDone = true
-                    shape = display.newImage("images/shapeGame/ovalBlack.png")
-                    shape.x = W * 0.27
-                    shape.y = H * 0.55
-                    screenGroup:insert(shape)
-                else
-                    randomBlackNum()
-                end
-            elseif rBlack == 7 then
-                if triangleDone == false then
-                    triangleDone = true
-                    shape = display.newImage("images/shapeGame/triangleBlack.png")
-                    shape.x = W * 0.27
-                    shape.y = H * 0.55
-                    screenGroup:insert(shape)
-                else
-                    randomBlackNum()
-                end
+        if rBlack == 1 then
+            if diamondDone == false then
+                diamondDone = true
+                shape = display.newImage("images/shapeGame/diamondBlack.png")
+                shape.x = W * 0.27
+                shape.y = H * 0.55
+                screenGroup:insert(shape)
+            else
+                randomBlackNum()
+            end
+        elseif rBlack == 2 then
+            if circleDone == false then
+                circleDone = true
+                shape = display.newImage("images/shapeGame/circleBlack.png")
+                external.shape("circle")
+                shape.x = W * 0.27
+                shape.y = H * 0.55
+                screenGroup:insert(shape)
+            else
+                randomBlackNum()
+            end
+        elseif rBlack == 3 then
+            if squareDone == false then
+                squareDone = true
+                shape = display.newImage("images/shapeGame/squareBlack.png")
+                external.shape("square")
+                shape.x = W * 0.27
+                shape.y = H * 0.55
+                screenGroup:insert(shape)
+            else
+                randomBlackNum()
+            end
+        elseif rBlack == 4 then
+            if starDone == false then
+                starDone = true
+                shape = display.newImage("images/shapeGame/starBlack.png")
+                external.shape("star")
+                shape.x = W * 0.27
+                shape.y = H * 0.55
+                screenGroup:insert(shape)
+            else
+                randomBlackNum()
+            end
+        elseif rBlack == 5 then
+            if rectangleDone == false then
+                rectangleDone = true
+                shape = display.newImage("images/shapeGame/rectangleBlack.png")
+                external.shape("rectangle")
+                shape.x = W * 0.27
+                shape.y = H * 0.55
+                screenGroup:insert(shape)
+            else
+                randomBlackNum()
+            end
+        elseif rBlack == 6 then
+            if ovalDone == false then
+                ovalDone = true
+                shape = display.newImage("images/shapeGame/ovalBlack.png")
+                external.shape("oblong")
+                shape.x = W * 0.27
+                shape.y = H * 0.55
+                screenGroup:insert(shape)
+            else
+                randomBlackNum()
+            end
+        elseif rBlack == 7 then
+            if triangleDone == false then
+                triangleDone = true
+                shape = display.newImage("images/shapeGame/triangleBlack.png")
+                external.shape("triangle")
+                shape.x = W * 0.27
+                shape.y = H * 0.55
+                screenGroup:insert(shape)
+            else
+                randomBlackNum()
             end
         end
     end
     
     local function answerShape(r)
         if r == 1 then
-            --external.correctionEffects("correct")
             return "images/shapeGame/diamond.png"
         elseif r == 2 then
            --external.correctionEffects("correct")
@@ -170,7 +178,6 @@ function scene:createScene( event )
     end
     
     local function randomShapes()
-        rand2 = math.random(1,7)
         if rand2 == 1 then
             return "images/shapeGame/diamond.png"
         elseif rand2 == 2 then
@@ -190,12 +197,15 @@ function scene:createScene( event )
     
     function createOptions()
         local randOption = math.random(1,2)
-
+        rand2 = math.random(1,7)
         if randOption == 1 then
             option1Correct = true
             option1 = display.newImage(answerShape(rBlack))
             if rand2 == rBlack then
-                option2 = display.newImage(randomShapes())  
+                while rand2 == rBlack do
+                    rand2 = math.random(1,7)
+                end
+                option2 = display.newImage(randomShapes())
             else
                 option2 = display.newImage(randomShapes())
             end
@@ -203,7 +213,10 @@ function scene:createScene( event )
             option2Correct = true
             option2 = display.newImage(answerShape(rBlack))          
             if rand2 == rBlack then
-                option1 = display.newImage(randomShapes())  
+                while rand2 == rBlack do
+                    rand2 = math.random(1,7)
+                end
+                option1 = display.newImage(randomShapes())
             else
                 option1 = display.newImage(randomShapes())
             end
@@ -247,6 +260,20 @@ function scene:createScene( event )
         end
     end
     
+    local function gameOver()
+        option1.alpha = 0
+        option2.alpha = 0
+        shape.alpha = 0
+        questionNumText.alpha = 0
+        score.size = 50
+        transition.to(score, {x = title.x, y = H * 0.4, time = 500})
+        transition.to(restartButton, {x = title.x, y = H * 0.75, time = 500})
+        transition.to(menuButton, {x = title.x, y = H * 0.6, time = 500})
+        external.correctionEffects("yehey")
+        title.text = "Very Good!"
+        endGame = true
+    end
+    
     local isOption1 = false
     local isOption2 = false
     
@@ -256,16 +283,34 @@ function scene:createScene( event )
             if event.phase == "ended" then
                 if (option1.x <= shape.x + 100 and option1.x >= shape.x - 100) and (option1.y <= shape.y + 100 and option1.y >= shape.y - 100) then
                     if option1Correct == true then
-                        option1Correct = false
-                        isOption1 = false
                         scoreNum = scoreNum + 1
                         score.text = "Score: "..scoreNum
-                        questionNumber = questionNumber + 1
-                        questionNumText.text = "Question # "..questionNumber
-                        createShape()
+                        if questionNumber ~= 5 then
+                            option1Correct = false
+                            isOption1 = false
+                            option1.alpha = 0
+                            option2.alpha = 0
+                            shape.alpha = 0
+                            message.text = "Correct!"
+                            external.feeds("correctFeed")
+                            message.alpha = 1
+                            nextButton.alpha = 1
+                        else
+                            gameOver()
+                        end
                     else
-                        isOption1 = false
-                        transition.to(option1, {x = W * 0.625, y = H * 0.475, xScale = 0.7, yScale = 0.7, transition=easing.inOutExpo, time = 500})
+                        if questionNumber ~= 5 then
+                            isOption1 = false
+                            option1.alpha = 0
+                            option2.alpha = 0
+                            shape.alpha = 0
+                            message.text = "Wrong"
+                            external.feeds("wrongFeed")
+                            message.alpha = 1
+                            nextButton.alpha = 1
+                        else
+                            gameOver()
+                        end
                     end
                 else
                     isOption1 = false
@@ -287,16 +332,34 @@ function scene:createScene( event )
             if event.phase == "ended" then
                 if (option2.x <= shape.x + 100 and option2.x >= shape.x - 100) and (option2.y <= shape.y + 100 and option2.y >= shape.y - 100) then
                     if option2Correct == true then
-                        option2Correct = false
-                        isOption2 = false
                         scoreNum = scoreNum + 1
                         score.text = "Score: "..scoreNum
-                        questionNumber = questionNumber + 1
-                        questionNumText.text = "Question # "..questionNumber
-                        createShape()
+                        if questionNumber ~= 5 then
+                            option2Correct = false
+                            isOption2 = false
+                            option1.alpha = 0
+                            option2.alpha = 0
+                            shape.alpha = 0
+                            message.text = "Correct!"
+                            external.feeds("correctFeed")
+                            message.alpha = 1
+                            nextButton.alpha = 1
+                        else
+                            gameOver()
+                        end
                     else
-                       isOption2 = false
-                       transition.to(option2, {x = W * 0.875, y = H * 0.475, xScale = 0.7, yScale = 0.7, transition=easing.inOutExpo, time = 500})  
+                        if questionNumber ~= 5 then
+                            isOption2 = false
+                            option1.alpha = 0
+                            option2.alpha = 0
+                            shape.alpha = 0
+                            message.text = "Wrong!"
+                            external.feeds("wrongFeed")
+                            message.alpha = 1
+                            nextButton.alpha = 1
+                        else
+                            gameOver()
+                        end
                     end
                 else
                     isOption2 = false
@@ -337,6 +400,32 @@ function scene:createScene( event )
     menuButton.y = H * 0.85
     menuButton:scale(1.5,1.75)
     screenGroup:insert(menuButton)
+    
+    nextButton = widget.newButton
+    {
+        defaultFile = "images/buttons/next2.png",
+        overFile = "images/buttons/next2Over.png",
+        onRelease = function()
+            questionNumber = questionNumber + 1
+            questionNumText.text = "Question # "..questionNumber
+            nextButton.alpha = 0
+            message.alpha = 0
+            createShape()
+        end,
+    }
+    nextButton.x = W * 0.26
+    nextButton.y = H * 0.75
+    nextButton:scale(2,2)
+    nextButton.alpha = 0
+    screenGroup:insert(nextButton)
+
+    local function disappearScreen()
+        --transition.to(logo, {alpha = 0, time = 2000})
+        transition.to(instr, {alpha = 0, time = 2000})
+        timer.performWithDelay(1000, mainSplash, 1)
+    end
+    
+    timer.performWithDelay(2000, disappearScreen, 1)
 end
 
 function scene:exitScene( event )

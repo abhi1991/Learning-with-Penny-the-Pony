@@ -19,6 +19,7 @@ function scene:createScene( event )
     local color = {}
     local colorCount = 0
     local numberName = ""
+    local times = 0
 
     local showColors, option1, option2, option3, right, wrong
     local startButton, startGame, nextButton, restartButton
@@ -40,20 +41,41 @@ function scene:createScene( event )
     local colorNum = 0
     local scoreNum = 0
 
-    local bg = display.newImageRect("images/9_2.jpg", W, H)
+    local bg = display.newImageRect("images/backgrounds/BG_countingNum.png", W, H)
     bg.x = W * 0.5
     bg.y = H * 0.5
     screenGroup:insert(bg)
     
 
-    local colorNumText = display.newText("Color # "..colorNum, 0, 0, "Chinacat", 50)
-    colorNumText.x = W * 0.8
-    colorNumText.y = H * 0.45
-    screenGroup:insert(colorNumText)
+    local instruction = display.newImage("images/instructions/countNum.png")
+        instruction.x = display.contentWidth * 0.5
+        instruction.y = display.contentHeight * 0.5
+    instruction:scale(0.7,0.7)
+    external.intruct("engCount")
+
+     local questNum = display.newText("How many Gems are there in the bridge?", 0, 0, "Chinacat", 40)
+    questNum.x = W * 0.45
+    questNum.y = H * 0.75
+    questNum.alpha = 0
+    screenGroup:insert(questNum)
+
+    local endMessage = display.newText("Game Over", 0, 0, "Chinacat", 60)
+    endMessage.x = W * 0.3
+    endMessage.y = H * 0.35
+    endMessage:setTextColor(0,0,0)
+    endMessage.alpha = 0
+    screenGroup:insert(endMessage)
+
+    local countNumText = display.newText("Question # "..colorNum, 0, 0, "Chinacat", 50)
+    countNumText.x = W * 0.2
+    countNumText.y = H * 0.85
+    countNumText.alpha = 0
+    screenGroup:insert(countNumText)
     
     local scoreText = display.newText("Score: "..scoreNum, 0, 0, "Chinacat", 45)
-    scoreText.x = W * 0.8
-    scoreText.y = H * 0.55
+    scoreText.x = W * 0.5
+    scoreText.y = H * 0.85
+    scoreText.alpha = 0
     screenGroup:insert(scoreText)
     
     local verdict = display.newText("", 0, 0, "Chinacat", 80)
@@ -99,60 +121,70 @@ function scene:createScene( event )
             if numberName == "one" then
                 currentNum = 1
                 option1 = display.newImage("images/numbers/partial/button1.png")
+                external.number("one")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif numberName == "two" then
                 currentNum = 2
                 option1 = display.newImage("images/numbers/partial/button2.png")
+                external.number("two")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif numberName == "three" then
                 currentNum = 3
                 option1 = display.newImage("images/numbers/partial/button3.png")
+                external.number("three")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif numberName == "four" then
                 currentNum = 4
                 option1 = display.newImage("images/numbers/partial/button4.png")
+                external.number("four")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif numberName == "five" then
                 currentNum = 5
                 option1 = display.newImage("images/numbers/partial/button5.png")
+                external.number("five")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif numberName == "six" then
                 numberName = 6
                 option1 = display.newImage("images/numbers/partial/button6.png")
+                external.number("six")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif numberName == "seven" then
                 currentNum = 7
                 option1 = display.newImage("images/numbers/partial/button7.png")
+                external.number("seven")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif numberName == "eight" then
                 currentNum = 8
                 option1 = display.newImage("images/numbers/partial/button8.png")
+                external.number("eight")
                 option1.x = W * 0.35 option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif numberName == "nine" then
                 currentNum = 9
                 option1 = display.newImage("images/numbers/partial/button9.png")
+                external.number("nine")
                 option1.x = W * 0.35 option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif numberName == "ten" then
                 currentNum = 10
                 option1 = display.newImage("images/numbers/partial/button10.png")
+                external.number("ten")
                 option1.x = W * 0.35 option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
@@ -233,18 +265,18 @@ function scene:createScene( event )
     local function goHere() --location
         local rand1 = math.random(1,3)
 
-        if rand1 == 1 then
-            transition.to(option1, {x = W * 0.18, y = H * 0.5, time = 500})
-            transition.to(option2, {x = W * 0.38, y = H * 0.5, time = 500})
-            transition.to(option3, {x = W * 0.58, y = H * 0.5, time = 500})
+       if rand1 == 1 then
+            transition.to(option1, {x = W * 0.8, y = H * 0.5, time = 500})
+            transition.to(option2, {x = W * 0.8, y = H * 0.35, time = 500})
+            transition.to(option3, {x = W * 0.8, y = H * 0.65, time = 500})
         elseif rand1 ==2 then
-            transition.to(option1, {x = W * 0.38, y = H * 0.5, time = 500})
-            transition.to(option2, {x = W * 0.18, y = H * 0.5, time = 500})
-            transition.to(option3, {x = W * 0.58, y = H * 0.5, time = 500})
+            transition.to(option1, {x = W * 0.8, y = H * 0.65, time = 500})
+            transition.to(option2, {x = W * 0.8, y = H * 0.5, time = 500})
+            transition.to(option3, {x = W * 0.8, y = H * 0.35, time = 500})
         elseif rand1 == 3 then
-            transition.to(option1, {x = W * 0.38, y = H * 0.5, time = 500})
-            transition.to(option2, {x = W * 0.58, y = H * 0.5, time = 500})
-            transition.to(option3, {x = W * 0.18, y = H * 0.5, time = 500})
+            transition.to(option1, {x = W * 0.8, y = H * 0.35, time = 500})
+            transition.to(option2, {x = W * 0.8, y = H * 0.65, time = 500})
+            transition.to(option3, {x = W * 0.8, y = H * 0.5, time = 500})
         end
     end
     
@@ -361,9 +393,16 @@ function scene:createScene( event )
     end
 
     function startGame()
-        transition.to(exitButton, {alpha = 1, time = 200})
-        transition.to(restartButton, {alpha = 1, time = 200})
+        colorNum = colorNum + 1
+        countNumText.text = "Question # "..colorNum
+        transition.to(exitButton, {alpha = 0, time = 200})
+        transition.to(restartButton, {alpha = 0, time = 200})
+        transition.to(backMenuButton, {alpha = 0, time = 200})
         transition.to(startButton, {alpha = 0, time = 200})
+        transition.to(countNumText, {alpha = 1, time = 200})
+        transition.to(scoreText, {alpha = 1, time = 200})
+        transition.to(questNum, {alpha = 1, time = 200})
+        external.gems("gemsEng")
         showColors()
     end
 
@@ -375,17 +414,37 @@ function scene:createScene( event )
         storyboard.gotoScene("refresh_countingNumGame", "fade", 300)
     end
 
+
+    local function moveScore()
+            transition.to(countNumText, {alpha = 0, time = 200})
+            transition.to(scoreText, {x = W * 0.3, y = H * 0.5, time = 500})
+    end
+
+
     function right()
         verdict.text = "Correct"
         verdict.alpha = 1
         option1.alpha = 0
         option2.alpha = 0
         option3.alpha = 0
+        questNum.alpha = 0
         color[colorCount - 1].alpha = 0
         scoreNum = scoreNum + 1
         scoreText.text = "Score: "..scoreNum
-        external.correctionEffects("correct")
+        external.feeds("correctFeed")
+        -- external.correctionEffects("correct")
         transition.to(nextButton, {alpha = 1, time = 200})
+        if colorNum == 5 then
+            transition.to(endMessage, {alpha = 1, time = 200})
+            transition.to(nextButton, {alpha = 0, time = 200})
+            moveScore()
+            external.correctionEffects("yehey")
+            restartButton.alpha = 1
+            exitButton.alpha = 1
+            verdict.alpha = 0
+        else
+            transition.to(nextButton, {alpha = 1, time = 200})
+        end
     end
 
     function wrong()
@@ -394,32 +453,47 @@ function scene:createScene( event )
         option1.alpha = 0
         option2.alpha = 0
         option3.alpha = 0
+        questNum.alpha = 0
         color[colorCount - 1].alpha = 0
-        external.correctionEffects("wrong")
+        external.feeds("wrongFeed")
+        -- external.correctionEffects("wrong")
         transition.to(nextButton, {alpha = 1, time = 200})
+        if colorNum == 5 then
+            transition.to(endMessage, {alpha = 1, time = 200})
+            transition.to(nextButton, {alpha = 0, time = 200})
+            moveScore()
+            external.correctionEffects("yehey")
+            restartButton.alpha = 1
+            exitButton.alpha = 1
+            verdict.alpha = 0
+        else
+            transition.to(nextButton, {alpha = 1, time = 200})
+        end
     end
+
+    
     
     --WIDGETS
     restartButton = widget.newButton
     {
-        defaultFile = "images/buttons/restart2.png",
-        overFile = "images/buttons/restart2Over.png",
+        defaultFile = "buttons/replay.png",
+        overFile = "buttons/replayOver.png",
         onRelease = restartGame,
     }
-    restartButton.x = display.contentWidth * 0.835
-    restartButton.y = display.contentHeight * 0.7
+    restartButton.x = display.contentWidth * 0.8
+    restartButton.y = display.contentHeight * 0.4
     restartButton:scale(2,2)
     restartButton.alpha = 0
     screenGroup:insert(restartButton)
 
     exitButton = widget.newButton
     {
-        defaultFile = "images/buttons/menu2.png",
-        overFile = "images/buttons/menu2Over.png",
+        defaultFile = "buttons/menu.png",
+        overFile = "buttons/menuOver.png",
         onRelease = exitGame,
     }
-    exitButton.x = display.contentWidth * 0.835
-    exitButton.y = display.contentHeight * 0.3
+    exitButton.x = display.contentWidth * 0.8
+    exitButton.y = display.contentHeight * 0.6
     exitButton:scale(2,2)
     exitButton.alpha = 0
     screenGroup:insert(exitButton)
@@ -430,7 +504,9 @@ function scene:createScene( event )
         overFile = "images/buttons/next2Over.png",
         onRelease = function()
             colorNum = colorNum + 1
-            colorNumText.text = "Color # "..colorNum
+            countNumText.text = "Question # "..colorNum
+            questNum.alpha = 1
+            external.gems("gemsEng")
             showColors()
         end,
     }
@@ -438,21 +514,43 @@ function scene:createScene( event )
     nextButton.y = H * 0.6
     nextButton:scale(2,2)
     nextButton.alpha = 0
+
+    backMenuButton = widget.newButton
+    {
+        defaultFile = "buttons/mainmenu.png",
+        overFile = "buttons/mainmenuOver.png",
+        onRelease = function()
+        storyboard.gotoScene( "anotherMenu", "fade", 400 )
+        end,
+    }
+    backMenuButton.x = display.contentWidth * 0.8
+    backMenuButton.y = display.contentHeight * 0.6
+    backMenuButton:scale(2,2)
+    screenGroup:insert(backMenuButton)
+
     screenGroup:insert(nextButton)
 
     startButton = widget.newButton
     {
-        defaultFile = "images/buttons/start.png",
-        overFile = "images/buttons/startOver.png",
+        defaultFile = "buttons/play1.png",
+        overFile = "buttons/play1_1.png",
         onRelease = startGame,
     }
-    startButton.x = W * 0.5
-    startButton.y = H * 0.7
+    startButton.x = W * 0.79
+    startButton.y = H * 0.4
     startButton:scale(2.5,2.5)
     screenGroup:insert(startButton)
 
     restartButton:addEventListener("tap", restartGame)
     exitButton:addEventListener("tap", exitGame)
+
+    local function disappearScreen()
+        --transition.to(logo, {alpha = 0, time = 2000})
+        transition.to(instruction, {alpha = 0, time = 1500})
+        timer.performWithDelay(100, mainSplash, 1)
+    end
+    
+    timer.performWithDelay(1500, disappearScreen, 1)
 end
 
 function scene:exitScene( event )

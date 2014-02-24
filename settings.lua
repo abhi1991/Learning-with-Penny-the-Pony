@@ -11,11 +11,11 @@ end
 function scene:createScene( event )
     local screenGroup = self.view
 
-    local background = display.newImage("images/anotherBG_1.png")
+    local background = display.newImage("images/anotherBorder.png")
     background.x = display.contentWidth * 0.5
     background.y = display.contentHeight * 0.5
 
-    local settingsTitle = display.newText("Settings", 100, 100, "Chinacat", 70)
+    local settingsTitle = display.newText("Credits", 100, 100, "Chinacat", 70)
     settingsTitle.x = display.contentWidth * 0.5
     settingsTitle.y = display.contentHeight * 0.22
     settingsTitle:setTextColor(1,1,1)
@@ -30,33 +30,7 @@ function scene:createScene( event )
     soundEffectLabel.y = display.contentHeight * 0.45
     soundEffectLabel:setFillColor(50,50,50)
 
-    local music = widget.newSwitch
-    {
-        left = 250,
-        top = 230,
-        id = "Turn off music",
-        --initialSwitchState = musicState,
-        initialSwitchState = true,
---        onRelease = musicFunction, 
---        onPress = musicFunction
-    }
-    music.x = display.contentWidth/2 + 175
-    music.y = musicLabel.y
-    music:scale(1.25,1.25)
     
-    local sound = widget.newSwitch
-    {
-        left = 250,
-        top = 230,
-        id = "Turn off external",
-        --initialSwitchState = externalState,
-        initialSwitchState = true,
---        onRelease = soundFunction,
---        onPress = soundFunction
-    }
-    sound.x = display.contentWidth/2 + 175
-    sound.y = soundEffectLabel.y
-    sound:scale(1.25,1.25)
 
 
     local backButton = widget.newButton
@@ -70,6 +44,11 @@ function scene:createScene( event )
     backButton.x = display.contentWidth * 0.50
     backButton.y = display.contentHeight * 0.70
     backButton:scale(2,2) 
+
+    local function goToMenu(event)
+--        storyboard.gotoScene( "menu", "fade", 300 )
+        storyboard.hideOverlay(true, "slideRight", 400)
+    end
 
     
     screenGroup:insert(background)
