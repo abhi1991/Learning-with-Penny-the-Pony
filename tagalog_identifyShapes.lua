@@ -89,7 +89,6 @@ function scene:createScene( event )
                 circleDone = true
                 shape = display.newImage("images/shapeGame/circleBlack.png")
                 external.shape("bilog")
-                external.shape("circle")
                 shape.x = W * 0.27
                 shape.y = H * 0.55
                 screenGroup:insert(shape)
@@ -101,7 +100,6 @@ function scene:createScene( event )
                 squareDone = true
                 shape = display.newImage("images/shapeGame/squareBlack.png")
                 external.shape("parisukat")
-                external.shape("square")
                 shape.x = W * 0.27
                 shape.y = H * 0.55
                 screenGroup:insert(shape)
@@ -113,7 +111,6 @@ function scene:createScene( event )
                 starDone = true
                 shape = display.newImage("images/shapeGame/starBlack.png")
                 external.shape("bituin")
-                external.shape("star")
                 shape.x = W * 0.27
                 shape.y = H * 0.55
                 screenGroup:insert(shape)
@@ -124,7 +121,7 @@ function scene:createScene( event )
             if rectangleDone == false then
                 rectangleDone = true
                 shape = display.newImage("images/shapeGame/rectangleBlack.png")
-                external.shape("rectangle")
+                external.shape("parihaba")
                 shape.x = W * 0.27
                 shape.y = H * 0.55
                 screenGroup:insert(shape)
@@ -135,7 +132,7 @@ function scene:createScene( event )
             if ovalDone == false then
                 ovalDone = true
                 shape = display.newImage("images/shapeGame/ovalBlack.png")
-                external.shape("oblong")
+                external.shape("habilog")
                 shape.x = W * 0.27
                 shape.y = H * 0.55
                 screenGroup:insert(shape)
@@ -146,7 +143,7 @@ function scene:createScene( event )
             if triangleDone == false then
                 triangleDone = true
                 shape = display.newImage("images/shapeGame/triangleBlack.png")
-                external.shape("triangle")
+                external.shape("tatsulok")
                 shape.x = W * 0.27
                 shape.y = H * 0.55
                 screenGroup:insert(shape)
