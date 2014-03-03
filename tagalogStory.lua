@@ -84,6 +84,19 @@ function scene:createScene( event )
     gamePlayButton.alpha = 0
     screen:insert(gamePlayButton)
 
+    -- SKIP --
+    skipButton = widget.newButton{
+        defaultFile = "buttons/laktawan1.png",
+        overFile = "buttons/laktawan.png",
+        onRelease = function()
+            storyboard.gotoScene("storyTagalog_colorMatching", "fade", 400)
+        end,
+    }
+    skipButton.x = display.contentWidth * 0.5
+    skipButton.y = display.contentHeight * 0.9
+    skipButton:scale(1,1)
+    screen:insert(skipButton)
+
 
     -- BACK BUTTON --
     backButton = widget.newButton{
@@ -96,6 +109,7 @@ function scene:createScene( event )
                 homeButton.y = backButton.y
                 homeButton.alpha = 0.9
                 backButton.alpha = 0
+                skipButton.alpha = 1
                 gamePlayButton.alpha = 0
                 external.pahina1Sound()
                 transition.to(image1, {alpha = 1, time = 400})
@@ -104,6 +118,7 @@ function scene:createScene( event )
             elseif page == 1 then
                 homeButton.alpha = 0
                 gamePlayButton.alpha = 0
+                skipButton.alpha = 1
                 nextButton.alpha = 0.9
                 external.pahina2Sound()
                 transition.to(image2, {alpha = 1, time = 400})
@@ -112,6 +127,7 @@ function scene:createScene( event )
             elseif page == 2 then
                 homeButton.alpha = 0
                 gamePlayButton.alpha = 0
+                skipButton.alpha = 1
                 nextButton.alpha = 0.9
                 external.pahina3Sound()
                 transition.to(image3, {alpha = 1, time = 400})
@@ -120,6 +136,7 @@ function scene:createScene( event )
             elseif page == 3 then
                 homeButton.alpha = 0
                 gamePlayButton.alpha = 0
+                skipButton.alpha = 1
                 nextButton.alpha = 0.9
                 external.pahina4Sound()
                 transition.to(image4, {alpha = 1, time = 400})
@@ -128,6 +145,7 @@ function scene:createScene( event )
             elseif page == 4 then
                 homeButton.alpha = 0
                 gamePlayButton.alpha = 0
+                skipButton.alpha = 1
                 nextButton.alpha = 0.9
                 external.pahina5Sound()
                 transition.to(image5, {alpha = 1, time = 400})
@@ -138,6 +156,7 @@ function scene:createScene( event )
                 homeButton.y = nextButton.y
                 homeButton.alpha = 0
                 gamePlayButton.alpha = 0
+                skipButton.alpha = 1
                 nextButton.alpha = 0.9
                 external.hulingSound()
                 transition.to(image6, {alpha = 1, time = 400})
@@ -162,6 +181,7 @@ function scene:createScene( event )
             if page == 1 then
                 homeButton.alpha = 0
                 gamePlayButton.alpha = 0
+                skipButton.alpha = 1
                 backButton.alpha = 0.9
                 transition.to(image1, {alpha = 0, time = 400})
                 transition.to(image2, {alpha = 1, time = 400})
@@ -169,18 +189,21 @@ function scene:createScene( event )
                 transition.to(image1, {x = display.contentWidth * -1, time = 400})
             elseif page == 2 then
                 gamePlayButton.alpha = 0
+                skipButton.alpha = 1
                 transition.to(image2, {alpha = 0, time = 400})
                 transition.to(image3, {alpha = 1, time = 400})
                 external.pahina3Sound()
                 transition.to(image2, {x = display.contentWidth * -1, time = 400})
             elseif page == 3 then
                 gamePlayButton.alpha = 0
+                skipButton.alpha = 1
                 transition.to(image3, {alpha = 0, time = 400})
                 transition.to(image4, {alpha = 1, time = 400})
                 external.pahina4Sound()
                 transition.to(image3, {x = display.contentWidth * -1, time = 400})
             elseif page == 4 then
                 gamePlayButton.alpha = 0
+                skipButton.alpha = 1
                 transition.to(image4, {alpha = 0, time = 400})
                 transition.to(image5, {alpha = 1, time = 400})
                 external.pahina5Sound()
@@ -190,6 +213,7 @@ function scene:createScene( event )
                 gamePlayButton.y = nextButton.y
                 gamePlayButton.alpha = 0.9
                 nextButton.alpha = 0 
+                skipButton.alpha = 1
                 external.hulingSound()
                 transition.to(image5, {alpha = 0, time = 400})
                 transition.to(image6, {alpha = 1, time = 400})

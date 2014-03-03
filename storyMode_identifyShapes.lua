@@ -78,6 +78,7 @@ function scene:createScene( event )
             if diamondDone == false then
                 diamondDone = true
                 shape = display.newImage("images/shapeGame/diamondBlack.png")
+                external.shape("diamond")
                 shape.x = W * 0.27
                 shape.y = H * 0.55
                 screenGroup:insert(shape)
@@ -388,6 +389,7 @@ function scene:createScene( event )
     menuButton.x = W * 0.875
     menuButton.y = H * 0.85
     menuButton:scale(1.5,1.75)
+    menuButton.alpha = 0
     screenGroup:insert(menuButton)
     
     nextButton = widget.newButton

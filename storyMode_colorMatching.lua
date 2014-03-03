@@ -125,7 +125,7 @@ function scene:createScene( event )
             if colorName == "purple" then
                 currentNum = 1
                 option1 = display.newImage("images/colorMatchGame/final/purple.png")
-                external.color("purple")
+                -- external.color("purple")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 option1:scale(1.5,1.5)
@@ -133,7 +133,7 @@ function scene:createScene( event )
             elseif colorName == "blue" then
                 currentNum = 2
                 option1 = display.newImage("images/colorMatchGame/final/blue.png")
-                external.color("blue")
+                -- external.color("blue")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 option1:scale(1.5,1.5)
@@ -141,7 +141,7 @@ function scene:createScene( event )
             elseif colorName == "red" then
                 currentNum = 3
                 option1 = display.newImage("images/colorMatchGame/final/red.png")
-                external.color("red")
+               -- external.color("red")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 option1:scale(1.5,1.5)
@@ -149,7 +149,7 @@ function scene:createScene( event )
             elseif colorName == "green" then
                 currentNum = 4
                 option1 = display.newImage("images/colorMatchGame/final/green.png")
-                external.color("green")
+                -- external.color("green")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 option1:scale(1.5,1.5)
@@ -157,7 +157,7 @@ function scene:createScene( event )
             elseif colorName == "orange" then
                 currentNum = 5
                 option1 = display.newImage("images/colorMatchGame/final/orange.png")
-                external.color("orange")
+                -- external.color("orange")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 option1:scale(1.5,1.5)
@@ -165,7 +165,7 @@ function scene:createScene( event )
             elseif colorName == "yellow" then
                 currentNum = 6
                 option1 = display.newImage("images/colorMatchGame/final/yellow.png")
-                external.color("yellow")
+                -- external.color("yellow")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 option1:scale(1.5,1.5)
@@ -173,7 +173,7 @@ function scene:createScene( event )
             elseif colorName == "black" then
                 currentNum = 7
                 option1 = display.newImage("images/colorMatchGame/final/black.png")
-                external.color("black")
+                -- external.color("black")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 option1:scale(2,2)
@@ -181,7 +181,7 @@ function scene:createScene( event )
             elseif colorName == "brown" then
                 currentNum = 8
                 option1 = display.newImage("images/colorMatchGame/final/brown.png")
-                external.color("brown")
+                -- external.color("brown")
                 option1.x = W * 0.35 option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 option1:scale(1.5,1.5)
@@ -189,7 +189,7 @@ function scene:createScene( event )
             elseif colorName == "white" then
                 currentNum = 9
                 option1 = display.newImage("images/colorMatchGame/final/white.png")
-                external.color("white")
+                -- external.color("white")
                 option1.x = W * 0.35 option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 option1:scale(1.5,1.5)
@@ -197,7 +197,7 @@ function scene:createScene( event )
             elseif colorName == "pink" then
                 currentNum = 10
                 option1 = display.newImage("images/colorMatchGame/final/pink.png")
-                external.color("pink")
+                -- external.color("pink")
                 option1.x = W * 0.35 option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 option1:scale(1.5,1.5)

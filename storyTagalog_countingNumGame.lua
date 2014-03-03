@@ -122,70 +122,70 @@ function scene:createScene( event )
             if numberName == "one" then
                 currentNum = 1
                 option1 = display.newImage("images/numbers/partial/button1.png")
-                external.number("tone")
+                -- external.number("tone")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif numberName == "two" then
                 currentNum = 2
                 option1 = display.newImage("images/numbers/partial/button2.png")
-                external.number("ttwo")
+                -- external.number("ttwo")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif numberName == "three" then
                 currentNum = 3
                 option1 = display.newImage("images/numbers/partial/button3.png")
-                external.number("tthree")
+                -- external.number("tthree")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif numberName == "four" then
                 currentNum = 4
                 option1 = display.newImage("images/numbers/partial/button4.png")
-                external.number("tfour")
+                -- external.number("tfour")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif numberName == "five" then
                 currentNum = 5
                 option1 = display.newImage("images/numbers/partial/button5.png")
-                external.number("tfive")
+                -- external.number("tfive")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif numberName == "six" then
                 numberName = 6
                 option1 = display.newImage("images/numbers/partial/button6.png")
-                external.number("tsix")
+                -- external.number("tsix")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif numberName == "seven" then
                 currentNum = 7
                 option1 = display.newImage("images/numbers/partial/button7.png")
-                external.number("tseven")
+                -- external.number("tseven")
                 option1.x = W * 0.35;  option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif numberName == "eight" then
                 currentNum = 8
                 option1 = display.newImage("images/numbers/partial/button8.png")
-                external.number("teight")
+                -- external.number("teight")
                 option1.x = W * 0.35 option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif numberName == "nine" then
                 currentNum = 9
                 option1 = display.newImage("images/numbers/partial/button9.png")
-                external.number("tnine")
+                -- external.number("tnine")
                 option1.x = W * 0.35 option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
             elseif numberName == "ten" then
                 currentNum = 10
                 option1 = display.newImage("images/numbers/partial/button10.png")
-                external.number("tten")
+                -- external.number("tten")
                 option1.x = W * 0.35 option1.y = H * 0.4
                 option1:addEventListener("tap", right)
                 screenGroup:insert(option1)
@@ -267,17 +267,17 @@ function scene:createScene( event )
         local rand1 = math.random(1,3)
 
         if rand1 == 1 then
-            transition.to(option1, {x = W * 0.8, y = H * 0.5, time = 500})
-            transition.to(option2, {x = W * 0.8, y = H * 0.35, time = 500})
-            transition.to(option3, {x = W * 0.8, y = H * 0.65, time = 500})
+            transition.to(option1, {x = W * 0.8, y = H * 0.45, time = 500})
+            transition.to(option2, {x = W * 0.8, y = H * 0.3, time = 500})
+            transition.to(option3, {x = W * 0.8, y = H * 0.6, time = 500})
         elseif rand1 ==2 then
-            transition.to(option1, {x = W * 0.8, y = H * 0.65, time = 500})
-            transition.to(option2, {x = W * 0.8, y = H * 0.5, time = 500})
-            transition.to(option3, {x = W * 0.8, y = H * 0.35, time = 500})
+            transition.to(option1, {x = W * 0.8, y = H * 0.6, time = 500})
+            transition.to(option2, {x = W * 0.8, y = H * 0.45, time = 500})
+            transition.to(option3, {x = W * 0.8, y = H * 0.3, time = 500})
         elseif rand1 == 3 then
-            transition.to(option1, {x = W * 0.8, y = H * 0.35, time = 500})
-            transition.to(option2, {x = W * 0.8, y = H * 0.65, time = 500})
-            transition.to(option3, {x = W * 0.8, y = H * 0.5, time = 500})
+            transition.to(option1, {x = W * 0.8, y = H * 0.3, time = 500})
+            transition.to(option2, {x = W * 0.8, y = H * 0.6, time = 500})
+            transition.to(option3, {x = W * 0.8, y = H * 0.45, time = 500})
         end
     end
     

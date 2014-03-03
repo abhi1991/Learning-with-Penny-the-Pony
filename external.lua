@@ -92,11 +92,15 @@ end
 	end
 
 	function external.pauseMusicpage1Sound()
-	audio.pause(page1, {channel = 0.5, loops = -1})
+		audio.pause(page1, {channel = 0.5, loops = -1})
 	end
 
 	function external.resumeMusicpage1Sound()
 		audio.resume(page1, {channel = 0.5, loops = -1})
+	end
+
+	function external.stopMusicpage1Sound()
+		audio.stop( page1 )
 	end
 
 -- PAGE 2 --
@@ -112,6 +116,10 @@ end
 		audio.resume(page2, {channel = 0.5, loops = -1})
 	end
 
+	function external.stopMusicpage2Sound()
+		audio.stop(page2)
+	end
+
 -- PAGE 3 --
 	function external.page3Sound()
 		audio.play(page3, {channel = 5, loops = 0})
@@ -122,6 +130,10 @@ end
 
 	function external.resumeMusicpage3Sound()
 		audio.resume(page3, {channel = 0.5, loops = -1})
+	end
+
+	function external.stopMusicpage3Sound()
+		audio.stop(page3)
 	end
 
 -- PAGE 4 --
@@ -137,6 +149,10 @@ end
 		audio.resume(page4, {channel = 0.5, loops = -1})
 	end
 
+	function external.stopMusicpage4Sound()
+		audio.stop(page4)
+	end
+
 -- PAGE 5 --
 	function external.page5Sound()
 		audio.play(page5, {channel = 5, loops = 0})
@@ -150,18 +166,26 @@ end
 		audio.resume(page5, {channel = 0.5, loops = -1})
 	end
 
+	function external.stopMusicpage5Sound()
+		audio.stop(page5)
+	end
+
 -- PAGE 6 --
 	function external.lastPageSound()
 		audio.play(lastPage, {channel = 5, loops = 0})
 	end
 
-function external.pauseMusiclastPageSound()
-	audio.pause(lastPage, {channel = 0.5, loops = -1})
-end
+	function external.pauseMusiclastPageSound()
+		audio.pause(lastPage, {channel = 0.5, loops = -1})
+	end
 
-function external.resumeMusiclastPageSound()
-	audio.resume(lastPage, {channel = 0.5, loops = -1})
-end
+	function external.resumeMusiclastPageSound()
+		audio.resume(lastPage, {channel = 0.5, loops = -1})
+	end
+
+	function external.stopMusiclastPageSound()
+		audio.stop(lastPage)
+	end
 	
 
 --tagalog
@@ -169,48 +193,102 @@ end
 	function external.pahina1Sound()
 		audio.play(pahina1, {channel = 5, loops = 0})
 	end
+
+	function external.pauseMusicpahina1Sound()
+	audio.pause(pahina1, {channel = 0.5, loops = -1})
+	end
+
+	function external.resumeMusicpahina1Sound()
+		audio.resume(pahina1, {channel = 0.5, loops = -1})
+	end
+
 	function external.pahina1SoundStop()
-		audio.stop(pahina1, {channel = 5, loops = 0})
+		audio.stop(pahina1)
 	end
 
 -- PAHINA 2 --
 	function external.pahina2Sound()
 		audio.play(pahina2, {channel = 5, loops = 0})
 	end
+
+	function external.pauseMusicpahina2Sound()
+	audio.pause(pahina2, {channel = 0.5, loops = -1})
+	end
+
+	function external.resumeMusicpahina2Sound()
+		audio.resume(pahina2, {channel = 0.5, loops = -1})
+	end
+
 	function external.pahina2SoundStop()
-		audio.stop(pahina2, {channel = 5, loops = 0})
+		audio.stop(pahina2)
 	end
 
 --PAHINA 3 --
 	function external.pahina3Sound()
 		audio.play(pahina3, {channel = 5, loops = 0})
 	end
+
+	function external.pauseMusicpahina3Sound()
+	audio.pause(pahina3, {channel = 0.5, loops = -1})
+	end
+
+	function external.resumeMusicpahina3Sound()
+		audio.resume(pahina3, {channel = 0.5, loops = -1})
+	end
+
 	function external.pahina3SoundStop()
-		audio.stop(pahina3, {channel = 5, loops = 0})
+		audio.stop(pahina3)
 	end
 
 -- PAHINA 4 --
 	function external.pahina4Sound()
 		audio.play(pahina4, {channel = 5, loops = 0})
 	end
+
+	function external.pauseMusicpahina4Sound()
+	audio.pause(pahina4, {channel = 0.5, loops = -1})
+	end
+
+	function external.resumeMusicpahina4Sound()
+		audio.resume(pahina4, {channel = 0.5, loops = -1})
+	end
+
 	function external.pahina4SoundStop()
-		audio.stop(pahina4, {channel = 5, loops = 0})
+		audio.stop(pahina4)
 	end
 
 -- PAHINA 5 --
 	function external.pahina5Sound()
 		audio.play(pahina5, {channel = 5, loops = 0})
 	end
+
+	function external.pauseMusicpahina5Sound()
+	audio.pause(pahina5, {channel = 0.5, loops = -1})
+	end
+
+	function external.resumeMusicpahina5Sound()
+		audio.resume(pahina5, {channel = 0.5, loops = -1})
+	end
+
 	function external.pahina4SoundStop()
-		audio.stop(pahina5, {channel = 5, loops = 0})
+		audio.stop(pahina5)
 	end
 
 -- PAHINA 6 --
 	function external.hulingSound()
 		audio.play(huli, {channel = 5, loops = 0})
 	end
+
+	function external.pauseMusichulingSound()
+	audio.pause(huli, {channel = 0.5, loops = -1})
+	end
+
+	function external.resumeMusichulingSound()
+		audio.resume(huli, {channel = 0.5, loops = -1})
+	end
+
 	function external.pahina4SoundStop()
-		audio.stop(huli, {channel = 5, loops = 0})
+		audio.stop(huli)
 	end
 
 --END OF STORY TELLING SOUND
@@ -467,7 +545,7 @@ local star = audio.loadSound("sounds/shapes/star.mp3")
 local circle = audio.loadSound("sounds/shapes/circle.mp3")
 local square = audio.loadSound("sounds/shapes/square.mp3")
 local rectangle = audio.loadSound("sounds/shapes/rectangle.mp3")
-local oblong = audio.loadSound("sounds/shapes/oblong.mp3")
+local oblong = audio.loadSound("sounds/shapes/oval.mp3")
 local triangle = audio.loadSound("sounds/shapes/triangle.mp3")
 local bilog = audio.loadSound("sounds/shapes/bilog.mp3")
 local bituin = audio.loadSound("sounds/shapes/bituin.mp3")
@@ -475,6 +553,8 @@ local habilog = audio.loadSound("sounds/shapes/habilog.mp3")
 local parihaba = audio.loadSound("sounds/shapes/parihaba.mp3")
 local parisukat = audio.loadSound("sounds/shapes/parisukat.mp3")
 local tatsulok = audio.loadSound("sounds/shapes/tatsulok.mp3")
+local diamante = audio.loadSound("sounds/shapes/diamante.mp3")
+local diamond = audio.loadSound("sounds/shapes/diamond.mp3")
 
 --SHAPES EXTERNAL
 function external.shape(type)
@@ -503,6 +583,10 @@ function external.shape(type)
 		local availableChannel2 = audio.findFreeChannel()
 		audio.setVolume( 1, { channel=availableChannel2})
 		audio.play( triangle, { channel=availableChannel2})
+	elseif type == "diamond" then
+		local availableChannel2 = audio.findFreeChannel()
+		audio.setVolume( 1, { channel=availableChannel2})
+		audio.play( diamond, { channel=availableChannel2})
 	elseif type == "bilog" then
 		local availableChannel = audio.findFreeChannel()
 		audio.setVolume( 1, { channel=availableChannel})
@@ -527,7 +611,10 @@ function external.shape(type)
 		local availableChannel2 = audio.findFreeChannel()
 		audio.setVolume( 1, { channel=availableChannel2})
 		audio.play( tatsulok, { channel=availableChannel2})
-	
+	elseif type == "diamante" then
+		local availableChannel2 = audio.findFreeChannel()
+		audio.setVolume( 1, { channel=availableChannel2})
+		audio.play( diamante, { channel=availableChannel2})
 	end
 end
 

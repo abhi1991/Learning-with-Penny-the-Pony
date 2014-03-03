@@ -78,6 +78,7 @@ function scene:createScene( event )
             if diamondDone == false then
                 diamondDone = true
                 shape = display.newImage("images/shapeGame/diamondBlack.png")
+                external.shape("diamond")
                 shape.x = W * 0.27
                 shape.y = H * 0.55
                 screenGroup:insert(shape)
